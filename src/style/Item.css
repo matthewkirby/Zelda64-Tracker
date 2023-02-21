@@ -1,0 +1,11 @@
+.itm-base {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  background-size: contain;
+
+
+  border: 1px solid white;
+  background-color: aquamarine;
+}

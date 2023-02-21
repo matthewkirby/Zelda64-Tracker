@@ -1,0 +1,13 @@
+.OOT_BOW            { background-image: url('assets/items/oot/items/bow.png'); }
+.OOT_SLINGSHOT      { background-image: url('assets/items/oot/items/slingshot.png'); }
+.OOT_BOOMERANG      { background-image: url('assets/items/oot/items/boomerang.png'); }
+.OOT_HAMMER         { background-image: url('assets/items/oot/items/hammer.png'); }
+.OOT_MIRROR_SHIELD  { background-image: url('assets/items/oot/items/mirror_shield.png'); }
+.OOT_OCARINA        { background-image: url('assets/items/oot/items/ocarina.png'); }
+.OOT_BEANS          { background-image: url('assets/items/oot/items/beans.png'); }
+.OOT_GERUDO_CARD    { background-image: url('assets/items/oot/items/gerudo_card.png'); }
+
+.MM_BOW             { background-image: url('assets/items/mm/items/bow.png'); }
+.MM_FIRE_ARROWS     { background-image: url('assets/items/mm/items/fire_arrows.png'); }
+.MM_ICE_ARROWS      { background-image: url('assets/items/mm/items/ice_arrows.png'); }
+.MM_LIGHT_ARROWS    { background-image: url('assets/items/mm/items/light_arrows.png'); }
