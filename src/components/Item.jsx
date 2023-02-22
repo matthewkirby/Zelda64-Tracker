@@ -1,14 +1,16 @@
 import 'style/Item.css';
+import { Cycle } from './Cycle';
+import { Toggle } from './Toggle';
 
-const clicked = (itemName) => {
-  console.log("clicked", itemName);
-}
+export const Item = (props) => {
+  const itemType = props.itemInfo.type;
 
-export const Item = ({ itemName, itemState }) => {
-  return (
-    <button
-      className={["itm-base", itemName].join(" ")}
-      onClick={() => clicked(itemName)}
-    />
-  );
+  if (itemType === 'simple_toggle') {
+    return <Toggle {...props} />;
+  } else if (itemType === 'cycle') {
+    return <Cycle {...props} />;
+  } else {
+    console.error(Error(`Item type ${itemType} does not have a defined implementation.`));
+  }
+
 }

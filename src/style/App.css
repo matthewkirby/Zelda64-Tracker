@@ -1,5 +1,5 @@
 div.tracker {
   display: grid;
-  grid-template-columns: repeat(6, 49px);
-  gap: 8px 8px;
+  grid-template-columns: repeat(6, 50px);
+  gap: 10px 10px;
 }

@@ -6,6 +6,9 @@
 .OOT_OCARINA        { background-image: url('assets/items/oot/items/ocarina.png'); }
 .OOT_BEANS          { background-image: url('assets/items/oot/items/beans.png'); }
 .OOT_GERUDO_CARD    { background-image: url('assets/items/oot/items/gerudo_card.png'); }
+.OOT_STRENGTH_1     { background-image: url('assets/items/oot/items/goron_bracelet.png'); }
+.OOT_STRENGTH_2     { background-image: url('assets/items/oot/items/silver_gauntlets.png'); }
+.OOT_STRENGTH_3     { background-image: url('assets/items/oot/items/gold_gauntlets.png'); }
 
 .MM_BOW             { background-image: url('assets/items/mm/items/bow.png'); }
 .MM_FIRE_ARROWS     { background-image: url('assets/items/mm/items/fire_arrows.png'); }

@@ -4,8 +4,10 @@
   padding: 0;
   margin: 0;
   background-size: contain;
+  border: none;
+  background-color: transparent;
+}
 
-
-  border: 1px solid white;
-  background-color: aquamarine;
+.itm-false {
+  opacity: 0.15;
 }
