@@ -10,6 +10,7 @@ const toggleDict = toggles.reduce((tot, item) => { return { ...tot, [item]: { "t
 for (const item in badges) {
   if (badges[item].isCheckmark) {
     badges[item]["badge"] = "CHECKMARK";
+    badges[item]["location"] = 1;
   }
 }
 
