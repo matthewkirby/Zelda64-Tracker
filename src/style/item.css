@@ -1,6 +1,7 @@
 .itm-base {
   background-color: transparent;
   background-size: contain;
+  overflow: hidden;
   border: none;
   padding: 0;
   margin: 0;
