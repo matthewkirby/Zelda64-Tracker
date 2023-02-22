@@ -5,7 +5,7 @@ import 'style/App.css';
 import { itemDict } from 'button_dictionary';
 import { Item } from 'components/Item'
 
-console.log(itemDict["OOT_PROGRESSIVE_STRENGTH"])
+console.log('dict', itemDict)
 
 // This component has code that runs every time it is rendered that only needs to run on the first time it is rendered.
 // I believe there is a hook that can be used to resolve this. So look into it
@@ -13,11 +13,14 @@ console.log(itemDict["OOT_PROGRESSIVE_STRENGTH"])
 
 // This element will be defined externally and selected via a dropdown or url parameter and passed to this componentent
 const tempTrackerLayoutIdList = [
-"OOT_BOW", "MM_BOW", "OOT_SLINGSHOT", "OOT_BOOMERANG", "OOT_HAMMER", "OOT_MIRROR_SHIELD",
-"OOT_OCARINA", "OOT_BEANS", "BLANK", "BLANK", "OOT_GERUDO_CARD", "MM_FIRE_ARROWS", "MM_ICE_ARROWS", "MM_LIGHT_ARROWS",
-"OOT_PROGRESSIVE_STRENGTH",
+  "OOT_FOREST_MEDALLION", "OOT_FIRE_MEDALLION", "OOT_WATER_MEDALLION", "OOT_SHADOW_MEDALLION", "OOT_SPIRIT_MEDALLION", "OOT_LIGHT_MEDALLION",
+  "OOT_PROGRESSIVE_SCALE", "BLANK", "BLANK", "BLANK", "BLANK", "OOT_BOTTLE_RUTOS",
+  "OOT_SLINGSHOT", "OOT_BOMB_BAG", "OOT_BOOMERANG", "OOT_PROGRESSIVE_STRENGTH", "OOT_MAGIC_WLENS", "OOT_COMPOSITE_SPELLS",
+  "OOT_PROGRESSIVE_HOOKSHOT", "OOT_BOW", "OOT_COMPOSITE_ARROWS", "OOT_HAMMER", "OOT_COMPOSITE_BOOTS", "OOT_MIRROR_SHIELD",
+  "OOT_PROGRESSIVE_CHILD_TRADE", "OOT_OCARINA", "OOT_BEANS", "OOT_KOKIRI_SWORD", "OOT_GERUDO_CARD", "OOT_COMPOSITE_TUNICS",
+  "OOT_ZELDAS_LULLABY_WCHECK", "OOT_EPONAS_SONG_WCHECK", "OOT_SARIAS_SONG_WCHECK", "OOT_SUNS_SONG_WCHECK", "OOT_SONG_OF_TIME_WCHECK", "OOT_SONG_OF_STORMS_WCHECK",
+  "OOT_MINUET_WCHECK", "OOT_BOLERO_WCHECK", "OOT_SERENADE_WCHECK", "OOT_NOCTURNE_WCHECK", "OOT_REQUIEM_WCHECK", "OOT_PRELUDE_WCHECK"
 ]
-
 
 const initializeTrackerState = (layout) => {
   const initialState = layout.reduce((tot, item) => {
@@ -26,8 +29,10 @@ const initializeTrackerState = (layout) => {
     } if (item.type === "cycle") {
       const defaultValue = item.disableZero ? 0 : 1;
       return { ...tot, [item.name]: defaultValue };
+    } else if (item.type === "badge" || item.type === "composite") {
+      return { ...tot, [item.name]: '00' };
     } else {
-      console.error(Error(`Item type ${item.type} has no defined behavior in initializeTrackerState.`));
+      console.error(Error(`Item ${item.name} with type ${item.type} has no defined behavior in initializeTrackerState.`));
     }
   }, {});
   // console.log(initialState);

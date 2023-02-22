@@ -3,5 +3,20 @@
     "sequence": ["OOT_STRENGTH_1", "OOT_STRENGTH_2", "OOT_STRENGTH_3"],
     "loop": false,
     "disableZero": true
+  },
+  "OOT_PROGRESSSIVE_SCALE": {
+    "sequence": ["OOT_SILVER_SCALE", "OOT_GOLD_SCALE"],
+    "loop": false,
+    "disableZero": true
+  },
+  "OOT_PROGRESSIVE_HOOKSHOT": {
+    "sequence": ["OOT_HOOKSHOT", "OOT_LONGSHOT"],
+    "loop": false,
+    "disableZero": true
+  },
+  "OOT_PROGRESSIVE_CHILD_TRADE": {
+    "sequence": ["OOT_WEIRD_EGG", "OOT_ZELDAS_LETTER", "OOT_KEATON_MASK", "OOT_SKULL_MASK", "OOT_SPOOKY_MASK", "OOT_BUNNY_HOOD", "OOT_MASK_OF_TRUTH"],
+    "loop": false,
+    "disableZero": true
   }
 }

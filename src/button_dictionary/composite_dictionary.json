@@ -1,0 +1,18 @@
+{
+  "OOT_COMPOSITE_SPELLS": {
+    "items": ["OOT_DINS_FIRE", "OOT_FARORES_WIND"],
+    "disableZero": true
+  },
+  "OOT_COMPOSITE_ARROWS": {
+    "items": ["OOT_FIRE_ARROWS", "OOT_LIGHT_ARROWS"],
+    "disableZero": true
+  },
+  "OOT_COMPOSITE_BOOTS": {
+    "items": ["OOT_IRON_BOOTS", "OOT_HOVER_BOOTS"],
+    "disableZero": true
+  },
+  "OOT_COMPOSITE_TUNICS": {
+    "items": ["OOT_GORON_TUNIC", "OOT_ZORA_TUNIC"],
+    "disableZero": true
+  }
+}
