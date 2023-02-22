@@ -16,7 +16,9 @@ for (const item in badges) {
 const jointDict = { "cycle": cycles, "composite": composites, "badge": badges };
 const complexDict = Object.keys(jointDict).reduce((tot, type) => {
   const oneDict = Object.keys(jointDict[type]).reduce((itot, item) => {
-    return { ...itot, [item]: { "type": type, ...jointDict[type][item] } };
+    if (item !== "TEMPLATE") {
+      return { ...itot, [item]: { "type": type, ...jointDict[type][item] } };
+    }
   }, {})
   return { ...tot, ...oneDict };
 }, {});

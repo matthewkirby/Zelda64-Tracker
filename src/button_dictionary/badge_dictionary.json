@@ -1,4 +1,11 @@
 {
+  "TEMPLATE": {
+    "isCheckmark": "(bool) Use the default checkmark badge",
+    "base": "(string) Class for the toggleable base item",
+    "badge": "(string, optional) Class for badge. If isCheckmark, omit this.",
+    "location": "(int, optional) Location of badge. Values are 0-3 from top to bottom left to right. Default is bottom right and top right for checkmark."
+  },
+
   "OOT_BOTTLE_RUTOS": {
     "isCheckmark": false,
     "base": "OOT_BOTTLE",
@@ -8,6 +15,11 @@
     "isCheckmark": false,
     "base": "OOT_MAGIC",
     "badge": "OOT_LENS_OF_TRUTH"
+  },
+  "MM_BOMB_BAG_WKEG": {
+    "isCheckmark": false,
+    "base": "MM_BOMB_BAG",
+    "badge": "MM_POWDER_KEG"
   },
 
 

@@ -11,3 +11,7 @@
 .itm-false {
   opacity: 0.15;
 }
+
+.itm-hidden {
+  display: none;
+}

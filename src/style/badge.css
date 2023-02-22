@@ -1,0 +1,40 @@
+.badge {
+  display: grid;
+  grid-template-columns: [c0] 50% [c1] 50% [c2];
+  grid-template-rows: [r0] 50% [r1] 50% [r2];
+  gap: 0 0;
+}
+
+.badge > .base-item {
+  background-size: contain;
+  border: none;
+  background-color: transparent;
+  grid-column: c0 / c2;
+  grid-row: r0 / r2;
+}
+
+.badge > .badge-item {
+  background-size: contain;
+  border: none;
+  background-color: transparent;
+}
+
+.badge > .top-left {
+  grid-column: c0 / c1;
+  grid-row: r0 / r1;
+}
+
+.badge > .top-right {
+  grid-column: c1 / c2;
+  grid-row: r0 / r1;
+}
+
+.badge > .bottom-left {
+  grid-column: c0 / c1;
+  grid-row: r1 / r2;
+}
+
+.badge > .bottom-right {
+  grid-column: c1 / c2;
+  grid-row: r1 / r2;
+}
