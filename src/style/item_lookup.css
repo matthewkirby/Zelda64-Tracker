@@ -10,9 +10,16 @@
 .OOT_STRENGTH_2     { background-image: url('assets/items/oot/items/silver_gauntlets.png'); }
 .OOT_STRENGTH_3     { background-image: url('assets/items/oot/items/gold_gauntlets.png'); }
 
+.OOT_ZELDAS_LULLABY { background-image: url('assets/items/oot/songs/lullaby.png'); }
+
 .MM_BOW             { background-image: url('assets/items/mm/items/bow.png'); }
 .MM_FIRE_ARROWS     { background-image: url('assets/items/mm/items/fire_arrows.png'); }
 .MM_ICE_ARROWS      { background-image: url('assets/items/mm/items/ice_arrows.png'); }
 .MM_LIGHT_ARROWS    { background-image: url('assets/items/mm/items/light_arrows.png'); }
 .MM_BOMB_BAG        { background-image: url('assets/items/mm/items/bomb_bag.png'); }
 .MM_POWDER_KEG      { background-image: url('assets/items/mm/items/powder_keg.png'); }
+
+
+
+
+.CHECKMARK          {  }
