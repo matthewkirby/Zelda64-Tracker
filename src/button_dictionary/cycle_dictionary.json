@@ -4,7 +4,7 @@
     "loop": false,
     "disableZero": true
   },
-  "OOT_PROGRESSSIVE_SCALE": {
+  "OOT_PROGRESSIVE_SCALE": {
     "sequence": ["OOT_SILVER_SCALE", "OOT_GOLD_SCALE"],
     "loop": false,
     "disableZero": true
