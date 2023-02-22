@@ -4,7 +4,7 @@ const toggleDict = toggles.reduce((tot, item) => { return { ...tot, [item]: { "t
 
 const cycleDict = {}
 for (let key in cycles) {
-  cycleDict[key] = { "type": "cycle", ...cycles[key] }
+  cycleDict[key] = { "type": "cycle", ...cycles[key] };
 }
 
 export const itemDict = { ...toggleDict, ...cycleDict };

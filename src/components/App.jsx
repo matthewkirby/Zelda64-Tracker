@@ -14,7 +14,7 @@ console.log(itemDict["OOT_PROGRESSIVE_STRENGTH"])
 // This element will be defined externally and selected via a dropdown or url parameter and passed to this componentent
 const tempTrackerLayoutIdList = [
 "OOT_BOW", "MM_BOW", "OOT_SLINGSHOT", "OOT_BOOMERANG", "OOT_HAMMER", "OOT_MIRROR_SHIELD",
-"OOT_OCARINA", "OOT_BEANS", "OOT_GERUDO_CARD", "MM_FIRE_ARROWS", "MM_ICE_ARROWS", "MM_LIGHT_ARROWS",
+"OOT_OCARINA", "OOT_BEANS", "BLANK", "BLANK", "OOT_GERUDO_CARD", "MM_FIRE_ARROWS", "MM_ICE_ARROWS", "MM_LIGHT_ARROWS",
 "OOT_PROGRESSIVE_STRENGTH",
 ]
 
@@ -54,13 +54,13 @@ export function Tracker() {
   
   return (
     <div className='tracker' id='tracker' onContextMenu={(e)=>e.preventDefault()}>
-      {trackerLayout.map((item) =>
-          <Item
-            key={item.name}
-            itemInfo={item}
-            itemState={trackerState[item.name]}
-            updateSingleItem={updateSingleItem}
-          />
+      {trackerLayout.map((item, i) =>
+        <Item
+          key={i}
+          itemInfo={item}
+          itemState={trackerState[item.name]}
+          updateSingleItem={updateSingleItem}
+        />
       )}
     </div>
   );

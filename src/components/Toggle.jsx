@@ -8,7 +8,9 @@ export const Toggle = ({ itemInfo, itemState, updateSingleItem }) => {
   }
 
   const onClick = () => {
-    updateSingleItem({ [itemName]: !itemState })
+    if (itemName != "BLANK") {
+      updateSingleItem({ [itemName]: !itemState });
+    }
   }
 
   return (
