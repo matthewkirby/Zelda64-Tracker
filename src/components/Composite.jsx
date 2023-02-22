@@ -1,13 +1,13 @@
 import 'style/composite.css';
 
-export const Composite = ({ itemInfo, itemState, updateSingleItem }) => {
+export const Composite = ({ itemInfo, itemState, itemSize, updateSingleItem }) => {
 
   const [leftItem, rightItem] = itemInfo.items;
   const [leftState, rightState] = itemState;
 
   // Build the list of classes
-  const leftClassList = ["base", leftItem];
-  const rightClassList = ["base", rightItem];
+  const leftClassList = ["itm-base", leftItem];
+  const rightClassList = ["itm-base", rightItem];
   if (!leftState && !rightState) {
     leftClassList.push("left-half", "itm-false");
     rightClassList.push("right-half", "itm-false");
@@ -30,7 +30,7 @@ export const Composite = ({ itemInfo, itemState, updateSingleItem }) => {
   };
 
   return (
-    <div className='composite' onClick={() => onInteract(0)} onContextMenu={() => onInteract(1)} >
+    <div className='composite' style={itemSize} onClick={() => onInteract(0)} onContextMenu={() => onInteract(1)} >
       <button className={leftClassList.join(" ")} />
       <button className={rightClassList.join(" ")} />
     </div>

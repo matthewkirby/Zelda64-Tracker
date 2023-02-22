@@ -1,4 +1,4 @@
-import 'style/Item.css';
+import 'style/item.css';
 import { Cycle } from './Cycle';
 import { Toggle } from './Toggle';
 import { Badge } from './Badge';

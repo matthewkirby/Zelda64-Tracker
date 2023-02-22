@@ -10,6 +10,7 @@ import { Item } from 'components/Item'
 // This component has code that runs every time it is rendered that only needs to run on the first time it is rendered.
 // I believe there is a hook that can be used to resolve this. So look into it
 
+// This is temp code to track how many times I am rendering
 let tempTracker = 0;
 
 // Take 3px margin out of app.css. Only there for easy comparison to existing layout
@@ -24,6 +25,10 @@ const tempTrackerLayoutIdList = [
   "OOT_ZELDAS_LULLABY_WCHECK", "OOT_EPONAS_SONG_WCHECK", "OOT_SARIAS_SONG_WCHECK", "OOT_SUNS_SONG_WCHECK", "OOT_SONG_OF_TIME_WCHECK", "OOT_SONG_OF_STORMS_WCHECK",
   "OOT_MINUET_WCHECK", "OOT_BOLERO_WCHECK", "OOT_SERENADE_WCHECK", "OOT_NOCTURNE_WCHECK", "OOT_REQUIEM_WCHECK", "OOT_PRELUDE_WCHECK"
 ]
+
+
+// The square size will be another parent parameter, default is 50px
+const tempItemSize = null;
 
 // const tempTrackerLayoutIdList = ["OOT_FOREST_MEDALLION", "MM_BOMB_BAG_WKEG", "OOT_SLINGSHOT", "OOT_COMPOSITE_TUNICS", "OOT_ZELDAS_LULLABY_WCHECK"]
 
@@ -45,13 +50,19 @@ const initializeTrackerState = (layout) => {
 
 
 
-
+// Props from parent: trackerLayoutIdList, itemWidth
 export function Tracker() {
+  // Set up the tracker's item grid
   const trackerLayoutIdList = [ ...tempTrackerLayoutIdList ]; // This is a temp line. It will be a prop from a higher level comp with setup options.
   const trackerLayout = trackerLayoutIdList.reduce((tot, item) => {
     return [ ...tot, {"name": [item], ...itemDict[item]} ]
   }, []);
 
+  // Build style object to pass to each item
+  const itemSize = tempItemSize ?? 50; // Replace temp variable with prop passed from parent
+  const itemSizeStyles = { "height": `${itemSize}px`, "width": `${itemSize}px`};
+
+  // Define tracker state variables
   const [trackerState, setTrackerState] = React.useState(initializeTrackerState(trackerLayout));
   
   
@@ -59,12 +70,13 @@ export function Tracker() {
   console.log(`Rendering #${tempTracker}`)
 
 
-
+  // Hook to update an item's state
   const updateSingleItem = (pendingState) => {
     const newState = { ...trackerState, ...pendingState };
     setTrackerState(newState);
   }
   
+  // Render
   return (
     <div className='tracker' id='tracker' onContextMenu={(e)=>e.preventDefault()}>
       {trackerLayout.map((item, i) =>
@@ -72,6 +84,7 @@ export function Tracker() {
           key={i}
           itemInfo={item}
           itemState={trackerState[item.name]}
+          itemSize={itemSizeStyles}
           updateSingleItem={updateSingleItem}
         />
       )}

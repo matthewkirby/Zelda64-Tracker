@@ -6,17 +6,8 @@
 }
 
 .badge > .base-item {
-  background-size: contain;
-  border: none;
-  background-color: transparent;
   grid-column: c0 / c2;
   grid-row: r0 / r2;
-}
-
-.badge > .badge-item {
-  background-size: contain;
-  border: none;
-  background-color: transparent;
 }
 
 .badge > .top-left {
