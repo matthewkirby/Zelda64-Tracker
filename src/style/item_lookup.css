@@ -11,6 +11,8 @@
 .OOT_STRENGTH_1     { background-image: url('assets/items/oot/items/goron_bracelet.png'); }
 .OOT_STRENGTH_2     { background-image: url('assets/items/oot/items/silver_gauntlets.png'); }
 .OOT_STRENGTH_3     { background-image: url('assets/items/oot/items/gold_gauntlets.png'); }
+.OOT_GORON_TUNIC    { background-image: url('assets/items/oot/items/goron_tunic.png'); }
+.OOT_ZORA_TUNIC     { background-image: url('assets/items/oot/items/zora_tunic.png'); }
 
 .OOT_ZELDAS_LULLABY { background-image: url('assets/items/oot/songs/lullaby.png'); }
 

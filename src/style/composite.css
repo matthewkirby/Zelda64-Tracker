@@ -1,0 +1,30 @@
+.composite {
+  display: grid;
+  grid-template-columns: [c0] 50% [c1] 50% [c2];
+  grid-template-rows: [r0] 50% [r1] 50% [r2];
+  gap: 0 0;
+}
+
+.composite > .base {
+  border: none;
+  background-size: contain;
+  background-color: transparent;
+}
+
+.composite > .single-item {
+  grid-column: c0 / c2;
+  grid-row: r0 / r2;
+}
+
+.composite > .left-half {
+  grid-column: c0 / c1;
+  grid-row: r0 / r2;
+  background-size: 200%;
+}
+
+.composite > .right-half {
+  grid-column: c1 / c2;
+  grid-row: r0 / r2;
+  background-size: 200%;
+  background-position: -100%;
+}

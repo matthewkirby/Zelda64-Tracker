@@ -1,18 +1,18 @@
 {
+  "TEMPLATE": {
+    "items": "(Array(item1, item2) The two items to composite together. Left click will toggle item 1 and right click item 2."
+  },
+
   "OOT_COMPOSITE_SPELLS": {
-    "items": ["OOT_DINS_FIRE", "OOT_FARORES_WIND"],
-    "disableZero": true
+    "items": ["OOT_DINS_FIRE", "OOT_FARORES_WIND"]
   },
   "OOT_COMPOSITE_ARROWS": {
-    "items": ["OOT_FIRE_ARROWS", "OOT_LIGHT_ARROWS"],
-    "disableZero": true
+    "items": ["OOT_FIRE_ARROWS", "OOT_LIGHT_ARROWS"]
   },
   "OOT_COMPOSITE_BOOTS": {
-    "items": ["OOT_IRON_BOOTS", "OOT_HOVER_BOOTS"],
-    "disableZero": true
+    "items": ["OOT_IRON_BOOTS", "OOT_HOVER_BOOTS"]
   },
   "OOT_COMPOSITE_TUNICS": {
-    "items": ["OOT_GORON_TUNIC", "OOT_ZORA_TUNIC"],
-    "disableZero": true
+    "items": ["OOT_GORON_TUNIC", "OOT_ZORA_TUNIC"]
   }
 }
