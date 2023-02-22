@@ -1,21 +1,77 @@
-.OOT_FOREST_MEDALLION { background-image: url('assets/items/oot/drewards/forest_medallion.png'); }
+/* OOT DUNGEON REWARDS */
+.OOT_FOREST_MEDALLION   { background-image: url('assets/items/oot/drewards/forest_medallion.png'); }
+.OOT_FIRE_MEDALLION     { background-image: url('assets/items/oot/drewards/fire_medallion.png'); }
+.OOT_WATER_MEDALLION    { background-image: url('assets/items/oot/drewards/water_medallion.png'); }
+.OOT_SHADOW_MEDALLION   { background-image: url('assets/items/oot/drewards/shadow_medallion.png'); }
+.OOT_SPIRIT_MEDALLION   { background-image: url('assets/items/oot/drewards/spirit_medallion.png'); }
+.OOT_LIGHT_MEDALLION    { background-image: url('assets/items/oot/drewards/light_medallion.png'); }
+.OOT_KOKIRI_EMERALD     { background-image: url('assets/items/oot/drewards/kokiri_emerald.png'); }
+.OOT_GORON_RUBY         { background-image: url('assets/items/oot/drewards/goron_ruby.png'); }
+.OOT_ZORA_SAPPHIRE      { background-image: url('assets/items/oot/drewards/zora_sapphire.png'); }
 
-.OOT_BOW            { background-image: url('assets/items/oot/items/bow.png'); }
-.OOT_SLINGSHOT      { background-image: url('assets/items/oot/items/slingshot.png'); }
-.OOT_BOOMERANG      { background-image: url('assets/items/oot/items/boomerang.png'); }
-.OOT_HAMMER         { background-image: url('assets/items/oot/items/hammer.png'); }
-.OOT_MIRROR_SHIELD  { background-image: url('assets/items/oot/items/mirror_shield.png'); }
-.OOT_OCARINA        { background-image: url('assets/items/oot/items/ocarina.png'); }
-.OOT_BEANS          { background-image: url('assets/items/oot/items/beans.png'); }
-.OOT_GERUDO_CARD    { background-image: url('assets/items/oot/items/gerudo_card.png'); }
-.OOT_STRENGTH_1     { background-image: url('assets/items/oot/items/goron_bracelet.png'); }
-.OOT_STRENGTH_2     { background-image: url('assets/items/oot/items/silver_gauntlets.png'); }
-.OOT_STRENGTH_3     { background-image: url('assets/items/oot/items/gold_gauntlets.png'); }
-.OOT_GORON_TUNIC    { background-image: url('assets/items/oot/items/goron_tunic.png'); }
-.OOT_ZORA_TUNIC     { background-image: url('assets/items/oot/items/zora_tunic.png'); }
+/* OOT MAJOR ITEMS */
+.OOT_KOKIRI_SWORD       { background-image: url('assets/items/oot/items/kokiri_sword.png'); }
+.OOT_MASTER_SWORD       { background-image: url('assets/items/oot/items/master_sword.png'); }
+.OOT_BOW                { background-image: url('assets/items/oot/items/bow.png'); }
+.OOT_SLINGSHOT          { background-image: url('assets/items/oot/items/slingshot.png'); }
+.OOT_BOOMERANG          { background-image: url('assets/items/oot/items/boomerang.png'); }
+.OOT_BOMB_BAG           { background-image: url('assets/items/oot/items/bomb_bag.png'); }
+.OOT_HAMMER             { background-image: url('assets/items/oot/items/hammer.png'); }
+.OOT_MIRROR_SHIELD      { background-image: url('assets/items/oot/items/mirror_shield.png'); }
+.OOT_OCARINA            { background-image: url('assets/items/oot/items/ocarina.png'); }
+.OOT_BEANS              { background-image: url('assets/items/oot/items/beans.png'); }
+.OOT_GERUDO_CARD        { background-image: url('assets/items/oot/items/gerudo_card.png'); }
+.OOT_SILVER_SCALE       { background-image: url('assets/items/oot/items/silver_scale.png'); }
+.OOT_GOLD_SCALE         { background-image: url('assets/items/oot/items/gold_scale.png'); }
+.OOT_HOOKSHOT           { background-image: url('assets/items/oot/items/hookshot.png'); }
+.OOT_LONGSHOT           { background-image: url('assets/items/oot/items/longshot.png'); }
+.OOT_BOTTLE             { background-image: url('assets/items/oot/items/bottle.png'); }
+.OOT_MAGIC              { background-image: url('assets/items/oot/items/magic.png'); }
+.OOT_LENS_OF_TRUTH      { background-image: url('assets/items/oot/items/lens_of_truth.png'); }
+.OOT_DINS_FIRE          { background-image: url('assets/items/oot/items/dins_fire.png'); }
+.OOT_FARORES_WIND       { background-image: url('assets/items/oot/items/farores_wind.png'); }
+.OOT_FIRE_ARROWS        { background-image: url('assets/items/oot/items/fire_arrows.png'); }
+.OOT_LIGHT_ARROWS       { background-image: url('assets/items/oot/items/light_arrows.png'); }
+.OOT_IRON_BOOTS         { background-image: url('assets/items/oot/items/iron_boots.png'); }
+.OOT_HOVER_BOOTS        { background-image: url('assets/items/oot/items/hover_boots.png'); }
 
-.OOT_ZELDAS_LULLABY { background-image: url('assets/items/oot/songs/lullaby.png'); }
+.OOT_STRENGTH_1         { background-image: url('assets/items/oot/items/goron_bracelet.png'); }
+.OOT_STRENGTH_2         { background-image: url('assets/items/oot/items/silver_gauntlets.png'); }
+.OOT_STRENGTH_3         { background-image: url('assets/items/oot/items/gold_gauntlets.png'); }
 
+/* OOT TRADE QUEST */
+.OOT_WEIRD_EGG          { background-image: url('assets/items/oot/trade/weird_egg.png'); }
+.OOT_ZELDAS_LETTER      { background-image: url('assets/items/oot/trade/zeldas_letter.png'); }
+.OOT_KEATON_MASK        { background-image: url('assets/items/oot/trade/keaton_mask.png'); }
+.OOT_SKULL_MASK         { background-image: url('assets/items/oot/trade/skull_mask.png'); }
+.OOT_SPOOKY_MASK        { background-image: url('assets/items/oot/trade/spooky_mask.png'); }
+.OOT_BUNNY_HOOD         { background-image: url('assets/items/oot/trade/bunny_hood.png'); }
+.OOT_MASK_OF_TRUTH      { background-image: url('assets/items/oot/trade/mask_of_truth.png'); }
+
+/* OOT EQUIPMENT */
+.OOT_GORON_TUNIC        { background-image: url('assets/items/oot/items/goron_tunic.png'); }
+.OOT_ZORA_TUNIC         { background-image: url('assets/items/oot/items/zora_tunic.png'); }
+
+/* OOT SONGS */
+.OOT_ZELDAS_LULLABY     { background-image: url('assets/items/oot/songs/lullaby.png'); }
+.OOT_EPONAS_SONG        { background-image: url('assets/items/oot/songs/epona.png'); }
+.OOT_SARIAS_SONG        { background-image: url('assets/items/oot/songs/saria.png'); }
+.OOT_SUNS_SONG          { background-image: url('assets/items/oot/songs/sun.png'); }
+.OOT_SONG_OF_TIME       { background-image: url('assets/items/oot/songs/time.png'); }
+.OOT_SONG_OF_STORMS     { background-image: url('assets/items/oot/songs/storms.png'); }
+.OOT_MINUET             { background-image: url('assets/items/oot/songs/minuet.png'); }
+.OOT_BOLERO             { background-image: url('assets/items/oot/songs/bolero.png'); }
+.OOT_SERENADE           { background-image: url('assets/items/oot/songs/serenade.png'); }
+.OOT_NOCTURNE           { background-image: url('assets/items/oot/songs/nocturne.png'); }
+.OOT_REQUIEM            { background-image: url('assets/items/oot/songs/requiem.png'); }
+.OOT_PRELUDE            { background-image: url('assets/items/oot/songs/prelude.png'); }
+
+/* OOT CUSTOM BADGE ICONS */
+.OOT_RUTOS_LETTER_BADGE   { background-image: url('assets/items/oot/items/rutos_letter.png'); }
+.OOT_LENS_OF_TRUTH_BADGE  { background-image: url('assets/items/oot/items/lens_of_truth_badge.png'); }
+
+
+/* MM MAJOR ITEMS */
 .MM_BOW             { background-image: url('assets/items/mm/items/bow.png'); }
 .MM_FIRE_ARROWS     { background-image: url('assets/items/mm/items/fire_arrows.png'); }
 .MM_ICE_ARROWS      { background-image: url('assets/items/mm/items/ice_arrows.png'); }
@@ -23,7 +79,5 @@
 .MM_BOMB_BAG        { background-image: url('assets/items/mm/items/bomb_bag.png'); }
 .MM_POWDER_KEG      { background-image: url('assets/items/mm/items/powder_keg.png'); }
 
-
-
-
-.CHECKMARK          {  }
+/* SPECIAL SHARED OR META GAME CONTENT */
+.CHECKMARK              { background-image: url('assets/items/shared/checkmark.png'); }
