@@ -4,10 +4,10 @@ const equals = (a, b) => {
 
 export const Cycle = ({ itemInfo, itemState, updateSingleItem }) => {
 
-  const itemSequence = itemInfo.opts.sequence;
-  const minState = itemInfo.opts.disableZero ? 0 : 1;
+  const itemSequence = itemInfo.sequence;
+  const minState = itemInfo.disableZero ? 0 : 1;
   const maxState = itemSequence.length;
-  const loop = itemInfo.opts.loop;
+  const loop = itemInfo.loop;
 
   // Build the list of classes for the button
   const classList = ["itm-base"];

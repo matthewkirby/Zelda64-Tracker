@@ -1,0 +1,7 @@
+{
+  "OOT_PROGRESSIVE_STRENGTH": {
+    "sequence": ["OOT_STRENGTH_1", "OOT_STRENGTH_2", "OOT_STRENGTH_3"],
+    "loop": false,
+    "disableZero": true
+  }
+}

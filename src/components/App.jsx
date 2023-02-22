@@ -1,9 +1,11 @@
 import React from 'react';
 
-import itemDict from 'assets/button_dictionary.json';
 import 'style/App.css';
 
+import { itemDict } from 'button_dictionary';
 import { Item } from 'components/Item'
+
+console.log(itemDict["OOT_PROGRESSIVE_STRENGTH"])
 
 // This component has code that runs every time it is rendered that only needs to run on the first time it is rendered.
 // I believe there is a hook that can be used to resolve this. So look into it
@@ -22,13 +24,13 @@ const initializeTrackerState = (layout) => {
     if (item.type === "simple_toggle") {
       return { ...tot, [item.name]: false };
     } if (item.type === "cycle") {
-      const defaultValue = item.opts.disableZero ? 0 : 1;
+      const defaultValue = item.disableZero ? 0 : 1;
       return { ...tot, [item.name]: defaultValue };
     } else {
       console.error(Error(`Item type ${item.type} has no defined behavior in initializeTrackerState.`));
     }
   }, {});
-  console.log(initialState);
+  // console.log(initialState);
   return initialState;
 }
 
