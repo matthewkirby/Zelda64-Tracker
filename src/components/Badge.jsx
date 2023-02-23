@@ -1,5 +1,3 @@
-import 'style/badge.css';
-
 const locLookup = { 0: "top-left", 1: "top-right", 2: "bottom-left", 3: "bottom-right" };
 
 export const Badge = ({ itemInfo, itemState, itemSize, updateSingleItem, extraStyles }) => {

@@ -1,4 +1,5 @@
 import 'style/item.css';
+import 'style/item_subgrids.css';
 import { Cycle } from './Cycle';
 import { Toggle } from './Toggle';
 import { Badge } from './Badge';
