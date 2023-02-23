@@ -1,6 +1,6 @@
 import React from 'react';
 
-import 'style/App.css';
+import 'style/tracker.css';
 
 import { itemDict } from 'button_dictionary';
 import { Item } from 'components/Item'
