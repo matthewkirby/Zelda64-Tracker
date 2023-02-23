@@ -1,10 +1,6 @@
 import 'style/item.css';
 import 'style/item_subgrids.css';
-import { Cycle } from './Cycle';
-import { Toggle } from './Toggle';
-import { Badge } from './Badge';
-import { Composite } from './Composite';
-import { Counter } from './Counter';
+import { Cycle, Toggle, Badge, Composite, Counter } from './ItemTypes';
 
 const styles = {
   baseSquish: { display: "grid", alignItems: "center" }
