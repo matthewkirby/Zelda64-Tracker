@@ -1,5 +1,9 @@
 import 'style/composite.css';
 
+// TODO: Add support for diagonal items. This can be done with css and something like...
+// background-image: url(), linear-gradient(to bottom right, rgba(0,0,0,0) 50%, color 50%);
+// Needs more fiddling and reading into how this works
+
 export const Composite = ({ itemInfo, itemState, itemSize, updateSingleItem }) => {
 
   const [leftItem, rightItem] = itemInfo.items;
