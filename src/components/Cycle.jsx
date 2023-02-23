@@ -2,7 +2,7 @@ const equals = (a, b) => {
   return Math.abs(a - b) < Number.EPSILON;
 }
 
-export const Cycle = ({ itemInfo, itemState, itemSize, updateSingleItem }) => {
+export const Cycle = ({ itemInfo, itemState, itemSize, updateSingleItem, extraStyles }) => {
 
   const itemSequence = itemInfo.sequence;
   const minState = itemInfo.disableZero ? 0 : 1;
@@ -42,7 +42,7 @@ export const Cycle = ({ itemInfo, itemState, itemSize, updateSingleItem }) => {
   return (
     <button
       className={classList.join(" ")}
-      style={itemSize}
+      style={{...itemSize, ...extraStyles}}
       onClick={() => onInteract(true)}
       onContextMenu={() => onInteract(false)}
     />

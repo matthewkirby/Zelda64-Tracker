@@ -4,7 +4,7 @@ import 'style/composite.css';
 // background-image: url(), linear-gradient(to bottom right, rgba(0,0,0,0) 50%, color 50%);
 // Needs more fiddling and reading into how this works
 
-export const Composite = ({ itemInfo, itemState, itemSize, updateSingleItem }) => {
+export const Composite = ({ itemInfo, itemState, itemSize, updateSingleItem, extraStyles }) => {
 
   const [leftItem, rightItem] = itemInfo.items;
   const [leftState, rightState] = itemState;
@@ -34,7 +34,7 @@ export const Composite = ({ itemInfo, itemState, itemSize, updateSingleItem }) =
   };
 
   return (
-    <div className='composite' style={itemSize} onClick={() => onInteract(0)} onContextMenu={() => onInteract(1)} >
+    <div className='composite' style={{...itemSize, ...extraStyles}} onClick={() => onInteract(0)} onContextMenu={() => onInteract(1)} >
       <button className={leftClassList.join(" ")} />
       <button className={rightClassList.join(" ")} />
     </div>

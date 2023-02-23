@@ -2,7 +2,7 @@ import 'style/badge.css';
 
 const locLookup = { 0: "top-left", 1: "top-right", 2: "bottom-left", 3: "bottom-right" };
 
-export const Badge = ({ itemInfo, itemState, itemSize, updateSingleItem }) => {
+export const Badge = ({ itemInfo, itemState, itemSize, updateSingleItem, extraStyles }) => {
 
   const baseItem = itemInfo.base;
   const badgeItem = itemInfo.badge;
@@ -29,7 +29,7 @@ export const Badge = ({ itemInfo, itemState, itemSize, updateSingleItem }) => {
 
   // Render
   return (
-    <div className="badge" style={itemSize} onClick={() => onInteract(0)} onContextMenu={() => onInteract(1)}>
+    <div className="badge" style={{...itemSize, ...extraStyles}} onClick={() => onInteract(0)} onContextMenu={() => onInteract(1)}>
       <button className={baseClassList.join(" ")} />
       <button className={badgeClassList.join(" ")} />
     </div>
