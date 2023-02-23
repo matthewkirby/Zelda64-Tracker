@@ -1,0 +1,18 @@
+{
+  "TEMPLATE": {
+    "minVal": "(int) Minimum value for counter.",
+    "maxVal": "(int) Maximum value for counter.",
+    "location": "(int, optional) Location of badge. Values are 0-3 from top to bottom left to right. Default is top right."
+  },
+
+  "OOT_GOLDEN_SKULLTULA": {
+    "minVal": 0,
+    "maxVal": 100,
+    "location": 1
+  },
+  "OOT_TRIFORCE": {
+    "minVal": 0,
+    "maxVal": 999,
+    "location": 1
+  }
+}

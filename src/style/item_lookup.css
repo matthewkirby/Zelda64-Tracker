@@ -34,7 +34,7 @@
 .OOT_LIGHT_ARROWS       { background-image: url('assets/items/oot/items/light_arrows.png'); }
 .OOT_IRON_BOOTS         { background-image: url('assets/items/oot/items/iron_boots.png'); }
 .OOT_HOVER_BOOTS        { background-image: url('assets/items/oot/items/hover_boots.png'); }
-
+.OOT_GOLDEN_SKULLTULA   { background-image: url('assets/items/oot/items/golden_skulltula_token.png'); }
 .OOT_STRENGTH_1         { background-image: url('assets/items/oot/items/goron_bracelet.png'); }
 .OOT_STRENGTH_2         { background-image: url('assets/items/oot/items/silver_gauntlets.png'); }
 .OOT_STRENGTH_3         { background-image: url('assets/items/oot/items/gold_gauntlets.png'); }
@@ -67,6 +67,7 @@
 .OOT_PRELUDE            { background-image: url('assets/items/oot/songs/prelude.png'); }
 
 /* OOT CUSTOM BADGE ICONS */
+.OOT_TRIFORCE             { background-image: url('assets/items/oot/misc/triforce.png'); }
 .OOT_RUTOS_LETTER_BADGE   { background-image: url('assets/items/oot/items/rutos_letter.png'); }
 .OOT_LENS_OF_TRUTH_BADGE  { background-image: url('assets/items/oot/items/lens_of_truth_badge.png'); }
 

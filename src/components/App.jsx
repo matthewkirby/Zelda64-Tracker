@@ -18,7 +18,7 @@ let tempTracker = 0;
 // This element will be defined externally and selected via a dropdown or url parameter and passed to this componentent
 const tempTrackerLayoutIdList = [
   "OOT_FOREST_MEDALLION", "OOT_FIRE_MEDALLION", "OOT_WATER_MEDALLION", "OOT_SHADOW_MEDALLION", "OOT_SPIRIT_MEDALLION", "OOT_LIGHT_MEDALLION",
-  "OOT_PROGRESSIVE_SCALE", "BLANK", { items:["OOT_KOKIRI_EMERALD", "OOT_GORON_RUBY", "OOT_ZORA_SAPPHIRE"], nCols: 2}, "BLANK", "OOT_BOTTLE_RUTOS",
+  "OOT_PROGRESSIVE_SCALE", "OOT_GOLDEN_SKULLTULA", { items:["OOT_KOKIRI_EMERALD", "OOT_GORON_RUBY", "OOT_ZORA_SAPPHIRE"], nCols: 2}, "OOT_TRIFORCE", "OOT_BOTTLE_RUTOS",
   "OOT_SLINGSHOT", "OOT_BOMB_BAG", "OOT_BOOMERANG", "OOT_PROGRESSIVE_STRENGTH", "OOT_MAGIC_WLENS", "OOT_COMPOSITE_SPELLS",
   "OOT_PROGRESSIVE_HOOKSHOT", "OOT_BOW", "OOT_COMPOSITE_ARROWS", "OOT_HAMMER", "OOT_COMPOSITE_BOOTS", "OOT_MIRROR_SHIELD",
   "OOT_PROGRESSIVE_CHILD_TRADE", "OOT_OCARINA", "OOT_BEANS", "OOT_KOKIRI_SWORD", "OOT_GERUDO_CARD", "OOT_COMPOSITE_TUNICS",
@@ -40,6 +40,8 @@ const initializeTrackerState = (layout) => {
       return { ...tot, [item.name]: defaultValue };
     } else if (item.type === "badge" || item.type === "composite") {
       return { ...tot, [item.name]: [false, false] };
+    } else if (item.type === "counter") {
+      return { ...tot, [item.name]: 0 };
     } else if (item.type === "squish") {
       const squishItems = item.items;
       const subDefaults = initializeTrackerState(squishItems);

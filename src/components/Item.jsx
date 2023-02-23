@@ -3,6 +3,7 @@ import { Cycle } from './Cycle';
 import { Toggle } from './Toggle';
 import { Badge } from './Badge';
 import { Composite } from './Composite';
+import { Counter } from './Counter';
 
 const styles = {
   baseSquish: { display: "grid", alignItems: "center" }
@@ -62,6 +63,8 @@ export const Item = (props) => {
     return <Badge {...newProps} />;
   } else if (itemType === 'composite') {
     return <Composite {...newProps} />;
+  } else if (itemType === 'counter') {
+    return <Counter {...newProps} />;
   } else {
     console.error(Error(`Item type ${itemType} does not have a defined implementation.`));
   }
