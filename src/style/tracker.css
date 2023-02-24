@@ -4,3 +4,21 @@ div.tracker {
   gap: 10px 10px;
   padding-bottom: 40px;
 }
+
+.one-column-grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 100%;
+}
+
+.two-column-grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.three-column-grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+}

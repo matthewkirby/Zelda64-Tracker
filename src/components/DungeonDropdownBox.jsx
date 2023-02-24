@@ -1,5 +1,6 @@
 import { dungeonTextOptions } from "data/dungeon_text_options";
 import { Dropdown } from "./Dropdown";
+import 'style/dungeon_dropdown_box.css';
 
 const expandSquishElements = (layout) => {
   return layout.reduce((tot, item) => {
@@ -32,7 +33,7 @@ export const DungeonDropdownBox = ({ trackerLayout, trackerState, updateSingleIt
   }
 
   return (
-    <div className='markingBox' id='markingBox'>
+    <div className='marking-box one-column-grid' id='marking-box'>
       {relevantLayoutElements.map((item, i) => {
         return (
           <Dropdown
