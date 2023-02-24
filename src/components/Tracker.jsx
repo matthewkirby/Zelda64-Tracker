@@ -79,7 +79,11 @@ export function Tracker() {
   
   // dungeonKeyList: "oot", "mm", "ootmm" || identifierType: "text", "imageTODO" || interactionType: "dropdown", "inElement"
   const dungeonRewardOptions = { dungeonListKey: "ootmm", identifierType: "text", interactionType: "dropdown" }; // Temp variable that will be passed from parent
-  const metaOptions = { dungeonRewardOptions: dungeonRewardOptions, itemSize: { number: itemSize, style: itemSizeStyles } };
+  const metaOptions = {
+    dungeonRewardOptions: dungeonRewardOptions,
+    itemSize: { number: itemSize, style: itemSizeStyles },
+    trackerOptions: { nCols: 6, rowGap: 10, columnGap: 10 }
+  };
 
   // Define tracker state variables
   const [trackerState, setTrackerState] = React.useState(initializeTrackerState(trackerLayout));
@@ -87,6 +91,13 @@ export function Tracker() {
 
   tempTracker += 1;
   console.log(`Rendering #${tempTracker}`)
+
+  // Define the inline styles for the tracker
+  const trackerStyles = {
+    gridTemplateColumns: `repeat(${metaOptions.trackerOptions.nCols}, ${metaOptions.itemSize.number}px)`,
+    rowGap: `${metaOptions.trackerOptions.rowGap}px`,
+    columnGap: `${metaOptions.trackerOptions.columnGap}px`
+  }
 
   // Hook to update an item's state
   const updateSingleItem = (pendingState) => {
@@ -97,7 +108,7 @@ export function Tracker() {
   // Render
   return (
     <>
-      <div className='tracker' id='tracker' onContextMenu={(e)=>e.preventDefault()}>
+      <div className='tracker' id='tracker' style={trackerStyles} onContextMenu={(e)=>e.preventDefault()}>
         {trackerLayout.map((item, i) =>
           <Item
             key={i}

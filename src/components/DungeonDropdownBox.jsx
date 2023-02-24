@@ -20,12 +20,19 @@ const findDropdownElements = (layout) => {
 export const DungeonDropdownBox = ({ trackerLayout, trackerState, updateSingleItem, metaOptions }) => {
   // If dungeon reward objects are not going to be dropdown controlled, don't do anything.
   if (metaOptions.dungeonRewardOptions.interactionType !== "dropdown") { return ''; }
-  const { identifiers, labels } = dungeonTextOptions[metaOptions.dungeonRewardOptions.dungeonListKey];
+  const { labels } = dungeonTextOptions[metaOptions.dungeonRewardOptions.dungeonListKey];
   const idedLabels = labels.reduce((tot, lab, i) =>  [ ...tot, { label: lab, value: i } ], []);
 
   // Trim layout list to only things with dropdowns and sort
   const relevantLayoutElements = findDropdownElements([ ...trackerLayout ]);
   relevantLayoutElements.sort((a,b) => a.priority > b.priority ? 1 : -1);
+
+  // Define inline styles
+  const { nCols, columnGap } = metaOptions.trackerOptions;
+  const width = metaOptions.itemSize.number;
+  const markingBoxStyles = {
+    width: `${nCols*width + (nCols-1)*columnGap}px`
+  }
 
   // Define interaction
   const onChange = (itemName, newVal) => {
@@ -33,7 +40,7 @@ export const DungeonDropdownBox = ({ trackerLayout, trackerState, updateSingleIt
   }
 
   return (
-    <div className='marking-box one-column-grid' id='marking-box'>
+    <div className='marking-box one-column-grid' id='marking-box' style={markingBoxStyles}>
       {relevantLayoutElements.map((item, i) => {
         return (
           <Dropdown
