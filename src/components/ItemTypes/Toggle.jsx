@@ -1,4 +1,4 @@
-export const Toggle = ({ itemInfo, itemState, itemSize, updateSingleItem, extraStyles }) => {
+export const Toggle = ({ itemInfo, itemState, itemSize, updateSingleItem, extraStyles, disableClick }) => {
 
   const itemName = itemInfo.name;
 
@@ -17,8 +17,8 @@ export const Toggle = ({ itemInfo, itemState, itemSize, updateSingleItem, extraS
     <button
       className={className.join(" ")}
       style={{...itemSize, ...extraStyles}}
-      onClick={() => onClick()}
-      onContextMenu={() => onClick()}
+      onClick={!!disableClick ? null : () => onClick()}
+      onContextMenu={!!disableClick ? null : () => onClick()}
     />
   );
 };

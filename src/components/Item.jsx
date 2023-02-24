@@ -1,19 +1,18 @@
 import 'style/item.css';
 import 'style/item_subgrids.css';
-import { Cycle, Toggle, Badge, Composite, Counter } from './ItemTypes';
+import { Cycle, Toggle, Badge, Composite, Counter, DungeonReward } from './ItemTypes';
 
 const styles = {
   baseSquish: { display: "grid", alignItems: "center" }
 }
 
-const Squish = ({ itemInfo, trackerState, itemSize, updateSingleItem }) => {
-
-  const itemList = itemInfo.items;
-  const nCols = itemInfo.nCols;
+const Squish = (props) => {
+  const itemList = props.itemInfo.items;
+  const nCols = props.itemInfo.nCols;
   const nItems = itemList.length;
 
   // Resolve new sizes
-  const oldWidth = Number(itemSize.width.slice(0, -2));
+  const oldWidth = Number(props.itemSize.width.slice(0, -2));
   const gapSize = 10;
   const totalSpace = nCols*oldWidth + (nCols-1)*gapSize;
   const newWidth = totalSpace/(nItems + 0.1*(nItems-1));
@@ -29,10 +28,9 @@ const Squish = ({ itemInfo, trackerState, itemSize, updateSingleItem }) => {
       {itemList.map((item, i) =>
         <Item
           key={item.name+i}
+          {...props}
           itemInfo={item}
-          trackerState={trackerState}
           itemSize={newItemSize}
-          updateSingleItem={updateSingleItem}
           extraStyles={subElementStyles}
         />
       )}
@@ -62,6 +60,8 @@ export const Item = (props) => {
     return <Composite {...newProps} />;
   } else if (itemType === 'counter') {
     return <Counter {...newProps} />;
+  } else if (itemType === 'dungeonReward') {
+    return <DungeonReward {...newProps} />;
   } else {
     console.error(Error(`Item type ${itemType} does not have a defined implementation.`));
   }

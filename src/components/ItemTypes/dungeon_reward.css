@@ -1,0 +1,19 @@
+.dungeonReward > .textFlexBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  overflow:visible;
+  padding: 0 1px;
+  position: relative;
+  z-index: 1;
+}
+
+.dungeonReward > .textStyle {
+  text-shadow: -1px -1px #000, 1px -1px #000, -1px 1px #000, 1px 1px #000;
+  color: rgb(255, 255, 255);
+  font-family: Impact;
+  user-select: none;
+  line-height: 100%
+}

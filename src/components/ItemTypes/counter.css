@@ -2,5 +2,6 @@
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: rgba(255, 255, 255, 0.75);
   text-shadow: -2px -2px 2px #000, 2px -2px 2px #000, -2px 2px 2px #000, 2px 2px 2px #000;
-  overflow:visible
+  overflow: visible;
+  user-select: none;
 }

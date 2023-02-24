@@ -1,4 +1,4 @@
-.badge, .counter, .composite {
+.badge, .counter, .composite, .dungeonReward {
   display: grid;
   grid-template-columns: [c0] 50% [c1] 50% [c2];
   grid-template-rows: [r0] 50% [r1] 50% [r2];
@@ -31,7 +31,8 @@
 }
 
 .badge > .bottom-right,
-.counter > .bottom-right {
+.counter > .bottom-right,
+.dungeonReward > .bottom-right {
   grid-column: c1 / c2;
   grid-row: r1 / r2;
 }
@@ -47,4 +48,9 @@
   grid-row: r0 / r2;
   background-size: 200%;
   background-position: -100%;
+}
+
+.dungeonReward > .bottom-row {
+  grid-column: c0 / c2;
+  grid-row: r1 / r2;
 }

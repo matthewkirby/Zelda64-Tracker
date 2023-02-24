@@ -1,0 +1,57 @@
+{
+  "TEMPLATE": {},
+
+  "OOT_FOREST_MEDALLION_LABELED": {
+    "toggle": "OOT_FOREST_MEDALLION",
+    "label": "Forest Medallion"
+  },
+  "OOT_FIRE_MEDALLION_LABELED": {
+    "toggle": "OOT_FIRE_MEDALLION",
+    "label": "Fire Medallion"
+  },
+  "OOT_WATER_MEDALLION_LABELED": {
+    "toggle": "OOT_WATER_MEDALLION",
+    "label": "Water Medallion"
+  },
+  "OOT_SHADOW_MEDALLION_LABELED": {
+    "toggle": "OOT_SHADOW_MEDALLION",
+    "label": "Shadow Medallion"
+  },
+  "OOT_SPIRIT_MEDALLION_LABELED": {
+    "toggle": "OOT_SPIRIT_MEDALLION",
+    "label": "Spirit Medallion"
+  },
+  "OOT_LIGHT_MEDALLION_LABELED": {
+    "toggle": "OOT_LIGHT_MEDALLION",
+    "label": "Light Medallion"
+  },
+  "OOT_KOKIRI_EMERALD_LABELED": {
+    "toggle": "OOT_KOKIRI_EMERALD",
+    "label": "Kokiri Emerald"
+  },
+  "OOT_GORON_RUBY_LABELED": {
+    "toggle": "OOT_GORON_RUBY",
+    "label": "Goron Ruby"
+  },
+  "OOT_ZORA_SAPPHIRE_LABELED": {
+    "toggle": "OOT_ZORA_SAPPHIRE",
+    "label": "Zora Sapphire"
+  },
+
+  "MM_ODOLWAS_REMAINS_LABELED": {
+    "toggle": "MM_ODOLWAS_REMAINS",
+    "label": "Odolwa's Remains"
+  },
+  "MM_GOHTS_REMAINS_LABELED": {
+    "toggle": "MM_GOHTS_REMAINS",
+    "label": "Goht's Remains"
+  },
+  "MM_GYORGS_REMAINS_LABELED": {
+    "toggle": "MM_GYORGS_REMAINS",
+    "label": "Gyorg's Remains"
+  },
+  "MM_TWINMOLDS_REMAINS_LABELED": {
+    "toggle": "MM_TWINMOLDS_REMAINS",
+    "label": "Twinmold's Remains"
+  }
+}
