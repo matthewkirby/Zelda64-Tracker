@@ -4,6 +4,7 @@ import 'style/tracker.css';
 
 import { itemDict } from 'button_dictionary';
 import { Item } from 'components/Item'
+import { DungeonDropdownBox } from './DungeonDropdownBox';
 
 // This component has code that runs every time it is rendered that only needs to run on the first time it is rendered.
 // I believe there is a hook that can be used to resolve this. So look into it
@@ -70,30 +71,29 @@ export function Tracker() {
     }
   }, []);
 
-  console.log(trackerLayout);
+  // console.log(trackerLayout);
 
   // Build style object to pass to each item
   const itemSize = tempItemSize ?? 50; // Replace temp variable with prop passed from parent
   const itemSizeStyles = { "height": `${itemSize}px`, "width": `${itemSize}px`};
   
   // dungeonKeyList: "oot", "mm", "ootmm" || identifierType: "text", "imageTODO" || interactionType: "dropdown", "inElement"
-  const dungeonRewardOptions = { dungeonListKey: "ootmm", identifierType: "text", interactionType: "inElement" }; // Temp variable that will be passed from parent
-  const metaOptions = { dungeonRewardOptions: dungeonRewardOptions };
+  const dungeonRewardOptions = { dungeonListKey: "ootmm", identifierType: "text", interactionType: "dropdown" }; // Temp variable that will be passed from parent
+  const metaOptions = { dungeonRewardOptions: dungeonRewardOptions, itemSize: { number: itemSize, style: itemSizeStyles } };
 
   // Define tracker state variables
   const [trackerState, setTrackerState] = React.useState(initializeTrackerState(trackerLayout));
-  console.log(trackerState);
+  // console.log(trackerState);
 
   tempTracker += 1;
   console.log(`Rendering #${tempTracker}`)
-
 
   // Hook to update an item's state
   const updateSingleItem = (pendingState) => {
     const newState = { ...trackerState, ...pendingState };
     setTrackerState(newState);
   }
-  
+
   // Render
   return (
     <>
@@ -103,20 +103,18 @@ export function Tracker() {
             key={i}
             itemInfo={item}
             trackerState={trackerState}
-            itemSize={itemSizeStyles}
             updateSingleItem={updateSingleItem}
             metaOptions={metaOptions}
           />
         )}
       </div>
-      <div className='markingBox' id='markingBox'>
-        {trackerLayout
-          .filter((item) => ['dungeonReward'].includes(item.type))
-          .map((item, i) => {
-            return <div key={i}>{item.label}: {item.name}</div>;
-          })
-        }
-      </div>
+      <DungeonDropdownBox
+        key={"ddb"}
+        trackerState={trackerState}
+        trackerLayout={trackerLayout}
+        updateSingleItem={updateSingleItem}
+        metaOptions={metaOptions}
+      />
     </>
   );
 }

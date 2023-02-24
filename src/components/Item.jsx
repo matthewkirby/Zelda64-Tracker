@@ -12,7 +12,7 @@ const Squish = (props) => {
   const nItems = itemList.length;
 
   // Resolve new sizes
-  const oldWidth = Number(props.itemSize.width.slice(0, -2));
+  const oldWidth = props.metaOptions.itemSize.number;
   const gapSize = 10;
   const totalSpace = nCols*oldWidth + (nCols-1)*gapSize;
   const newWidth = totalSpace/(nItems + 0.1*(nItems-1));
@@ -21,7 +21,7 @@ const Squish = (props) => {
   // Set up new styles
   const squishStyle = { "gridColumnEnd": `span ${nCols}`, "columnGap": `${newGap}px` };
   const subElementStyles = { "gridRow": 1 };
-  const newItemSize = { "height": `${newWidth}px`, "width": `${newWidth}px`};
+  const newItemSize = { number: newWidth, style: { "height": `${newWidth}px`, "width": `${newWidth}px` } };
 
   return (
     <div style={{ ...styles.baseSquish, ...squishStyle }} >
@@ -30,7 +30,7 @@ const Squish = (props) => {
           key={item.name+i}
           {...props}
           itemInfo={item}
-          itemSize={newItemSize}
+          metaOptions={{ ...props.metaOptions, itemSize: newItemSize}}
           extraStyles={subElementStyles}
         />
       )}

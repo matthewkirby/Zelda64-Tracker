@@ -2,10 +2,11 @@ import './counter.css';
 
 const locLookup = { 0: "top-left", 1: "top-right", 2: "bottom-left", 3: "bottom-right" };
 
-export const Counter = ({ itemInfo, itemState, itemSize, updateSingleItem, extraStyles }) => {
+export const Counter = ({ itemInfo, itemState, metaOptions, updateSingleItem, extraStyles }) => {
 
   const baseItem = itemInfo.name;
   const textLocation = itemInfo.location ?? 1;
+  const itemSize = metaOptions.itemSize;
 
   // Build the list of classes
   const baseClassList = ["itm-base", "base-item", baseItem];
@@ -16,7 +17,7 @@ export const Counter = ({ itemInfo, itemState, itemSize, updateSingleItem, extra
   }
 
   // Try to calculate a good font size
-  const width = 0.5*Number(itemSize.width.slice(0, -2));
+  const width = 0.5 * itemSize.number;
   const fontStyle = {}
   if (itemState < 10) {
     fontStyle['fontSize'] = `${width}px`;
@@ -48,7 +49,7 @@ export const Counter = ({ itemInfo, itemState, itemSize, updateSingleItem, extra
 
   // Render
   return (
-    <div className="counter" style={{...itemSize, ...extraStyles}} onClick={(e) => onInteract(e)} onContextMenu={(e) => onInteract(e)}>
+    <div className="counter" style={{...itemSize.style, ...extraStyles}} onClick={(e) => onInteract(e)} onContextMenu={(e) => onInteract(e)}>
       <button className={baseClassList.join(" ")} />
       <button className={textClassList.join(" ")} style={fontStyle}>{itemState}</button>
     </div>

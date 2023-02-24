@@ -1,20 +1,16 @@
 import { Toggle } from "./Toggle";
+import { dungeonTextOptions } from "data/dungeon_text_options";
 import './dungeon_reward.css';
-
-const OOT_DUNGEONS = ["", "FREE", "DEKU", "DCVN", "JABU", "FRST", "FIRE", "WATR", "SHDW", "SPRT"];
-const MM_DUNGEONS = ["WOOD", "SNOW", "GBAY", "STONE"];
-const dungeonTextOptions = {
-  "oot": OOT_DUNGEONS,
-  "mm": MM_DUNGEONS,
-  "ootmm": [ ...OOT_DUNGEONS, ...MM_DUNGEONS ]
-};
 
 export const DungeonReward = (props) => {
 
-  const { trackerState, itemInfo, itemSize, extraStyles, updateSingleItem } = props;
+  const { trackerState, itemInfo, extraStyles, updateSingleItem, metaOptions } = props;
   const toggleName = itemInfo.toggle;
   const identifierState = trackerState[itemInfo.name];
-  const { dungeonListKey, identifierType, interactionType } = props.metaOptions.dungeonRewardOptions;
+  const { dungeonListKey, identifierType, interactionType } = metaOptions.dungeonRewardOptions;
+  const dungeonIdentifiers = dungeonTextOptions[dungeonListKey].identifiers;
+
+  const itemSize = metaOptions.itemSize;
 
   // Style the dungeon name
   const identifierClassList = ["bottom-row", "textFlexBox", "textStyle"];
@@ -23,7 +19,7 @@ export const DungeonReward = (props) => {
   }
 
   // Dynamic font size
-  const fontSize = 0.5 * itemSize.height.slice(0, -2) * 0.8;
+  const fontSize = 0.5 * itemSize.number * 0.8;
 
   // Move interaction to the outer div
   const onInteract = (event) => {
@@ -44,7 +40,7 @@ export const DungeonReward = (props) => {
     if (event.shiftKey) {
       simpleInteraction();
     } else {
-      const maxState = dungeonTextOptions[dungeonListKey].length - 1;
+      const maxState = dungeonIdentifiers.length - 1;
       const newState = event.type === "click" ?
         (identifierState + 1 > maxState ? 0 : identifierState + 1) :
         (identifierState - 1 < 0 ? maxState : identifierState - 1);
@@ -56,7 +52,7 @@ export const DungeonReward = (props) => {
   return (
     <div 
       className="dungeonReward"
-      style={{...itemSize, ...extraStyles}}
+      style={{...itemSize.style, ...extraStyles}}
       onClick={(e) => onInteract(e)}
       onContextMenu={(e) => onInteract(e)}
     >
@@ -73,7 +69,7 @@ export const DungeonReward = (props) => {
         style={{ fontSize: fontSize }}
       >
         {/* Put letters into flexbox divs to space evenly across the width */}
-        {[...dungeonTextOptions[dungeonListKey][identifierState]].map((c, i) => <div key={i}>{c}</div>)}
+        {[...dungeonIdentifiers[identifierState]].map((c, i) => <div key={i}>{c}</div>)}
       </div>
     </div>
   );

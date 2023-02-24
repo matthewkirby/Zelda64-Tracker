@@ -1,10 +1,11 @@
 const locLookup = { 0: "top-left", 1: "top-right", 2: "bottom-left", 3: "bottom-right" };
 
-export const Badge = ({ itemInfo, itemState, itemSize, updateSingleItem, extraStyles }) => {
+export const Badge = ({ itemInfo, itemState, metaOptions, updateSingleItem, extraStyles }) => {
 
   const baseItem = itemInfo.base;
   const badgeItem = itemInfo.badge;
   const badgeLocation = itemInfo.location ?? 3;
+  const itemSizeStyle = metaOptions.itemSize.style;
 
   // Build the list of classes for the base
   const baseClassList = ["itm-base", "base-item", baseItem];
@@ -27,7 +28,7 @@ export const Badge = ({ itemInfo, itemState, itemSize, updateSingleItem, extraSt
 
   // Render
   return (
-    <div className="badge" style={{...itemSize, ...extraStyles}} onClick={() => onInteract(0)} onContextMenu={() => onInteract(1)}>
+    <div className="badge" style={{...itemSizeStyle, ...extraStyles}} onClick={() => onInteract(0)} onContextMenu={() => onInteract(1)}>
       <button className={baseClassList.join(" ")} />
       <button className={badgeClassList.join(" ")} />
     </div>

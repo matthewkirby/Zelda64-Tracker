@@ -2,8 +2,9 @@ const equals = (a, b) => {
   return Math.abs(a - b) < Number.EPSILON;
 }
 
-export const Cycle = ({ itemInfo, itemState, itemSize, updateSingleItem, extraStyles }) => {
+export const Cycle = ({ itemInfo, itemState, metaOptions, updateSingleItem, extraStyles }) => {
 
+  const itemSizeStyle = metaOptions.itemSize.style;
   const itemSequence = itemInfo.sequence;
   const minState = itemInfo.disableZero ? 0 : 1;
   const maxState = itemSequence.length;
@@ -42,7 +43,7 @@ export const Cycle = ({ itemInfo, itemState, itemSize, updateSingleItem, extraSt
   return (
     <button
       className={classList.join(" ")}
-      style={{...itemSize, ...extraStyles}}
+      style={{...itemSizeStyle, ...extraStyles}}
       onClick={() => onInteract(true)}
       onContextMenu={() => onInteract(false)}
     />

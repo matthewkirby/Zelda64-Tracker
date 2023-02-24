@@ -3,55 +3,68 @@
 
   "OOT_FOREST_MEDALLION_LABELED": {
     "toggle": "OOT_FOREST_MEDALLION",
-    "label": "Forest Medallion"
+    "label": "Forest Medallion",
+    "priority": 4
   },
   "OOT_FIRE_MEDALLION_LABELED": {
     "toggle": "OOT_FIRE_MEDALLION",
-    "label": "Fire Medallion"
+    "label": "Fire Medallion",
+    "priority": 5
   },
   "OOT_WATER_MEDALLION_LABELED": {
     "toggle": "OOT_WATER_MEDALLION",
-    "label": "Water Medallion"
+    "label": "Water Medallion",
+    "priority": 6
   },
   "OOT_SHADOW_MEDALLION_LABELED": {
     "toggle": "OOT_SHADOW_MEDALLION",
-    "label": "Shadow Medallion"
+    "label": "Shadow Medallion",
+    "priority": 7
   },
   "OOT_SPIRIT_MEDALLION_LABELED": {
     "toggle": "OOT_SPIRIT_MEDALLION",
-    "label": "Spirit Medallion"
+    "label": "Spirit Medallion",
+    "priority": 8
   },
   "OOT_LIGHT_MEDALLION_LABELED": {
     "toggle": "OOT_LIGHT_MEDALLION",
-    "label": "Light Medallion"
+    "label": "Light Medallion",
+    "priority": 9
   },
   "OOT_KOKIRI_EMERALD_LABELED": {
     "toggle": "OOT_KOKIRI_EMERALD",
-    "label": "Kokiri Emerald"
+    "label": "Kokiri Emerald",
+    "priority": 1
   },
   "OOT_GORON_RUBY_LABELED": {
     "toggle": "OOT_GORON_RUBY",
-    "label": "Goron Ruby"
+    "label": "Goron Ruby",
+    "priority": 2
   },
   "OOT_ZORA_SAPPHIRE_LABELED": {
     "toggle": "OOT_ZORA_SAPPHIRE",
-    "label": "Zora Sapphire"
+    "label": "Zora Sapphire",
+    "priority": 3
   },
 
   "MM_ODOLWAS_REMAINS_LABELED": {
     "toggle": "MM_ODOLWAS_REMAINS",
-    "label": "Odolwa's Remains"
+    "label": "Odolwa's Remains",
+    "priority": 10
   },
   "MM_GOHTS_REMAINS_LABELED": {
     "toggle": "MM_GOHTS_REMAINS",
-    "label": "Goht's Remains"
+    "label": "Goht's Remains",
+    "priority": 11
   },
   "MM_GYORGS_REMAINS_LABELED": {
     "toggle": "MM_GYORGS_REMAINS",
-    "label": "Gyorg's Remains"
+    "label": "Gyorg's Remains",
+    "priority": 12
   },
   "MM_TWINMOLDS_REMAINS_LABELED": {
     "toggle": "MM_TWINMOLDS_REMAINS",
-    "label": "Twinmold's Remains"
+    "label": "Twinmold's Remains",
+    "priority": 13
   }
 }
