@@ -27,20 +27,13 @@ export const DungeonDropdownBox = ({ trackerLayout, trackerState, updateSingleIt
   const relevantLayoutElements = findDropdownElements([ ...trackerLayout ]);
   relevantLayoutElements.sort((a,b) => a.priority > b.priority ? 1 : -1);
 
-  // Define inline styles
-  const { nCols, columnGap } = metaOptions.trackerOptions;
-  const width = metaOptions.itemSize.number;
-  const markingBoxStyles = {
-    width: `${nCols*width + (nCols-1)*columnGap}px`
-  }
-
   // Define interaction
   const onChange = (itemName, newVal) => {
     updateSingleItem({ [itemName]: newVal });
   }
 
   return (
-    <div className='marking-box one-column-grid' id='marking-box' style={markingBoxStyles}>
+    <div className='marking-box one-column-grid' id='marking-box' >
       {relevantLayoutElements.map((item, i) => {
         return (
           <Dropdown

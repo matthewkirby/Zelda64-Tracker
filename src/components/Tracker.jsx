@@ -5,6 +5,7 @@ import 'style/tracker.css';
 import { itemDict } from 'button_dictionary';
 import { Item } from 'components/Item'
 import { DungeonDropdownBox } from './DungeonDropdownBox';
+import { ExpandingTab } from './ExpandableTab';
 
 // This component has code that runs every time it is rendered that only needs to run on the first time it is rendered.
 // I believe there is a hook that can be used to resolve this. So look into it
@@ -77,17 +78,27 @@ export function Tracker() {
   const itemSize = tempItemSize ?? 50; // Replace temp variable with prop passed from parent
   const itemSizeStyles = { "height": `${itemSize}px`, "width": `${itemSize}px`};
   
+
+  // =====================================================================
+  // This will all be done in parent class as state variable once its written
   // dungeonKeyList: "oot", "mm", "ootmm" || identifierType: "text", "imageTODO" || interactionType: "dropdown", "inElement"
-  const dungeonRewardOptions = { dungeonListKey: "ootmm", identifierType: "text", interactionType: "dropdown" }; // Temp variable that will be passed from parent
   const metaOptions = {
-    dungeonRewardOptions: dungeonRewardOptions,
+    dungeonRewardOptions: { dungeonListKey: "ootmm", identifierType: "text", interactionType: "dropdown" },
     itemSize: { number: itemSize, style: itemSizeStyles },
     trackerOptions: { nCols: 6, rowGap: 10, columnGap: 10 }
   };
+  const trackerOptions = metaOptions;
+  trackerOptions.layoutOptions = trackerOptions.trackerOptions;
+
+  const { nCols, columnGap } = trackerOptions.trackerOptions;
+  const width = trackerOptions.itemSize.number;
+  const trackerWidth = nCols*width + (nCols-1)*columnGap;
+  trackerOptions.trackerSize = { style: { width: `${trackerWidth}px` }, number: trackerWidth };
+  // ====================================================================
 
   // Define tracker state variables
   const [trackerState, setTrackerState] = React.useState(initializeTrackerState(trackerLayout));
-  // console.log(trackerState);
+  const [visibleTabs, setVisibleTabs] = React.useState({ drewards: true });
 
   tempTracker += 1;
   console.log(`Rendering #${tempTracker}`)
@@ -105,6 +116,13 @@ export function Tracker() {
     setTrackerState(newState);
   }
 
+  // Hook to update tab visibility
+  const toggleTabVisibility = (tabKey) => {
+    const currentState = visibleTabs[tabKey];
+    const newState = { ...visibleTabs, [tabKey]: !currentState };
+    setVisibleTabs(newState);
+  }
+
   // Render
   return (
     <>
@@ -119,13 +137,20 @@ export function Tracker() {
           />
         )}
       </div>
-      <DungeonDropdownBox
-        key={"ddb"}
-        trackerState={trackerState}
-        trackerLayout={trackerLayout}
-        updateSingleItem={updateSingleItem}
-        metaOptions={metaOptions}
-      />
+      {metaOptions.dungeonRewardOptions.interactionType === "dropdown" &&
+        <ExpandingTab
+          key="drewards" label="Dungeon Rewards" isVisible={visibleTabs.drewards}
+          onClick={() => toggleTabVisibility("drewards")} trackerOptions={trackerOptions}
+        >
+          <DungeonDropdownBox
+            key={"ddb"}
+            trackerState={trackerState}
+            trackerLayout={trackerLayout}
+            updateSingleItem={updateSingleItem}
+            metaOptions={metaOptions}
+          />
+        </ExpandingTab>
+      }
     </>
   );
 }

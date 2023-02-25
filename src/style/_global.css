@@ -1,3 +1,7 @@
 button:focus-visible {
   outline: none;
 }
+
+.font-face-labels {
+  font-family: Impact;
+}

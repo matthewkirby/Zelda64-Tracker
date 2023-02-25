@@ -1,0 +1,39 @@
+.settings-tab {
+  border: 1px solid black;
+  box-sizing: border-box;
+  background-color: #01061d;
+  color: #d9d2c3;
+  user-select: none;
+}
+
+.settings-header {
+  border: 1px solid #ada801;
+  font-size: 1.25em;
+  line-height: 2.5;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.settings-header:hover {
+  color: #fffb8e;
+}
+
+.settings-header > .icon {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-header > label {
+  flex-grow: 8;
+}
+
+.settings-body {
+  padding: 20px;
+  border: 1px solid #ada801;
+  border-top: none;
+}
