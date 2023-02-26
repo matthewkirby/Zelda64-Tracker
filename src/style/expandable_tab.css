@@ -4,6 +4,7 @@
   background-color: #01061d;
   color: #d9d2c3;
   user-select: none;
+  min-width: 400px;
 }
 
 .settings-header {
