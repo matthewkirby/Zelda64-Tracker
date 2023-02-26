@@ -31,6 +31,31 @@ const trackerLayoutList = {
       "OOT_ZELDAS_LULLABY_WCHECK", "OOT_EPONAS_SONG_WCHECK", "OOT_SARIAS_SONG_WCHECK", "OOT_SUNS_SONG_WCHECK", "OOT_SONG_OF_TIME_WCHECK", "OOT_SONG_OF_STORMS_WCHECK",
       "OOT_MINUET_WCHECK", "OOT_BOLERO_WCHECK", "OOT_SERENADE_WCHECK", "OOT_NOCTURNE_WCHECK", "OOT_REQUIEM_WCHECK", "OOT_PRELUDE_WCHECK"
     ]
+  },
+  tsg_multiworld: {
+    label: "TSG Multiworld",
+    nCols: 3,
+    geometry: {
+      units: "px",
+      defaultItemSize: 50,
+      defaultRowGap: 10,
+      defaultColumnGap: 10
+    },
+    dungeonRewardOptions: {
+      dungeonListKey: "oot",
+      identifierType: "text",
+      interactionType: "inElement"
+    },
+    layout: [
+      "OOT_KOKIRI_SWORD", "OOT_SLINGSHOT", "BLANK",
+      "OOT_BOMB_BAG", "OOT_BOW", "OOT_FOREST_MEDALLION_LABELED",
+      "OOT_BOOMERANG", "OOT_HAMMER", "OOT_FIRE_MEDALLION_LABELED",
+      "OOT_PROGRESSIVE_HOOKSHOT", "OOT_COMPOSITE_SPELLS", "OOT_WATER_MEDALLION_LABELED",
+      "OOT_BOTTLE_RUTOS", "OOT_COMPOSITE_ARROWS", "OOT_SHADOW_MEDALLION_LABELED",
+      "OOT_MIRROR_SHIELD", "OOT_PROGRESSIVE_STRENGTH", "OOT_SPIRIT_MEDALLION_LABELED",
+      "OOT_COMPOSITE_BOOTS", "OOT_PROGRESSIVE_SCALE", "OOT_LIGHT_MEDALLION_LABELED",
+      "OOT_KOKIRI_EMERALD", "OOT_GORON_RUBY", "OOT_ZORA_SAPPHIRE"
+    ]
   }
 }
 
