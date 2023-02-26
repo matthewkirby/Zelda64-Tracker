@@ -34,5 +34,7 @@ const trackerLayoutList = {
   }
 }
 
+const defaultLayoutKey = "uninitialized";
 
-export { trackerLayoutList };
+
+export { defaultLayoutKey, trackerLayoutList };

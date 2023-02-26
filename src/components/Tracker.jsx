@@ -1,57 +1,33 @@
 import React from 'react';
 
 import 'style/tracker.css';
-import 'style/itemgrid.css';
 
-import { itemDict } from 'button_dictionary';
-import { Item } from 'components/Item'
-import { DungeonDropdownBox } from './DungeonDropdownBox';
 import { ExpandingTab } from './ExpandableTab';
+import { ItemGrid } from './ItemGrid';
 
-import { trackerLayoutList } from 'data/ItemLayoutList';
+import { defaultLayoutKey, trackerLayoutList } from 'data/ItemLayoutList';
+import { TrackerSettings } from './TrackerSettings';
 
 // This is temp code to track how many times I am rendering
 let tempCountRenders = 0;
-// Replace this with null and only show the setup options
-const tempDefaultLayout = "rsl_no_keys";
 
+const calcDerivedTrackerSize = (units, geometry) => {
+  const trackerSize = geometry !== null
+    ? geometry.nCols*geometry.itemSize + (geometry.nCols-1)*geometry.columnGap
+    : 500;
+  return {
+    number: trackerSize,
+    style: { width: `${trackerSize}${units}` }
+  };
 
-
-
-const initializeTrackerState = (layout) => {
-  const initialState = layout.reduce((tot, item) => {
-    if (item.type === "simple_toggle") {
-      return { ...tot, [item.name]: false };
-    } if (item.type === "cycle") {
-      const defaultValue = item.disableZero ? 0 : 1;
-      return { ...tot, [item.name]: defaultValue };
-    } else if (item.type === "badge" || item.type === "composite") {
-      return { ...tot, [item.name]: [false, false] };
-    } else if (item.type === "counter") {
-      return { ...tot, [item.name]: 0 };
-    } else if(item.type === "dungeonReward") {
-      return { ...tot, [item.name]: 0, [item.toggle]: false }
-    } else if (item.type === "squish") {
-      const squishItems = item.items;
-      const subDefaults = initializeTrackerState(squishItems);
-      return { ...tot, ...subDefaults };
-    } else {
-      console.error(Error(`Item ${item.name} with type ${item.type} has no defined behavior in initializeTrackerState.`));
-    }
-  }, {});
-  return initialState;
-}
+};
 
 const calcDerivedTrackerProps = (trackerLayout) => {
   const { nCols, itemSize, columnGap, rowGap } = trackerLayout.geometry;
-  const trackerSize = nCols*itemSize + (nCols-1)*columnGap;
   const sizeUnits = trackerLayout.geometry.units;
 
   const derivedProps = {
-    trackerSize: { 
-      number: trackerSize,
-      style: { width: `${trackerSize}${sizeUnits}` }
-    },
+    trackerSize: calcDerivedTrackerSize(sizeUnits, trackerLayout.geometry),
     itemSize: {
       number: itemSize,
       style: {
@@ -70,10 +46,22 @@ const calcDerivedTrackerProps = (trackerLayout) => {
 };
 
 const loadTrackerByKey = (layoutKey) => {
+
+  if (layoutKey === defaultLayoutKey) {
+    return {
+      trackerLayoutIds: null,
+      trackerOptions: {
+        layoutKey: defaultLayoutKey,
+        calc: { trackerSize: calcDerivedTrackerSize("px", null) }
+      }
+    };
+  }
+
   const defaultTrackerLayout = trackerLayoutList[layoutKey];
   const defaultGeometry = defaultTrackerLayout.geometry;
 
   const trackerOptions = {
+    layoutKey: layoutKey,
     dungeonRewardOptions: defaultTrackerLayout.dungeonRewardOptions,
     geometry: {
       nCols: defaultTrackerLayout.nCols,
@@ -94,35 +82,13 @@ export function Tracker() {
   tempCountRenders += 1;
   console.log(`Rendering #${tempCountRenders}`)
 
-  // Set all the tracker options from the selected layout  
-  const [layoutKey, setLayoutKey] = React.useState(tempDefaultLayout); // TODO: Change default
+  // Set all the tracker options from the selected layout
+  const [layoutKey, setLayoutKey] = React.useState(defaultLayoutKey);
+  const buildTracker = layoutKey !== defaultLayoutKey;
   const { trackerLayoutIds, trackerOptions } = loadTrackerByKey(layoutKey);
 
-  // Set up the tracker's item grid
-  const trackerLayout = trackerLayoutIds.reduce((tot, item) => {
-    if (typeof item === "string") {
-      return [ ...tot, {"name": item, ...itemDict[item]} ];
-    } else if (typeof item === "object" && item.type === "squish") {
-      const squishDict = { "type": "squish", "nCols": item.nCols, "items": [] };
-      for (const subItem of item.items) {
-        squishDict.items.push({"name": subItem, ...itemDict[subItem]});
-      }
-      return [ ...tot, squishDict ];
-    } else {
-      console.log(`Unknown item in grid, ${item}. Skipping.`);
-      return [ ...tot ];
-    }
-  }, []);
-
   // Define tracker state variables
-  const [trackerState, setTrackerState] = React.useState(initializeTrackerState(trackerLayout));
-  const [visibleTabs, setVisibleTabs] = React.useState({ drewards: true });
-
-  // Hook to update an item's state
-  const updateSingleItem = (pendingState) => {
-    const newState = { ...trackerState, ...pendingState };
-    setTrackerState(newState);
-  }
+  const [visibleTabs, setVisibleTabs] = React.useState({ drewards: true, settings: !buildTracker });
 
   // Hook to update tab visibility
   const toggleTabVisibility = (tabKey) => {
@@ -131,34 +97,37 @@ export function Tracker() {
     setVisibleTabs(newState);
   }
 
+  // Hook to handle tracker initialization
+  const changeTrackerLayout = (newLayoutKey) => {
+    if (layoutKey === defaultLayoutKey) {
+      const newVisibleTabs = { ...visibleTabs };
+      Object.keys(newVisibleTabs).forEach(k => {
+        newVisibleTabs[k] = k !== "settings" ? true : false;
+      });
+      setVisibleTabs(newVisibleTabs);
+    }
+    setLayoutKey(newLayoutKey)
+  }
+
   // Render
   return (
     <>
-      <div className='itemgrid' id='tracker' style={trackerOptions.calc.trackerStyle} onContextMenu={(e)=>e.preventDefault()}>
-        {trackerLayout.map((item, i) =>
-          <Item
-            key={i}
-            itemInfo={item}
-            trackerState={trackerState}
-            updateSingleItem={updateSingleItem}
-            trackerOptions={trackerOptions}
-          />
-        )}
-      </div>
-      {trackerOptions.dungeonRewardOptions.interactionType === "dropdown" &&
-        <ExpandingTab
-          key="drewards" label="Dungeon Rewards" isVisible={visibleTabs.drewards}
-          onClick={() => toggleTabVisibility("drewards")} trackerOptions={trackerOptions}
-        >
-          <DungeonDropdownBox
-            key={"ddb"}
-            trackerState={trackerState}
-            trackerLayout={trackerLayout}
-            updateSingleItem={updateSingleItem}
-            trackerOptions={trackerOptions}
-          />
-        </ExpandingTab>
-      }
+      {buildTracker && <ItemGrid
+        trackerLayoutIds={trackerLayoutIds}
+        trackerOptions={trackerOptions}
+        visibleTabs={{ state: visibleTabs, "hook": toggleTabVisibility }}
+      />}
+      <ExpandingTab
+        key="tracker-options" label="Tracker Settings" isVisible={visibleTabs.settings}
+        onClick={() => toggleTabVisibility("settings")} trackerOptions={trackerOptions}
+      >
+        <TrackerSettings key={"ts"}
+          trackerOptions={trackerOptions}
+          settingsHooks={{
+            setLayoutKey: changeTrackerLayout
+          }}
+        />
+      </ExpandingTab>
     </>
   );
 }

@@ -1,4 +1,4 @@
-/* div.itemgrid {
+div.itemgrid {
   display: grid;
   padding-bottom: 40px;
 }
@@ -19,4 +19,4 @@
   display: grid;
   gap: 15px;
   grid-template-columns: repeat(3, 1fr);
-} */
+}
