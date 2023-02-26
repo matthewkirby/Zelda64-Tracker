@@ -2,9 +2,9 @@
 // background-image: url(), linear-gradient(to bottom right, rgba(0,0,0,0) 50%, color 50%);
 // Needs more fiddling and reading into how this works
 
-export const Composite = ({ itemInfo, itemState, metaOptions, updateSingleItem, extraStyles }) => {
+export const Composite = ({ itemInfo, itemState, trackerOptions, updateSingleItem, extraStyles }) => {
 
-  const itemSizeStyle = metaOptions.itemSize.style;
+  const itemSizeStyle = trackerOptions.calc.itemSize.style;
   const [leftItem, rightItem] = itemInfo.items;
   const [leftState, rightState] = itemState;
 

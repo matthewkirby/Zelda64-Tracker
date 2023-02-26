@@ -1,6 +1,8 @@
-export const Toggle = ({ itemInfo, itemState, metaOptions, updateSingleItem, extraStyles, disableClick }) => {
 
-  const itemSizeStyle = metaOptions.itemSize.style;
+// TODO: Make disableInteraction a prop that if it exists at all is active rather than need to set to a bool
+export const Toggle = ({ itemInfo, itemState, trackerOptions, updateSingleItem, extraStyles, disableInteraction }) => {
+
+  const itemSizeStyle = trackerOptions.calc.itemSize.style;
   const itemName = itemInfo.name;
 
   const className = ["itm-base", itemName];
@@ -18,8 +20,8 @@ export const Toggle = ({ itemInfo, itemState, metaOptions, updateSingleItem, ext
     <button
       className={className.join(" ")}
       style={{...itemSizeStyle, ...extraStyles}}
-      onClick={!!disableClick ? null : () => onClick()}
-      onContextMenu={!!disableClick ? null : () => onClick()}
+      onClick={!!disableInteraction ? null : () => onClick()}
+      onContextMenu={!!disableInteraction ? null : () => onClick()}
     />
   );
 };

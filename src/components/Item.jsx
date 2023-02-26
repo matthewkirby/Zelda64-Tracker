@@ -2,35 +2,40 @@ import 'style/item.css';
 import 'style/item_subgrids.css';
 import { Cycle, Toggle, Badge, Composite, Counter, DungeonReward } from './ItemTypes';
 
-const styles = {
-  baseSquish: { display: "grid", alignItems: "center" }
-}
-
 const Squish = (props) => {
   const itemList = props.itemInfo.items;
   const nCols = props.itemInfo.nCols;
+  const childTrackerOptions = JSON.parse(JSON.stringify(props.trackerOptions));
   const nItems = itemList.length;
 
+  // Load tracker sizes
+  const units = childTrackerOptions.geometry.units;
+  const oldWidth = childTrackerOptions.calc.itemSize.number;
+  const gapSize = childTrackerOptions.geometry.columnGap;
+
   // Resolve new sizes
-  const oldWidth = props.metaOptions.itemSize.number;
-  const gapSize = 10;
   const totalSpace = nCols*oldWidth + (nCols-1)*gapSize;
   const newWidth = totalSpace/(nItems + 0.1*(nItems-1));
   const newGap = newWidth/10;
 
   // Set up new styles
-  const squishStyle = { "gridColumnEnd": `span ${nCols}`, "columnGap": `${newGap}px` };
-  const subElementStyles = { "gridRow": 1 };
-  const newItemSize = { number: newWidth, style: { "height": `${newWidth}px`, "width": `${newWidth}px` } };
+  const squishStyle = { gridColumnEnd: `span ${nCols}`, columnGap: `${newGap}${units}` };
+  const subElementStyles = { gridRow: 1 };
+  const newItemSize = { number: newWidth, style: { height: `${newWidth}${units}`, width: `${newWidth}${units}` } };
+
+  // Update tracker options object
+  childTrackerOptions.itemSize = newWidth;
+  childTrackerOptions.columnGap = newGap;
+  childTrackerOptions.calc.itemSize = newItemSize;
 
   return (
-    <div style={{ ...styles.baseSquish, ...squishStyle }} >
+    <div className="squish-base" style={squishStyle} >
       {itemList.map((item, i) =>
         <Item
           key={item.name+i}
           {...props}
           itemInfo={item}
-          metaOptions={{ ...props.metaOptions, itemSize: newItemSize}}
+          trackerOptions={childTrackerOptions}
           extraStyles={subElementStyles}
         />
       )}

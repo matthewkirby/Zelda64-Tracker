@@ -7,7 +7,7 @@ import 'style/expandable_tab.css';
 
 const ExpandingTab = (props) => {
   return (
-    <div className="settings-tab" style={props.trackerOptions.trackerSize.style}>
+    <div className="settings-tab" style={props.trackerOptions.calc.trackerSize.style}>
       <div className="settings-header font-face-labels" onClick={() => props.onClick()}>
         {props.isVisible ? <div className="icon"><FontAwesomeIcon icon={faAnglesDown} size="1x" /></div> : null}
         {!props.isVisible ? <div className="icon"><FontAwesomeIcon icon={faAnglesRight} size="1x" /></div> : null}

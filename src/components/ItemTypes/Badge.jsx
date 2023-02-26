@@ -1,11 +1,11 @@
 const locLookup = { 0: "top-left", 1: "top-right", 2: "bottom-left", 3: "bottom-right" };
 
-export const Badge = ({ itemInfo, itemState, metaOptions, updateSingleItem, extraStyles }) => {
+export const Badge = ({ itemInfo, itemState, trackerOptions, updateSingleItem, extraStyles }) => {
 
   const baseItem = itemInfo.base;
   const badgeItem = itemInfo.badge;
   const badgeLocation = itemInfo.location ?? 3;
-  const itemSizeStyle = metaOptions.itemSize.style;
+  const itemSizeStyle = trackerOptions.calc.itemSize.style;
 
   // Build the list of classes for the base
   const baseClassList = ["itm-base", "base-item", baseItem];

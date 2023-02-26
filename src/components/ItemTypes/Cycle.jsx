@@ -2,9 +2,9 @@ const equals = (a, b) => {
   return Math.abs(a - b) < Number.EPSILON;
 }
 
-export const Cycle = ({ itemInfo, itemState, metaOptions, updateSingleItem, extraStyles }) => {
+export const Cycle = ({ itemInfo, itemState, trackerOptions, updateSingleItem, extraStyles }) => {
 
-  const itemSizeStyle = metaOptions.itemSize.style;
+  const itemSizeStyle = trackerOptions.calc.itemSize.style;
   const itemSequence = itemInfo.sequence;
   const minState = itemInfo.disableZero ? 0 : 1;
   const maxState = itemSequence.length;

@@ -16,3 +16,8 @@
 .itm-hidden {
   display: none;
 }
+
+.squish-base {
+  display: grid;
+  align-items: center;
+}

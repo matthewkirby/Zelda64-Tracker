@@ -17,10 +17,10 @@ const findDropdownElements = (layout) => {
   return expandedLayout.filter((item) => ['dungeonReward'].includes(item.type));
 };
 
-export const DungeonDropdownBox = ({ trackerLayout, trackerState, updateSingleItem, metaOptions }) => {
+export const DungeonDropdownBox = ({ trackerLayout, trackerState, updateSingleItem, trackerOptions }) => {
   // If dungeon reward objects are not going to be dropdown controlled, don't do anything.
-  if (metaOptions.dungeonRewardOptions.interactionType !== "dropdown") { return ''; }
-  const { labels } = dungeonTextOptions[metaOptions.dungeonRewardOptions.dungeonListKey];
+  if (trackerOptions.dungeonRewardOptions.interactionType !== "dropdown") { return ''; }
+  const { labels } = dungeonTextOptions[trackerOptions.dungeonRewardOptions.dungeonListKey];
   const idedLabels = labels.reduce((tot, lab, i) =>  [ ...tot, { label: lab, value: i } ], []);
 
   // Trim layout list to only things with dropdowns and sort

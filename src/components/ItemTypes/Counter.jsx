@@ -2,11 +2,11 @@ import './counter.css';
 
 const locLookup = { 0: "top-left", 1: "top-right", 2: "bottom-left", 3: "bottom-right" };
 
-export const Counter = ({ itemInfo, itemState, metaOptions, updateSingleItem, extraStyles }) => {
+export const Counter = ({ itemInfo, itemState, trackerOptions, updateSingleItem, extraStyles }) => {
 
   const baseItem = itemInfo.name;
   const textLocation = itemInfo.location ?? 1;
-  const itemSize = metaOptions.itemSize;
+  const itemSize = trackerOptions.calc.itemSize;
 
   // Build the list of classes
   const baseClassList = ["itm-base", "base-item", baseItem];
