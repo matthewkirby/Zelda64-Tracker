@@ -3,7 +3,7 @@ const OOT_DUNGEONS = ["FREE", "DEKU", "DCVN", "JABU",
 const OOT_DUNGEONS_LABELS = ["Free", "Deku Tree", "Dodongo's Cavern", "Jabu Jabu",
   "Forest Temple", "Fire Temple", "Water Temple", "Shadow Temple", "Spirit Temple"];
 
-const MM_DUNGEONS = ["WOOD", "SNOW", "GBAY", "STONE"];
+const MM_DUNGEONS = ["WOOD", "SNOW", "GBAY", "STWR"];
 const MM_DUNGEON_LABELS = ["Woodfall Temple", "Snowhead Temple", "Great Bay Temple",
   "Stone Tower Temple"];
 
