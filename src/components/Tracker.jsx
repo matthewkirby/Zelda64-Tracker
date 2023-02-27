@@ -11,6 +11,9 @@ import { TrackerSettings } from './TrackerSettings';
 // This is temp code to track how many times I am rendering
 let tempCountRenders = 0;
 
+const tempStartingLayout = defaultLayoutKey;
+// const tempStartingLayout = "rsl_no_keys";
+
 const calcDerivedTrackerSize = (units, geometry) => {
   const trackerSize = geometry !== null
     ? geometry.nCols*geometry.itemSize + (geometry.nCols-1)*geometry.columnGap
@@ -80,10 +83,10 @@ const loadTrackerByKey = (layoutKey) => {
 
 export function Tracker() {
   tempCountRenders += 1;
-  console.log(`Rendering #${tempCountRenders}`)
+  console.log(`Rendering Tracker #${tempCountRenders}`)
 
   // Set all the tracker options from the selected layout
-  const [layoutKey, setLayoutKey] = React.useState(defaultLayoutKey);
+  const [layoutKey, setLayoutKey] = React.useState(tempStartingLayout);
   const buildTracker = layoutKey !== defaultLayoutKey;
   const { trackerLayoutIds, trackerOptions } = loadTrackerByKey(layoutKey);
 

@@ -51,22 +51,19 @@ export const Item = (props) => {
     return <Squish {...props} />;
   }
 
-  const itemName = props.itemInfo.name;
-  const newProps = { ...props, itemState: props.trackerState[itemName]};
-
   // Use the correct element type
   if (itemType === 'simple_toggle') {
-    return <Toggle {...newProps} />;
+    return <Toggle {...props} />;
   } else if (itemType === 'cycle') {
-    return <Cycle {...newProps} />;
+    return <Cycle {...props} />;
   } else if (itemType === 'badge') {
-    return <Badge {...newProps} />;
+    return <Badge {...props} />;
   } else if (itemType === 'composite') {
-    return <Composite {...newProps} />;
+    return <Composite {...props} />;
   } else if (itemType === 'counter') {
-    return <Counter {...newProps} />;
+    return <Counter {...props} />;
   } else if (itemType === 'dungeonReward') {
-    return <DungeonReward {...newProps} />;
+    return <DungeonReward {...props} />;
   } else {
     console.error(Error(`Item type ${itemType} does not have a defined implementation.`));
   }

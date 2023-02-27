@@ -1,11 +1,16 @@
 const locLookup = { 0: "top-left", 1: "top-right", 2: "bottom-left", 3: "bottom-right" };
 
-export const Badge = ({ itemInfo, itemState, trackerOptions, updateSingleItem, extraStyles }) => {
+const DEFAULT_STATE = [false, false];
+
+export const Badge = ({ itemInfo, trackerState, trackerOptions, updateSingleItem, extraStyles }) => {
 
   const baseItem = itemInfo.base;
   const badgeItem = itemInfo.badge;
   const badgeLocation = itemInfo.location ?? 3;
   const itemSizeStyle = trackerOptions.calc.itemSize.style;
+
+  const itemState = trackerState[itemInfo.name] ?? DEFAULT_STATE;
+
 
   // Build the list of classes for the base
   const baseClassList = ["itm-base", "base-item", baseItem];
@@ -23,7 +28,7 @@ export const Badge = ({ itemInfo, itemState, trackerOptions, updateSingleItem, e
   const onInteract = (slot) => {
     let newState = [itemState[0], itemState[1]];
     newState[slot] = !newState[slot];
-    updateSingleItem({ [itemInfo.name]: newState });
+    updateSingleItem({ [itemInfo.name]: newState },  newState.every((e, i) => e === DEFAULT_STATE[i]));
   };
 
   // Render

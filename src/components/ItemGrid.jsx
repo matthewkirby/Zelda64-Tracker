@@ -9,30 +9,6 @@ import { Item } from 'components/Item'
 import { DungeonDropdownBox } from './DungeonDropdownBox';
 import { ExpandingTab } from './ExpandableTab';
 
-const initializeTrackerState = (layout) => {
-  const initialState = layout.reduce((tot, item) => {
-    if (item.type === "simple_toggle") {
-      return { ...tot, [item.name]: false };
-    } if (item.type === "cycle") {
-      const defaultValue = item.disableZero ? 0 : 1;
-      return { ...tot, [item.name]: defaultValue };
-    } else if (item.type === "badge" || item.type === "composite") {
-      return { ...tot, [item.name]: [false, false] };
-    } else if (item.type === "counter") {
-      return { ...tot, [item.name]: 0 };
-    } else if(item.type === "dungeonReward") {
-      return { ...tot, [item.name]: 0, [item.toggle]: false }
-    } else if (item.type === "squish") {
-      const squishItems = item.items;
-      const subDefaults = initializeTrackerState(squishItems);
-      return { ...tot, ...subDefaults };
-    } else {
-      console.error(Error(`Item ${item.name} with type ${item.type} has no defined behavior in initializeTrackerState.`));
-    }
-  }, {});
-  return initialState;
-}
-
 const expandIdList = (trackerLayoutIds) => {
   return trackerLayoutIds.reduce((tot, item) => {
     if (typeof item === "string") {
@@ -50,15 +26,27 @@ const expandIdList = (trackerLayoutIds) => {
   }, []);
 }
 
+let tempCountRenders = 0;
+
 const ItemGrid = ({ trackerLayoutIds, trackerOptions, visibleTabs }) => {
+  tempCountRenders += 1;
+  console.log(`Rendering Itemgrid #${tempCountRenders}`)
+
+
+
   const trackerLayout = expandIdList(trackerLayoutIds);
 
   // Define tracker state variables
-  const [trackerState, setTrackerState] = React.useState(initializeTrackerState(trackerLayout));
-
+  const [trackerState, setTrackerState] = React.useState({});
+  
   // Hook to update an item's state
-  const updateSingleItem = (pendingState) => {
-    const newState = { ...trackerState, ...pendingState };
+  const updateSingleItem = (pendingState, isDefault=false) => {
+    let newState = { ...trackerState };
+    if (isDefault && Object.keys(pendingState) in trackerState) {
+      delete newState[Object.keys(pendingState)];
+    } else {
+      newState = { ...newState, ...pendingState };
+    }
     setTrackerState(newState);
   }
 

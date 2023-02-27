@@ -1,12 +1,16 @@
 import './counter.css';
 
+const DEFAULT_STATE = 0;
+
 const locLookup = { 0: "top-left", 1: "top-right", 2: "bottom-left", 3: "bottom-right" };
 
-export const Counter = ({ itemInfo, itemState, trackerOptions, updateSingleItem, extraStyles }) => {
+export const Counter = ({ itemInfo, trackerState, trackerOptions, updateSingleItem, extraStyles }) => {
 
   const baseItem = itemInfo.name;
   const textLocation = itemInfo.location ?? 1;
   const itemSize = trackerOptions.calc.itemSize;
+  const itemState = trackerState[baseItem] ?? DEFAULT_STATE;
+
 
   // Build the list of classes
   const baseClassList = ["itm-base", "base-item", baseItem];
@@ -43,7 +47,7 @@ export const Counter = ({ itemInfo, itemState, trackerOptions, updateSingleItem,
       }
     }
     if (newState !== itemState) {
-      updateSingleItem({ [itemInfo.name]: newState });
+      updateSingleItem({ [itemInfo.name]: newState }, newState === DEFAULT_STATE);
     }
   };
 

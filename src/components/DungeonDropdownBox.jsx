@@ -29,7 +29,7 @@ export const DungeonDropdownBox = ({ trackerLayout, trackerState, updateSingleIt
 
   // Define interaction
   const onChange = (itemName, newVal) => {
-    updateSingleItem({ [itemName]: newVal });
+    updateSingleItem({ [itemName]: newVal }, newVal === '0');
   }
 
   return (

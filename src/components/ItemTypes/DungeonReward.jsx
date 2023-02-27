@@ -2,6 +2,8 @@ import { Toggle } from "./Toggle";
 import { dungeonTextOptions } from "data/dungeon_text_options";
 import './dungeon_reward.css';
 
+const DEFAULT_STATE_TOGGLE = false;
+const DEFAULT_STATE_IDENTIFIER = 0;
 
 // Element has a toggle and identifier element overlaid on a grid
 // TODO: Consider refactoring onInElementInteraction to make the identifier a cycle element
@@ -14,7 +16,7 @@ export const DungeonReward = (props) => {
   const dungeonIdentifiers = dungeonTextOptions[dungeonListKey].identifiers;
 
   // Style the dungeon name
-  const identifierState = trackerState[itemInfo.name];
+  const identifierState = trackerState[itemInfo.name] ?? DEFAULT_STATE_IDENTIFIER;
   const identifierClassList = ["bottom-row", "textFlexBox", "textStyle"];
   if (identifierState === 0) {
     identifierClassList.push("itm-hidden");
@@ -37,7 +39,8 @@ export const DungeonReward = (props) => {
 
   // Handle interactions
   const simpleInteraction = () => {
-    updateSingleItem({ [toggleName]: !trackerState[toggleName] });
+    const newState = !trackerState[toggleName];
+    updateSingleItem({ [toggleName]: newState }, newState === DEFAULT_STATE_TOGGLE);
   };
 
   const onInElementInteraction = (event) => {
@@ -48,7 +51,7 @@ export const DungeonReward = (props) => {
       const newState = event.type === "click" ?
         (identifierState + 1 > maxState ? 0 : identifierState + 1) :
         (identifierState - 1 < 0 ? maxState : identifierState - 1);
-      updateSingleItem({ [itemInfo.name]: newState });
+      updateSingleItem({ [itemInfo.name]: newState }, newState === DEFAULT_STATE_IDENTIFIER);
     }
   };
 

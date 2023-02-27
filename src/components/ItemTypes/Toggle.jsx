@@ -1,9 +1,11 @@
+const DEFAULT_STATE = false;
 
 // TODO: Make disableInteraction a prop that if it exists at all is active rather than need to set to a bool
-export const Toggle = ({ itemInfo, itemState, trackerOptions, updateSingleItem, extraStyles, disableInteraction }) => {
-
+export const Toggle = ({ itemInfo, trackerState, trackerOptions, updateSingleItem, extraStyles, disableInteraction }) => {
   const itemSizeStyle = trackerOptions.calc.itemSize.style;
   const itemName = itemInfo.name;
+
+  const itemState = trackerState[itemName] ?? DEFAULT_STATE;
 
   const className = ["itm-base", itemName];
   if (!itemState) {
@@ -12,7 +14,8 @@ export const Toggle = ({ itemInfo, itemState, trackerOptions, updateSingleItem, 
 
   const onClick = () => {
     if (itemName != "BLANK") {
-      updateSingleItem({ [itemName]: !itemState });
+      const newState = !itemState;
+      updateSingleItem({ [itemName]: newState }, newState === DEFAULT_STATE);
     }
   }
 
