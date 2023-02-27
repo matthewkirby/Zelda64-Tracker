@@ -37,7 +37,10 @@ const ItemGrid = ({ trackerLayoutIds, trackerOptions, visibleTabs }) => {
   const trackerLayout = expandIdList(trackerLayoutIds);
 
   // Define tracker state variables
-  const [trackerState, setTrackerState] = React.useState({});
+  const [trackerState, setTrackerState] = React.useState(JSON.parse(localStorage.getItem("trackerState") ?? '{}'));
+  React.useEffect(() => {
+    localStorage.setItem("trackerState", JSON.stringify(trackerState));
+  }, [trackerState])
   
   // Hook to update an item's state
   const updateSingleItem = (pendingState, isDefault=false) => {

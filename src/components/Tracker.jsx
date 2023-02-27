@@ -11,9 +11,6 @@ import { TrackerSettings } from './TrackerSettings';
 // This is temp code to track how many times I am rendering
 let tempCountRenders = 0;
 
-const tempStartingLayout = defaultLayoutKey;
-// const tempStartingLayout = "rsl_no_keys";
-
 const calcDerivedTrackerSize = (units, geometry) => {
   const trackerSize = geometry !== null
     ? geometry.nCols*geometry.itemSize + (geometry.nCols-1)*geometry.columnGap
@@ -86,12 +83,17 @@ export function Tracker() {
   console.log(`Rendering Tracker #${tempCountRenders}`)
 
   // Set all the tracker options from the selected layout
-  const [layoutKey, setLayoutKey] = React.useState(tempStartingLayout);
+  const [layoutKey, setLayoutKey] = React.useState(localStorage.getItem("layoutKey") ?? defaultLayoutKey);
   const buildTracker = layoutKey !== defaultLayoutKey;
   const { trackerLayoutIds, trackerOptions } = loadTrackerByKey(layoutKey);
 
   // Define tracker state variables
   const [visibleTabs, setVisibleTabs] = React.useState({ drewards: true, settings: !buildTracker });
+
+  // Set localstorage
+  React.useEffect(() => {
+    localStorage.setItem("layoutKey", layoutKey)
+  }, [layoutKey]);
 
   // Hook to update tab visibility
   const toggleTabVisibility = (tabKey) => {

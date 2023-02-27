@@ -21,7 +21,7 @@ const settingsOptions = {
 };
 
 const generateSettingsInputs = () => {
-  return "poop";
+  return null;
 }
 
 
@@ -36,7 +36,6 @@ const TrackerSettings = ({ settingsHooks, trackerOptions }) => {
   // Make a state variable that holds settings, then a button to
   // copy these local settings to the tracker level state and build
   const [localSettings, setLocalSettings] = React.useState(trackerOptions);
-  console.log(localSettings.layoutKey)
 
 
 
