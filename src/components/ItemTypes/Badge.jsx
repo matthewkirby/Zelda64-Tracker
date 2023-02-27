@@ -1,6 +1,6 @@
 const locLookup = { 0: "top-left", 1: "top-right", 2: "bottom-left", 3: "bottom-right" };
 
-const DEFAULT_STATE = [false, false];
+const DEFAULT_STATE = false;
 
 export const Badge = ({ itemInfo, trackerState, trackerOptions, updateSingleItem, extraStyles }) => {
 
@@ -9,26 +9,27 @@ export const Badge = ({ itemInfo, trackerState, trackerOptions, updateSingleItem
   const badgeLocation = itemInfo.location ?? 3;
   const itemSizeStyle = trackerOptions.calc.itemSize.style;
 
-  const itemState = trackerState[itemInfo.name] ?? DEFAULT_STATE;
-
+  const baseState = trackerState[baseItem] ?? DEFAULT_STATE;
+  const badgeState = trackerState[itemInfo.name] ?? DEFAULT_STATE;
+  const itemState = [baseState, badgeState];
 
   // Build the list of classes for the base
   const baseClassList = ["itm-base", "base-item", baseItem];
-  if (!itemState[0]) {
+  if (!baseState) {
     baseClassList.push('itm-false');
   }
 
   // Build the list of classes for the badge
   const badgeClassList = ["itm-base", badgeItem, locLookup[badgeLocation]];
-  if (!itemState[1]) {
+  if (!badgeState) {
     badgeClassList.push('itm-hidden');
   }
 
   // Set up the button interaction
   const onInteract = (slot) => {
-    let newState = [itemState[0], itemState[1]];
-    newState[slot] = !newState[slot];
-    updateSingleItem({ [itemInfo.name]: newState },  newState.every((e, i) => e === DEFAULT_STATE[i]));
+    const newState = !itemState[slot];
+    const name = slot === 0 ? baseItem : itemInfo.name;
+    updateSingleItem({ [name]: newState },  newState === DEFAULT_STATE);
   };
 
   // Render

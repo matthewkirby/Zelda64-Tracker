@@ -2,14 +2,15 @@
 // background-image: url(), linear-gradient(to bottom right, rgba(0,0,0,0) 50%, color 50%);
 // Needs more fiddling and reading into how this works
 
-const DEFAULT_STATE = [false, false];
+const DEFAULT_STATE = false;
 
 export const Composite = ({ itemInfo, trackerState, trackerOptions, updateSingleItem, extraStyles }) => {
 
   const itemSizeStyle = trackerOptions.calc.itemSize.style;
-  const itemState = trackerState[itemInfo.name] ?? DEFAULT_STATE;
   const [leftItem, rightItem] = itemInfo.items;
-  const [leftState, rightState] = itemState;
+  const leftState = trackerState[leftItem] ?? DEFAULT_STATE;
+  const rightState = trackerState[rightItem] ?? DEFAULT_STATE;
+  const itemState = [leftState, rightState];
 
   // Build the list of classes
   const leftClassList = ["itm-base", leftItem];
@@ -30,9 +31,8 @@ export const Composite = ({ itemInfo, trackerState, trackerOptions, updateSingle
 
   // Set up the button interaction
   const onInteract = (slot) => {
-    let newState = [itemState[0], itemState[1]];
-    newState[slot] = !newState[slot];
-    updateSingleItem({ [itemInfo.name]: newState },  newState.every((e, i) => e === DEFAULT_STATE[i]));
+    const newState = !itemState[slot];
+    updateSingleItem({ [itemInfo.items[slot]]: newState },  newState === DEFAULT_STATE);
   };
 
   return (
