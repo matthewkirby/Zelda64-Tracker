@@ -59,7 +59,8 @@ const loadTrackerByKey = (layoutKey) => {
       trackerOptions: {
         layoutKey: defaultLayoutKey,
         calc: { trackerSize: calcDerivedTrackerSize("px", null) }
-      }
+      },
+      defaultDRO: {}
     };
   }
 
@@ -68,7 +69,6 @@ const loadTrackerByKey = (layoutKey) => {
 
   const trackerOptions = {
     layoutKey: layoutKey,
-    dungeonRewardOptions: defaultTrackerLayout.dungeonRewardOptions,
     geometry: {
       nCols: defaultTrackerLayout.nCols,
       units: defaultGeometry.units,
@@ -80,7 +80,8 @@ const loadTrackerByKey = (layoutKey) => {
 
   return {
     trackerLayoutIds: defaultTrackerLayout.layout,
-    trackerOptions: calcDerivedTrackerProps(trackerOptions)
+    trackerOptions: calcDerivedTrackerProps(trackerOptions),
+    defaultDRO: defaultTrackerLayout.dungeonRewardOptions
   };
 };
 
@@ -88,6 +89,7 @@ const loadUrlParameters = (urlParams) => {
   return {
     // Layout Settings
     layoutKey: urlParams.get("layout") ?? null,
+    interactionType: urlParams.get("interactionType") ?? null,
 
     // Firebase settings
     defaultUseFirebase: urlParams.get("sync") === 'true',
@@ -145,9 +147,19 @@ export function Tracker() {
   // Tracker Layout ====================================================
   const [layoutKey, setLayoutKey] = React.useState(parsedUrlParams.layoutKey ?? localStorage.getItem("layoutKey") ?? defaultLayoutKey);
   const buildTracker = layoutKey !== defaultLayoutKey;
-  const { trackerLayoutIds, trackerOptions } = loadTrackerByKey(layoutKey);
+  const { trackerLayoutIds, trackerOptions, defaultDRO } = loadTrackerByKey(layoutKey);
 
-  // Hook to handle tracker initialization
+  // Dungeon rewards
+  const [dListKey, setDListKey] = React.useState(localStorage.getItem("dListKey") ?? defaultDRO.dungeonListKey ?? "");
+  const [dIndentifierType, setDIdentifierType] = React.useState(localStorage.getItem("dIndentifierType") ?? defaultDRO.identifierType ?? "");
+  const [dInteractionType, setDInteractionType] = React.useState(parsedUrlParams.interactionType ?? localStorage.getItem("dInteractionType") ?? defaultDRO.interactionType ?? "");
+  const dungeonRewardOptions = {
+    dungeonListKey: dListKey,
+    identifierType: dIndentifierType,
+    interactionType: dInteractionType
+  };
+
+  // Handle tracker initialization
   const changeTrackerLayout = (newLayoutKey) => {
     if (layoutKey === defaultLayoutKey) {
       const newVisibleTabs = { ...visibleTabs };
@@ -157,12 +169,18 @@ export function Tracker() {
       setVisibleTabs(newVisibleTabs);
     }
     updateURL("layout", newLayoutKey);
-    setLayoutKey(newLayoutKey)
+    setLayoutKey(newLayoutKey);
+    if (newLayoutKey !== defaultLayoutKey) {
+      const dro = trackerLayoutList[newLayoutKey].dungeonRewardOptions;
+      setDListKey(dro.dungeonListKey);
+      setDIdentifierType(dro.identifierType);
+      setDInteractionType(dro.interactionType);
+    }
   };
 
   // Tracker Settings ===================================================
   // const [visibleTabs, setVisibleTabs] = React.useState({ drewards: true, settings: !buildTracker, dbsync: false });
-  const [visibleTabs, setVisibleTabs] = React.useState({ drewards: true, settings: true, dbsync: false });
+  const [visibleTabs, setVisibleTabs] = React.useState({ drewards: false, settings: true, dbsync: false });
 
   // Hook to update tab visibility
   const toggleTabVisibility = (tabKey) => {
@@ -173,8 +191,14 @@ export function Tracker() {
 
   // useEffect Hooks =======================================================
   React.useEffect(() => {
-    localStorage.setItem("layoutKey", layoutKey)
+    localStorage.setItem("layoutKey", layoutKey);
   }, [layoutKey]);
+
+  React.useEffect(() => {
+    localStorage.setItem("dListKey", dungeonRewardOptions.dungeonListKey);
+    localStorage.setItem("dIndentifierType", dungeonRewardOptions.identifierType);
+    localStorage.setItem("dInteractionType", dungeonRewardOptions.interactionType);
+  }, [dungeonRewardOptions]);
 
   React.useEffect(() => {
     if (!useFirebase) {
@@ -193,7 +217,7 @@ export function Tracker() {
     <>
       {buildTracker && <ItemGrid
         trackerLayoutIds={trackerLayoutIds}
-        trackerOptions={trackerOptions}
+        trackerOptions={{ ...trackerOptions, dungeonRewardOptions: dungeonRewardOptions }}
         visibleTabs={{ state: visibleTabs, "hook": toggleTabVisibility }}
         useFirebase={useFirebase}
         trackerState={trackerState}
@@ -205,11 +229,13 @@ export function Tracker() {
         hidden={advancedHideOptions}
       >
         <TrackerSettings key={"ts"}
-          trackerOptions={trackerOptions}
-          settingsHooks={{
-            setLayoutKey: changeTrackerLayout,
-            resetTracker: resetTracker,
+          variableSettings={{
+            layoutKey: [trackerOptions.layoutKey, changeTrackerLayout],
+            dungeonListKey: [dListKey, setDListKey],
+            identifierType: [dIndentifierType, setDIdentifierType],
+            interactionType: [dInteractionType, setDInteractionType]
           }}
+          resetTracker={resetTracker}
         />
       </ExpandingTab>
       <ExpandingTab

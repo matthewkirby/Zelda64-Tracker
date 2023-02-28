@@ -16,7 +16,9 @@ export const DungeonReward = (props) => {
   const dungeonIdentifiers = dungeonTextOptions[dungeonListKey].identifiers;
 
   // Style the dungeon name
-  const identifierState = trackerState[itemInfo.name] ?? DEFAULT_STATE_IDENTIFIER;
+  const tempIdentifierState = trackerState[itemInfo.name] ?? DEFAULT_STATE_IDENTIFIER;
+  // Hack for when label list swaps from oot to mm and out of range
+  const identifierState = tempIdentifierState > dungeonIdentifiers.length - 1 ? 0 : tempIdentifierState;
   const identifierClassList = ["bottom-row", "textFlexBox", "textStyle"];
   if (identifierState === 0) {
     identifierClassList.push("itm-hidden");
