@@ -9,7 +9,6 @@ import { Item } from 'components/Item'
 import { DungeonDropdownBox } from './DungeonDropdownBox';
 import { ExpandingTab } from './ExpandableTab';
 
-import { initFirebase } from 'firebase.js';
 
 import { firebaseRemoveRef, firebaseChangeRef } from 'firebase.js';
 
@@ -38,15 +37,6 @@ const ItemGrid = ({ trackerLayoutIds, trackerOptions, visibleTabs, useFirebase, 
 
   const trackerLayout = expandIdList(trackerLayoutIds);
 
-  // Define tracker state variables
-  // const [trackerState, setTrackerState] = React.useState(() => {
-  //   if (!useFirebase) {
-  //     return JSON.parse(localStorage.getItem("trackerState") ?? '{}');
-  //   } else {
-  //     return {};
-  //   }
-  // });
-
   // Hook to update an item's state
   const updateSingleItem = (pendingState, isDefault=false) => {
     updateSingleItem2(Object.keys(pendingState)[0], Object.values(pendingState)[0]);
@@ -68,20 +58,7 @@ const ItemGrid = ({ trackerLayoutIds, trackerOptions, visibleTabs, useFirebase, 
   }
 
 
-  // Save tracker state to localStorage
-  React.useEffect(() => {
-    if (!useFirebase) {
-      localStorage.setItem("trackerState", JSON.stringify(trackerState));
-    }
-  }, [useFirebase, trackerState])
 
-  // Handle the firebase initialization
-  React.useEffect(() => {
-    if (useFirebase) {
-      const roomId = "test";
-      initFirebase(roomId, setTrackerState);
-    }
-  }, [useFirebase]);
 
   // Render
   return (

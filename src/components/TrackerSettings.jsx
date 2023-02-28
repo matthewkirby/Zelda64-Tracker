@@ -28,6 +28,8 @@ const generateSettingsInputs = () => {
 }
 
 
+
+
 // Same component for initial setup and editing settings after
 // Some settings will be disabled once the tracker is built? Maybe idk
 // Only tab on screen to start (and expanded). Once generated, tab at the bottom collapsed
@@ -53,7 +55,7 @@ const TrackerSettings = ({ settingsHooks, trackerOptions }) => {
         key={"resetbutton"}
         variant="contained"
         color="error"
-        onClick={() => settingsHooks.setTrackerState({})}
+        onClick={() => settingsHooks.resetTracker({})}
       >Reset Tracker</Button>
       <Dropdown
         key={"tl"}

@@ -70,6 +70,10 @@ export const firebaseChangeRef = (item, value) => {
   set(ref(db, `${rootRefString}/gameState/${item}`), value);
 }
 
+export const firebaseResetDb = () => {
+  set(ref(db, `${rootRefString}/gameState`), {});
+}
+
 
 export const firebaseChangeParentRef = (newState) => {
   console.log("Chaning the parent ref");

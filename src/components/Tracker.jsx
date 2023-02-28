@@ -7,6 +7,10 @@ import { ItemGrid } from './ItemGrid';
 
 import { defaultLayoutKey, trackerLayoutList } from 'data/ItemLayoutList';
 import { TrackerSettings } from './TrackerSettings';
+import { FirebaseSettings } from './FirebaseSettings';
+import { firebaseResetDb } from 'firebase.js';
+import { initFirebase } from 'firebase.js';
+
 
 
 // This is temp code to track how many times I am rendering
@@ -98,6 +102,11 @@ export function Tracker() {
     }
   });
 
+  const resetTracker = () => {
+    if (!useFirebase) { setTrackerState({}); }
+    else { firebaseResetDb(); }
+  };
+
 
 
 
@@ -108,12 +117,9 @@ export function Tracker() {
   const { trackerLayoutIds, trackerOptions } = loadTrackerByKey(layoutKey);
 
   // Define tracker state variables
-  const [visibleTabs, setVisibleTabs] = React.useState({ drewards: true, settings: !buildTracker });
+  const [visibleTabs, setVisibleTabs] = React.useState({ drewards: true, settings: !buildTracker, dbsync: true });
 
-  // Set localstorage
-  React.useEffect(() => {
-    localStorage.setItem("layoutKey", layoutKey)
-  }, [layoutKey]);
+
 
   // Hook to update tab visibility
   const toggleTabVisibility = (tabKey) => {
@@ -134,7 +140,26 @@ export function Tracker() {
     setLayoutKey(newLayoutKey)
   }
 
-  // Render
+  // useEffect Hooks =======================================================
+  React.useEffect(() => {
+    localStorage.setItem("layoutKey", layoutKey)
+  }, [layoutKey]);
+
+  React.useEffect(() => {
+    if (!useFirebase) {
+      localStorage.setItem("trackerState", JSON.stringify(trackerState));
+    }
+  }, [useFirebase, trackerState]);
+
+  React.useEffect(() => {
+    if (useFirebase) {
+      const roomId = "test";
+      initFirebase(roomId, setTrackerState);
+    }
+  }, [useFirebase]);
+
+
+  // Render ===============================================================
   return (
     <>
       {buildTracker && <ItemGrid
@@ -153,8 +178,16 @@ export function Tracker() {
           trackerOptions={trackerOptions}
           settingsHooks={{
             setLayoutKey: changeTrackerLayout,
-            setTrackerState: setTrackerState,
+            resetTracker: resetTracker,
           }}
+        />
+      </ExpandingTab>
+      <ExpandingTab
+        key="firebase-options" label="Sync Tracker Over Web" isVisible={visibleTabs.dbsync}
+        onClick={() => toggleTabVisibility("dbsync")} trackerOptions={trackerOptions}
+      >
+        <FirebaseSettings
+          firebaseControls={{useFirebase: useFirebase, setUseFirebase: setUseFirebase}}
         />
       </ExpandingTab>
     </>
