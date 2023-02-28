@@ -6,14 +6,13 @@ import { Button } from '@mui/material';
 const FirebaseSettings = ({ firebaseControls }) => {
 
   const { useFirebase, setUseFirebase } = firebaseControls;
-  console.log(useFirebase)
 
   return (
     <div className="one-column-grid">
       <Button
         key={"dbtoggle"}
         variant="contained"
-        color={useFirebase ? "error" : "primary"}
+        color={useFirebase ? "error" : "success"}
         onClick={() => setUseFirebase(!useFirebase)}
       >
         {useFirebase ? "Close Connection" : "Sync Tracker"}

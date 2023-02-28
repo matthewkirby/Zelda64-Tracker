@@ -6,6 +6,10 @@ import { faAnglesDown, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import 'style/expandable_tab.css';
 
 const ExpandingTab = (props) => {
+  if (props.hidden ?? false) {
+    return null;
+  }
+
   return (
     <div className="settings-tab" style={props.trackerOptions.calc.trackerSize.style}>
       <div className="settings-header font-face-labels" onClick={() => props.onClick()}>

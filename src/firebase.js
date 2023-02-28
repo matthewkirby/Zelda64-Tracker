@@ -30,7 +30,7 @@ let db = undefined;
 // let urlquery = location.search.replace(/\/$/, "").split("?").pop().toLowerCase().split("&");
 
 // Log the user in anonymously
-export const initFirebase = (roomid, setTrackerState) => {
+export const initFirebase = (roomid, password, setTrackerState) => {
   const auth = getAuth();
 
   // signInAnonymously(auth).catch((error) => {

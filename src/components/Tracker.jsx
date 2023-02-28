@@ -11,6 +11,7 @@ import { FirebaseSettings } from './FirebaseSettings';
 import { firebaseResetDb } from 'firebase.js';
 import { initFirebase } from 'firebase.js';
 
+import { useSearchParams } from 'react-router-dom';
 
 
 // This is temp code to track how many times I am rendering
@@ -83,12 +84,49 @@ const loadTrackerByKey = (layoutKey) => {
   };
 };
 
+const loadUrlParameters = (urlParams) => {
+  return {
+    // Layout Settings
+    layoutKey: urlParams.get("layout") ?? null,
+
+    // Firebase settings
+    defaultUseFirebase: urlParams.get("sync") === 'true',
+    defaultFirebaseRoomid: urlParams.get("room_id") ?? null,
+    defaultFirebasePassword: urlParams.get("password") ?? null,
+
+    // URL only settings
+    hideOptions: urlParams.get("hideOptions") === 'true'
+  };
+};
+
 export function Tracker() {
   tempCountRenders += 1;
-  console.log(`Rendering Tracker #${tempCountRenders}`)
+  console.log(`Rendering Tracker #${tempCountRenders}`);
+
+  // Parse URL Parameter ==============================================
+  const [urlParams, setUrlParams] = useSearchParams();
+  const parsedUrlParams = loadUrlParameters(urlParams);
+  const advancedHideOptions = parsedUrlParams.hideOptions;
+
+  console.log(parsedUrlParams)
+
+  const updateURL = (keyToChange, newValue) => {
+    const newParams = {}
+    for (const [key, value] of urlParams.entries()) {
+      if (key === keyToChange) {
+        newParams[key] = newValue
+      } else {
+        newParams[key] = value;
+      }
+    }
+    setUrlParams(newParams);
+  };
 
   // Firebase Connection ==============================================
-  const [useFirebase, setUseFirebase] = React.useState(false);
+  const [useFirebase, setUseFirebase] = React.useState(parsedUrlParams.defaultUseFirebase);
+  const [firebaseRoomId, setFirebaseRoomId] = React.useState(parsedUrlParams.defaultFirebaseRoomid);
+  const [firebasePassword, setFirebasePassword] = React.useState(parsedUrlParams.defaultFirebasePassword);
+  // console.log(`sync: ${useFirebase}\nid: ${firebaseRoomId}\npw: ${firebasePassword}`, )
 
   // Tracker State ====================================================
   const [trackerState, setTrackerState] = React.useState(() => {
@@ -105,7 +143,7 @@ export function Tracker() {
   };
 
   // Tracker Layout ====================================================
-  const [layoutKey, setLayoutKey] = React.useState(localStorage.getItem("layoutKey") ?? defaultLayoutKey);
+  const [layoutKey, setLayoutKey] = React.useState(parsedUrlParams.layoutKey ?? localStorage.getItem("layoutKey") ?? defaultLayoutKey);
   const buildTracker = layoutKey !== defaultLayoutKey;
   const { trackerLayoutIds, trackerOptions } = loadTrackerByKey(layoutKey);
 
@@ -118,11 +156,13 @@ export function Tracker() {
       });
       setVisibleTabs(newVisibleTabs);
     }
+    updateURL("layout", newLayoutKey);
     setLayoutKey(newLayoutKey)
   };
 
   // Tracker Settings ===================================================
-  const [visibleTabs, setVisibleTabs] = React.useState({ drewards: true, settings: !buildTracker, dbsync: true });
+  // const [visibleTabs, setVisibleTabs] = React.useState({ drewards: true, settings: !buildTracker, dbsync: false });
+  const [visibleTabs, setVisibleTabs] = React.useState({ drewards: true, settings: true, dbsync: false });
 
   // Hook to update tab visibility
   const toggleTabVisibility = (tabKey) => {
@@ -144,8 +184,7 @@ export function Tracker() {
 
   React.useEffect(() => {
     if (useFirebase) {
-      const roomId = "test";
-      initFirebase(roomId, setTrackerState);
+      initFirebase(firebaseRoomId, firebasePassword, setTrackerState);
     }
   }, [useFirebase]);
 
@@ -163,6 +202,7 @@ export function Tracker() {
       <ExpandingTab
         key="tracker-options" label="Tracker Settings" isVisible={visibleTabs.settings}
         onClick={() => toggleTabVisibility("settings")} trackerOptions={trackerOptions}
+        hidden={advancedHideOptions}
       >
         <TrackerSettings key={"ts"}
           trackerOptions={trackerOptions}
@@ -175,6 +215,7 @@ export function Tracker() {
       <ExpandingTab
         key="firebase-options" label="Sync Tracker Over Web" isVisible={visibleTabs.dbsync}
         onClick={() => toggleTabVisibility("dbsync")} trackerOptions={trackerOptions}
+        hidden={advancedHideOptions}
       >
         <FirebaseSettings
           firebaseControls={{useFirebase: useFirebase, setUseFirebase: setUseFirebase}}
