@@ -50,7 +50,6 @@ const TrackerSettings = ({ variableSettings, resetTracker }) => {
   const generateSettingsInputs = () => {
     return Object.keys(variableSettings).map((setting) => {
       if (setting === "layoutKey") { return null; }
-      console.log(`>> ${setting}: ${variableSettings[setting][0]}`)
       const settingDetails = settingsOptions[setting];
       return (
         <Dropdown

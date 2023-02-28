@@ -33,7 +33,7 @@ let tempCountRenders = 0;
 
 const ItemGrid = ({ trackerLayoutIds, trackerOptions, visibleTabs, useFirebase, trackerState, setTrackerState }) => {
   tempCountRenders += 1;
-  console.log(`Rendering Itemgrid #${tempCountRenders}`)
+  // console.log(`Rendering Itemgrid #${tempCountRenders}`)
 
   const trackerLayout = expandIdList(trackerLayoutIds);
 

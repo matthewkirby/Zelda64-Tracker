@@ -103,14 +103,13 @@ const loadUrlParameters = (urlParams) => {
 
 export function Tracker() {
   tempCountRenders += 1;
-  console.log(`Rendering Tracker #${tempCountRenders}`);
+  // console.log(`Rendering Tracker #${tempCountRenders}`);
 
   // Parse URL Parameter ==============================================
   const [urlParams, setUrlParams] = useSearchParams();
   const parsedUrlParams = loadUrlParameters(urlParams);
   const advancedHideOptions = parsedUrlParams.hideOptions;
-
-  console.log(parsedUrlParams)
+  // console.log(parsedUrlParams);
 
   const updateURL = (keyToChange, newValue) => {
     const newParams = {}
