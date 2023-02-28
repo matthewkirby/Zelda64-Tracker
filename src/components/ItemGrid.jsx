@@ -32,20 +32,20 @@ const expandIdList = (trackerLayoutIds) => {
 
 let tempCountRenders = 0;
 
-const ItemGrid = ({ trackerLayoutIds, trackerOptions, visibleTabs, useFirebase }) => {
+const ItemGrid = ({ trackerLayoutIds, trackerOptions, visibleTabs, useFirebase, trackerState, setTrackerState }) => {
   tempCountRenders += 1;
   console.log(`Rendering Itemgrid #${tempCountRenders}`)
 
   const trackerLayout = expandIdList(trackerLayoutIds);
 
   // Define tracker state variables
-  const [trackerState, setTrackerState] = React.useState(() => {
-    if (!useFirebase) {
-      return JSON.parse(localStorage.getItem("trackerState") ?? '{}');
-    } else {
-      return {};
-    }
-  });
+  // const [trackerState, setTrackerState] = React.useState(() => {
+  //   if (!useFirebase) {
+  //     return JSON.parse(localStorage.getItem("trackerState") ?? '{}');
+  //   } else {
+  //     return {};
+  //   }
+  // });
 
   // Hook to update an item's state
   const updateSingleItem = (pendingState, isDefault=false) => {
@@ -57,10 +57,10 @@ const ItemGrid = ({ trackerLayoutIds, trackerOptions, visibleTabs, useFirebase }
 
     if (isDefaultValue && item in newState) {
       if (useFirebase && !fromDbSync) { firebaseRemoveRef(item); }
-      else { delete newState[item]; console.log(`del-${item}`)}
+      else { delete newState[item]; }
     } else {
       if (useFirebase && !fromDbSync) { firebaseChangeRef(item, value); }
-      else { newState[item] = value; console.log(`change-${item}`)}
+      else { newState[item] = value; }
     }
     if (!useFirebase || fromDbSync) {
       setTrackerState(newState)
@@ -121,7 +121,8 @@ ItemGrid.propTypes = {
   visibleTabs: PropTypes.shape({
     state: PropTypes.objectOf(PropTypes.bool).isRequired,
     hook: PropTypes.func.isRequired
-  })
+  }),
+  useFirebase: PropTypes.bool.isRequired
 }
 
 export { ItemGrid };

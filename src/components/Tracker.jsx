@@ -87,14 +87,16 @@ export function Tracker() {
 
 
   // Set up firebase connection if desired
-  const useFirebase = true;
+  const [useFirebase, setUseFirebase] = React.useState(false);
 
-
-
-
-
-
-
+  // Define tracker state variables
+  const [trackerState, setTrackerState] = React.useState(() => {
+    if (!useFirebase) {
+      return JSON.parse(localStorage.getItem("trackerState") ?? '{}');
+    } else {
+      return {};
+    }
+  });
 
 
 
@@ -140,6 +142,8 @@ export function Tracker() {
         trackerOptions={trackerOptions}
         visibleTabs={{ state: visibleTabs, "hook": toggleTabVisibility }}
         useFirebase={useFirebase}
+        trackerState={trackerState}
+        setTrackerState={setTrackerState}
       />}
       <ExpandingTab
         key="tracker-options" label="Tracker Settings" isVisible={visibleTabs.settings}
@@ -148,7 +152,8 @@ export function Tracker() {
         <TrackerSettings key={"ts"}
           trackerOptions={trackerOptions}
           settingsHooks={{
-            setLayoutKey: changeTrackerLayout
+            setLayoutKey: changeTrackerLayout,
+            setTrackerState: setTrackerState,
           }}
         />
       </ExpandingTab>

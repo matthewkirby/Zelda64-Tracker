@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown } from './Dropdown';
 
+import { Button } from '@mui/material';
+
+
 import 'style/dungeon_dropdown_box.css';
 
 import { defaultLayoutKey, trackerLayoutList } from 'data/ItemLayoutList';
@@ -45,8 +48,13 @@ const TrackerSettings = ({ settingsHooks, trackerOptions }) => {
   }, [{ value: defaultLayoutKey, label: "Select a layout" }])
 
   return (
-    <>
-      {/* Reset Button */}
+    <div className="one-column-grid">
+      <Button
+        key={"resetbutton"}
+        variant="contained"
+        color="error"
+        onClick={() => settingsHooks.setTrackerState({})}
+      >Reset Tracker</Button>
       <Dropdown
         key={"tl"}
         label={"Tracker Layout"}
@@ -55,7 +63,7 @@ const TrackerSettings = ({ settingsHooks, trackerOptions }) => {
         onChange={(v) => settingsHooks.setLayoutKey(v)}
       />
       {showLayoutSettings && generateSettingsInputs()}
-    </>
+    </div>
   );
 };
 
