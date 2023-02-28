@@ -87,13 +87,10 @@ export function Tracker() {
   tempCountRenders += 1;
   console.log(`Rendering Tracker #${tempCountRenders}`)
 
-
-
-
-  // Set up firebase connection if desired
+  // Firebase Connection ==============================================
   const [useFirebase, setUseFirebase] = React.useState(false);
 
-  // Define tracker state variables
+  // Tracker State ====================================================
   const [trackerState, setTrackerState] = React.useState(() => {
     if (!useFirebase) {
       return JSON.parse(localStorage.getItem("trackerState") ?? '{}');
@@ -107,26 +104,10 @@ export function Tracker() {
     else { firebaseResetDb(); }
   };
 
-
-
-
-
-  // Set all the tracker options from the selected layout
+  // Tracker Layout ====================================================
   const [layoutKey, setLayoutKey] = React.useState(localStorage.getItem("layoutKey") ?? defaultLayoutKey);
   const buildTracker = layoutKey !== defaultLayoutKey;
   const { trackerLayoutIds, trackerOptions } = loadTrackerByKey(layoutKey);
-
-  // Define tracker state variables
-  const [visibleTabs, setVisibleTabs] = React.useState({ drewards: true, settings: !buildTracker, dbsync: true });
-
-
-
-  // Hook to update tab visibility
-  const toggleTabVisibility = (tabKey) => {
-    const currentState = visibleTabs[tabKey];
-    const newState = { ...visibleTabs, [tabKey]: !currentState };
-    setVisibleTabs(newState);
-  }
 
   // Hook to handle tracker initialization
   const changeTrackerLayout = (newLayoutKey) => {
@@ -138,6 +119,16 @@ export function Tracker() {
       setVisibleTabs(newVisibleTabs);
     }
     setLayoutKey(newLayoutKey)
+  };
+
+  // Tracker Settings ===================================================
+  const [visibleTabs, setVisibleTabs] = React.useState({ drewards: true, settings: !buildTracker, dbsync: true });
+
+  // Hook to update tab visibility
+  const toggleTabVisibility = (tabKey) => {
+    const currentState = visibleTabs[tabKey];
+    const newState = { ...visibleTabs, [tabKey]: !currentState };
+    setVisibleTabs(newState);
   }
 
   // useEffect Hooks =======================================================
@@ -157,7 +148,6 @@ export function Tracker() {
       initFirebase(roomId, setTrackerState);
     }
   }, [useFirebase]);
-
 
   // Render ===============================================================
   return (
