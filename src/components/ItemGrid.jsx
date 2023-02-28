@@ -9,6 +9,10 @@ import { Item } from 'components/Item'
 import { DungeonDropdownBox } from './DungeonDropdownBox';
 import { ExpandingTab } from './ExpandableTab';
 
+import { initFirebase } from 'firebase.js';
+
+import { firebaseRemoveRef, firebaseChangeRef } from 'firebase.js';
+
 const expandIdList = (trackerLayoutIds) => {
   return trackerLayoutIds.reduce((tot, item) => {
     if (typeof item === "string") {
@@ -28,30 +32,56 @@ const expandIdList = (trackerLayoutIds) => {
 
 let tempCountRenders = 0;
 
-const ItemGrid = ({ trackerLayoutIds, trackerOptions, visibleTabs }) => {
+const ItemGrid = ({ trackerLayoutIds, trackerOptions, visibleTabs, useFirebase }) => {
   tempCountRenders += 1;
   console.log(`Rendering Itemgrid #${tempCountRenders}`)
-
-
 
   const trackerLayout = expandIdList(trackerLayoutIds);
 
   // Define tracker state variables
-  const [trackerState, setTrackerState] = React.useState(JSON.parse(localStorage.getItem("trackerState") ?? '{}'));
-  React.useEffect(() => {
-    localStorage.setItem("trackerState", JSON.stringify(trackerState));
-  }, [trackerState])
-  
+  const [trackerState, setTrackerState] = React.useState(() => {
+    if (!useFirebase) {
+      return JSON.parse(localStorage.getItem("trackerState") ?? '{}');
+    } else {
+      return {};
+    }
+  });
+
   // Hook to update an item's state
   const updateSingleItem = (pendingState, isDefault=false) => {
-    let newState = { ...trackerState };
-    if (isDefault && Object.keys(pendingState) in trackerState) {
-      delete newState[Object.keys(pendingState)];
-    } else {
-      newState = { ...newState, ...pendingState };
-    }
-    setTrackerState(newState);
+    updateSingleItem2(Object.keys(pendingState)[0], Object.values(pendingState)[0]);
   }
+  const updateSingleItem2 = (item, value, fromDbSync=false) => {
+    const isDefaultValue = !Boolean(value);
+    let newState = { ...trackerState };
+
+    if (isDefaultValue && item in newState) {
+      if (useFirebase && !fromDbSync) { firebaseRemoveRef(item); }
+      else { delete newState[item]; console.log(`del-${item}`)}
+    } else {
+      if (useFirebase && !fromDbSync) { firebaseChangeRef(item, value); }
+      else { newState[item] = value; console.log(`change-${item}`)}
+    }
+    if (!useFirebase || fromDbSync) {
+      setTrackerState(newState)
+    }
+  }
+
+
+  // Save tracker state to localStorage
+  React.useEffect(() => {
+    if (!useFirebase) {
+      localStorage.setItem("trackerState", JSON.stringify(trackerState));
+    }
+  }, [useFirebase, trackerState])
+
+  // Handle the firebase initialization
+  React.useEffect(() => {
+    if (useFirebase) {
+      const roomId = "test";
+      initFirebase(roomId, setTrackerState);
+    }
+  }, [useFirebase]);
 
   // Render
   return (

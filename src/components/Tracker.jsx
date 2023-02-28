@@ -8,6 +8,7 @@ import { ItemGrid } from './ItemGrid';
 import { defaultLayoutKey, trackerLayoutList } from 'data/ItemLayoutList';
 import { TrackerSettings } from './TrackerSettings';
 
+
 // This is temp code to track how many times I am rendering
 let tempCountRenders = 0;
 
@@ -82,6 +83,23 @@ export function Tracker() {
   tempCountRenders += 1;
   console.log(`Rendering Tracker #${tempCountRenders}`)
 
+
+
+
+  // Set up firebase connection if desired
+  const useFirebase = true;
+
+
+
+
+
+
+
+
+
+
+
+
   // Set all the tracker options from the selected layout
   const [layoutKey, setLayoutKey] = React.useState(localStorage.getItem("layoutKey") ?? defaultLayoutKey);
   const buildTracker = layoutKey !== defaultLayoutKey;
@@ -121,6 +139,7 @@ export function Tracker() {
         trackerLayoutIds={trackerLayoutIds}
         trackerOptions={trackerOptions}
         visibleTabs={{ state: visibleTabs, "hook": toggleTabVisibility }}
+        useFirebase={useFirebase}
       />}
       <ExpandingTab
         key="tracker-options" label="Tracker Settings" isVisible={visibleTabs.settings}
