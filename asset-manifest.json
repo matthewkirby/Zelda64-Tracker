@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Zelda64-Tracker/static/css/main.e01f56c9.css",
-    "main.js": "/Zelda64-Tracker/static/js/main.f34f75b9.js",
+    "main.js": "/Zelda64-Tracker/static/js/main.bbea30e3.js",
     "static/media/water_medallion.png": "/Zelda64-Tracker/static/media/water_medallion.c2ba3036f076da57649d.png",
     "static/media/light_medallion.png": "/Zelda64-Tracker/static/media/light_medallion.1d25234c1f3d051a333b.png",
     "static/media/forest_medallion.png": "/Zelda64-Tracker/static/media/forest_medallion.3f6bad26fcaac412e72c.png",
@@ -10,10 +10,10 @@
     "static/media/shadow_medallion.png": "/Zelda64-Tracker/static/media/shadow_medallion.4df435d26bf85c28f815.png",
     "index.html": "/Zelda64-Tracker/index.html",
     "main.e01f56c9.css.map": "/Zelda64-Tracker/static/css/main.e01f56c9.css.map",
-    "main.f34f75b9.js.map": "/Zelda64-Tracker/static/js/main.f34f75b9.js.map"
+    "main.bbea30e3.js.map": "/Zelda64-Tracker/static/js/main.bbea30e3.js.map"
   },
   "entrypoints": [
     "static/css/main.e01f56c9.css",
-    "static/js/main.f34f75b9.js"
+    "static/js/main.bbea30e3.js"
   ]
 }
