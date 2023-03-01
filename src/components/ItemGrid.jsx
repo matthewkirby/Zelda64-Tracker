@@ -15,7 +15,12 @@ import { firebaseRemoveRef, firebaseChangeRef } from 'firebase.js';
 const expandIdList = (trackerLayoutIds) => {
   return trackerLayoutIds.reduce((tot, item) => {
     if (typeof item === "string") {
-      return [ ...tot, {"name": item, ...itemDict[item]} ];
+      if (!(item in itemDict)) {
+        console.log(`Could not find ${item} to place in grid.`);
+        return [ ...tot ];
+      } else {
+        return [ ...tot, {"name": item, ...itemDict[item]} ];
+      }
     } else if (typeof item === "object" && item.type === "squish") {
       const squishDict = { "type": "squish", "nCols": item.nCols, "items": [] };
       for (const subItem of item.items) {
