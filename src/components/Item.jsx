@@ -56,7 +56,7 @@ export const Item = (props) => {
     return <Toggle {...props} />;
   } else if (itemType === 'cycle') {
     return <Cycle {...props} />;
-  } else if (itemType === 'badge') {
+  } else if (['badge', 'checkToggle'].includes(itemType)) {
     return <Badge {...props} />;
   } else if (itemType === 'composite') {
     return <Composite {...props} />;

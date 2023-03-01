@@ -1,80 +1,25 @@
 {
   "TEMPLATE": {
-    "isCheckmark": "(bool) Use the default checkmark badge",
     "base": "(string) Class for the toggleable base item",
     "badge": "(string, optional) Class for badge. If isCheckmark, omit this.",
     "location": "(int, optional) Location of badge. Values are 0-3 from top to bottom left to right. Default is bottom right and top right for checkmark."
   },
 
   "OOT_BOTTLE_RUTOS": {
-    "isCheckmark": false,
     "base": "OOT_BOTTLE",
     "badge": "OOT_RUTOS_LETTER_BADGE"
   },
   "OOT_MAGIC_WLENS": {
-    "isCheckmark": false,
     "base": "OOT_MAGIC",
     "badge": "OOT_LENS_OF_TRUTH_BADGE"
   },
 
   "MM_MAGIC_WLENS": {
-    "isCheckmark": false,
     "base": "MM_MAGIC",
     "badge": "MM_LENS_OF_TRUTH_BADGE"
   },
   "MM_BOMB_BAG_WKEG": {
-    "isCheckmark": false,
     "base": "MM_BOMB_BAG",
     "badge": "MM_POWDER_KEG"
-  },
-
-
-  "OOT_ZELDAS_LULLABY_WCHECK": {
-    "isCheckmark": true,
-    "base": "OOT_ZELDAS_LULLABY"
-  },
-  "OOT_EPONAS_SONG_WCHECK": {
-    "isCheckmark": true,
-    "base": "OOT_EPONAS_SONG"
-  },
-  "OOT_SARIAS_SONG_WCHECK": {
-    "isCheckmark": true,
-    "base": "OOT_SARIAS_SONG"
-  },
-  "OOT_SUNS_SONG_WCHECK": {
-    "isCheckmark": true,
-    "base": "OOT_SUNS_SONG"
-  },
-  "OOT_SONG_OF_TIME_WCHECK": {
-    "isCheckmark": true,
-    "base": "OOT_SONG_OF_TIME"
-  },
-  "OOT_SONG_OF_STORMS_WCHECK": {
-    "isCheckmark": true,
-    "base": "OOT_SONG_OF_STORMS"
-  },
-  "OOT_MINUET_WCHECK": {
-    "isCheckmark": true,
-    "base": "OOT_MINUET"
-  },
-  "OOT_BOLERO_WCHECK": {
-    "isCheckmark": true,
-    "base": "OOT_BOLERO"
-  },
-  "OOT_SERENADE_WCHECK": {
-    "isCheckmark": true,
-    "base": "OOT_SERENADE"
-  },
-  "OOT_NOCTURNE_WCHECK": {
-    "isCheckmark": true,
-    "base": "OOT_NOCTURNE"
-  },
-  "OOT_REQUIEM_WCHECK": {
-    "isCheckmark": true,
-    "base": "OOT_REQUIEM"
-  },
-  "OOT_PRELUDE_WCHECK": {
-    "isCheckmark": true,
-    "base": "OOT_PRELUDE"
   }
 }

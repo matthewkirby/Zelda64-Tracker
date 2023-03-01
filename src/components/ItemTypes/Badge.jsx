@@ -4,13 +4,16 @@ const DEFAULT_STATE = false;
 
 export const Badge = ({ itemInfo, trackerState, trackerOptions, updateSingleItem, extraStyles }) => {
 
-  const baseItem = itemInfo.base;
-  const badgeItem = itemInfo.badge;
-  const badgeLocation = itemInfo.location ?? 3;
+  const isCheckmark = itemInfo.type === "checkToggle";
+
+  const baseItem = isCheckmark ? itemInfo.name : itemInfo.base;
+  const badgeItem = isCheckmark ? "CHECKMARK" : itemInfo.badge;
+  const badgeName = isCheckmark ? `${baseItem}_${badgeItem}` : itemInfo.name;
+  const badgeLocation = isCheckmark ? 1 : itemInfo.location ?? 3;
   const itemSizeStyle = trackerOptions.calc.itemSize.style;
 
   const baseState = trackerState[baseItem] ?? DEFAULT_STATE;
-  const badgeState = trackerState[itemInfo.name] ?? DEFAULT_STATE;
+  const badgeState = trackerState[badgeName] ?? DEFAULT_STATE;
   const itemState = [baseState, badgeState];
 
   // Build the list of classes for the base
@@ -28,7 +31,7 @@ export const Badge = ({ itemInfo, trackerState, trackerOptions, updateSingleItem
   // Set up the button interaction
   const onInteract = (slot) => {
     const newState = !itemState[slot];
-    const name = slot === 0 ? baseItem : itemInfo.name;
+    const name = slot === 0 ? baseItem : badgeName;
     updateSingleItem({ [name]: newState },  newState === DEFAULT_STATE);
   };
 

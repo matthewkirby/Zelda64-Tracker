@@ -1,10 +1,15 @@
 // This is a js file instead of json as that allows me in the future to define whole blocks that can be
 // added piecemeal to layouts instead of copying it everytime
 
+// Helper function to convert a toggle item to a checkToggle (toggle item with a checkmark badge)
+const defCT = (item) => {
+  return { name: item, type: "checkToggle" };
+}
+
 // Anything here can be used in a layout by spreading
 const layoutChunks = {
-  oot_child_songs_wcheck: ["OOT_ZELDAS_LULLABY_WCHECK", "OOT_EPONAS_SONG_WCHECK", "OOT_SARIAS_SONG_WCHECK", "OOT_SUNS_SONG_WCHECK", "OOT_SONG_OF_TIME_WCHECK", "OOT_SONG_OF_STORMS_WCHECK"],
-  oot_warp_songs_wcheck: ["OOT_MINUET_WCHECK", "OOT_BOLERO_WCHECK", "OOT_SERENADE_WCHECK", "OOT_NOCTURNE_WCHECK", "OOT_REQUIEM_WCHECK", "OOT_PRELUDE_WCHECK"],
+  oot_child_songs_wcheck: [defCT("OOT_ZELDAS_LULLABY"), defCT("OOT_EPONAS_SONG"), defCT("OOT_SARIAS_SONG"), defCT("OOT_SUNS_SONG"), defCT("OOT_SONG_OF_TIME"), defCT("OOT_SONG_OF_STORMS")],
+  oot_warp_songs_wcheck: [defCT("OOT_MINUET"), defCT("OOT_BOLERO"), defCT("OOT_SERENADE"), defCT("OOT_NOCTURNE"), defCT("OOT_REQUIEM"), defCT("OOT_PRELUDE")],
   oot_labeled_stones: ["OOT_KOKIRI_EMERALD_LABELED", "OOT_GORON_RUBY_LABELED", "OOT_ZORA_SAPPHIRE_LABELED"],
 
   mm_labeled_remains: ["MM_ODOLWAS_REMAINS_LABELED", "MM_GOHTS_REMAINS_LABELED", "MM_GYORGS_REMAINS_LABELED", "MM_TWINMOLDS_REMAINS_LABELED"]

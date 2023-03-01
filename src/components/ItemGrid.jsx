@@ -21,13 +21,26 @@ const expandIdList = (trackerLayoutIds) => {
       } else {
         return [ ...tot, {"name": item, ...itemDict[item]} ];
       }
-    } else if (typeof item === "object" && item.type === "squish") {
-      const squishDict = { "type": "squish", "nCols": item.nCols, "items": [] };
-      for (const subItem of item.items) {
-        squishDict.items.push({"name": subItem, ...itemDict[subItem]});
+    } 
+    
+    else if (item.type === "checkToggle") {
+      if (!(item.name in itemDict)) {
+        console.log(`Could not find ${item.name} to place in grid.`);
+        return [ ...tot ];
+      } else if(!(itemDict[item.name].type === "simple_toggle")) {
+        console.log(`checkToggle types must be defined as a simple_toggle. ${item.name} was not`);
+        return [ ...tot ];
+      } else {
+        return [ ...tot, item ];
       }
+    }
+    
+    else if (item.type === "squish") {
+      const squishDict = { "type": "squish", "nCols": item.nCols, "items": expandIdList(item.items) };
       return [ ...tot, squishDict ];
-    } else {
+    }
+    
+    else {
       console.log(`Unknown item in grid, ${item}. Skipping.`);
       return [ ...tot ];
     }
