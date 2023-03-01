@@ -13,9 +13,11 @@ const FirebaseSettings = ({ firebaseControls }) => {
         key={"dbtoggle"}
         variant="contained"
         color={useFirebase ? "error" : "success"}
-        onClick={() => setUseFirebase(!useFirebase)}
+        onClick={() => null}
+        // onClick={() => setUseFirebase(!useFirebase)}
       >
-        {useFirebase ? "Close Connection" : "Sync Tracker"}
+        {/* {useFirebase ? "Close Connection" : "Sync Tracker"} */}
+        Coming Soon
       </Button>
     </div>
   );
