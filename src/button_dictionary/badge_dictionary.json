@@ -21,5 +21,9 @@
   "MM_BOMB_BAG_WKEG": {
     "base": "MM_BOMB_BAG",
     "badge": "MM_POWDER_KEG"
+  },
+  "MM_GORON_MASK_WKEG": {
+    "base": "MM_GORON_MASK",
+    "badge": "MM_POWDER_KEG"
   }
 }

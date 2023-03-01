@@ -85,7 +85,7 @@
 .OOT_TRIFORCE             { background-image: url('assets/items/oot/misc/triforce.png'); }
 .OOT_RUTOS_LETTER_BADGE   { background-image: url('assets/items/oot/items/rutos_letter.png'); }
 .OOT_LENS_OF_TRUTH_BADGE  { background-image: url('assets/items/shared/items/lens_of_truth_badge.png'); }
-/* .OOT_GO_MODE               { background-image: url('assets/items/oot/misc/go_mode.png'); }
+.OOT_GO_MODE              { background-image: url('assets/items/oot/misc/go_mode.png'); }
 
 
 /* MM DUNGEON REWARDS */
@@ -182,7 +182,7 @@
 
 /* MM MISC AND CUSTOM BADGE ICONS */
 .MM_LENS_OF_TRUTH_BADGE   { background-image: url('assets/items/shared/items/lens_of_truth_badge.png'); }
-/* .MM_GO_MODE               { background-image: url('assets/items/mm/misc/go_mode.png'); } */
+.MM_GO_MODE               { background-image: url('assets/items/mm/misc/go_mode.png'); }
 
 /* SPECIAL SHARED OR META GAME CONTENT */
 .CHECKMARK              { background-image: url('assets/items/shared/checkmark.png'); }
