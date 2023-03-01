@@ -14,5 +14,9 @@
   },
   "OOT_COMPOSITE_TUNICS": {
     "items": ["OOT_GORON_TUNIC", "OOT_ZORA_TUNIC"]
+  },
+
+  "MM_COMPOSITE_IKANA_ACCESS": {
+    "items": ["MM_GIBDO_MASK", "MM_GAROS_MASK"]
   }
 }

@@ -14,5 +14,41 @@
     "minVal": 0,
     "maxVal": 999,
     "location": 1
+  },
+
+  "MM_BOTTLE": {
+    "minVal": 0,
+    "maxVal": 6,
+    "location": 1
+  },
+  "MM_SSH_TOKEN": {
+    "minVal": 0,
+    "maxVal": 30,
+    "location": 1
+  },
+  "MM_OSH_TOKEN": {
+    "minVal": 0,
+    "maxVal": 30,
+    "location": 1
+  },
+  "MM_STRAY_FAIRY_WFT": {
+    "minVal": 0,
+    "maxVal": 15,
+    "location": 1
+  },
+  "MM_STRAY_FAIRY_SHT": {
+    "minVal": 0,
+    "maxVal": 15,
+    "location": 1
+  },
+  "MM_STRAY_FAIRY_GBT": {
+    "minVal": 0,
+    "maxVal": 15,
+    "location": 1
+  },
+  "MM_STRAY_FAIRY_STT": {
+    "minVal": 0,
+    "maxVal": 15,
+    "location": 1
   }
 }

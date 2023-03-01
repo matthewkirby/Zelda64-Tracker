@@ -28,6 +28,7 @@
 .OOT_LENS_OF_TRUTH      { background-image: url('assets/items/shared/items/lens_of_truth.png'); }
 .OOT_DINS_FIRE          { background-image: url('assets/items/oot/items/dins_fire.png'); }
 .OOT_FARORES_WIND       { background-image: url('assets/items/oot/items/farores_wind.png'); }
+/* .OOT_NAYRUS_LOVE        { background-image: url('assets/items/oot/items/nayrus_love.png'); } */
 .OOT_FIRE_ARROWS        { background-image: url('assets/items/shared/items/fire_arrows.png'); }
 .OOT_ICE_ARROWS         { background-image: url('assets/items/shared/items/ice_arrows.png'); }
 .OOT_LIGHT_ARROWS       { background-image: url('assets/items/shared/items/light_arrows.png'); }
@@ -35,6 +36,8 @@
 .OOT_STRENGTH_1         { background-image: url('assets/items/oot/items/goron_bracelet.png'); }
 .OOT_STRENGTH_2         { background-image: url('assets/items/oot/items/silver_gauntlets.png'); }
 .OOT_STRENGTH_3         { background-image: url('assets/items/oot/items/gold_gauntlets.png'); }
+/* .OOT_WALLET_200         { background-image: url('assets/items/shared/items/wallet_200.png'); } */
+/* .OOT_WALLET_500         { background-image: url('assets/items/shared/items/wallet_500.png'); } */
 
 /* OOT TRADE QUEST */
 .OOT_WEIRD_EGG          { background-image: url('assets/items/oot/trade/weird_egg.png'); }
@@ -78,7 +81,7 @@
 .OOT_REQUIEM            { background-image: url('assets/items/oot/songs/requiem_of_spirit.png'); }
 .OOT_PRELUDE            { background-image: url('assets/items/oot/songs/prelude_of_light.png'); }
 
-/* OOT CUSTOM BADGE ICONS */
+/* OOT MISC AND CUSTOM BADGE ICONS */
 .OOT_TRIFORCE             { background-image: url('assets/items/oot/misc/triforce.png'); }
 .OOT_RUTOS_LETTER_BADGE   { background-image: url('assets/items/oot/items/rutos_letter.png'); }
 .OOT_LENS_OF_TRUTH_BADGE  { background-image: url('assets/items/shared/items/lens_of_truth_badge.png'); }
@@ -138,10 +141,10 @@
 /* MM EQUIPMENT */
 /* .MM_HEROS_SHIELD       { background-image: url('assets/items/mm/items/heros_shield.png'); } */
 .MM_MIRROR_SHIELD      { background-image: url('assets/items/mm/items/mirror_shield.png'); }
-/* .MM_KOKIRI_SWORD       { background-image: url('assets/items/mm/items/kokiri_sword.png'); }
-.MM_RAZOR_SWORD        { background-image: url('assets/items/mm/items/razor_sword.png'); }
-.MM_GILDED_SWORD       { background-image: url('assets/items/mm/items/gilded_sword.png'); }
-.MM_GREAT_FAIRYS_SWORD { background-image: url('assets/items/mm/items/great_fairys_sword.png'); } */
+/* .MM_KOKIRI_SWORD       { background-image: url('assets/items/mm/items/kokiri_sword.png'); } */
+/* .MM_RAZOR_SWORD        { background-image: url('assets/items/mm/items/razor_sword.png'); } */
+/* .MM_GILDED_SWORD       { background-image: url('assets/items/mm/items/gilded_sword.png'); } */
+/* .MM_GREAT_FAIRYS_SWORD { background-image: url('assets/items/mm/items/great_fairys_sword.png'); } */
 
 /* MM SONGS */
 .MM_SONG_OF_TIME          { background-image: url('assets/items/mm/songs/song_of_time.png'); }
@@ -168,13 +171,16 @@
 .MM_GOLD_DUST             { background-image: url('assets/items/mm/items/gold_dust.png'); }
 
 /* MM COLLECTIBLES */
-.MM_OSH_TOKEN             { background-image: url('assets/items/mm/ditems/osh_skulltula.png'); }
 .MM_SSH_TOKEN             { background-image: url('assets/items/mm/ditems/ssh_skulltula.png'); }
+.MM_OSH_TOKEN             { background-image: url('assets/items/mm/ditems/osh_skulltula.png'); }
 .MM_STRAY_FAIRY_ECT       { background-image: url('assets/items/mm/ditems/stray_fairy_clock_town.png'); }
 .MM_STRAY_FAIRY_WFT       { background-image: url('assets/items/mm/ditems/stray_fairy_woodfall.png'); }
 .MM_STRAY_FAIRY_SHT       { background-image: url('assets/items/mm/ditems/stray_fairy_snowhead.png'); }
 .MM_STRAY_FAIRY_GBT       { background-image: url('assets/items/mm/ditems/stray_fairy_great_bay.png'); }
 .MM_STRAY_FAIRY_STT       { background-image: url('assets/items/mm/ditems/stray_fairy_stone_tower.png'); }
+
+/* MM MISC AND CUSTOM BADGE ICONS */
+.MM_LENS_OF_TRUTH_BADGE   { background-image: url('assets/items/shared/items/lens_of_truth_badge.png'); }
 
 /* SPECIAL SHARED OR META GAME CONTENT */
 .CHECKMARK              { background-image: url('assets/items/shared/checkmark.png'); }

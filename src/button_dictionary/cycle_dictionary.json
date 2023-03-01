@@ -14,8 +14,52 @@
     "loop": false,
     "disableZero": true
   },
+  "OOT_PROGRESSIVE_SWORD": {
+    "sequence": ["OOT_KOKIRI_SWORD", "OOT_MASTER_SWORD"],
+    "loop": false,
+    "disableZero": true
+  },
+  "OOT_PROGRESSIVE_SHIELD": {
+    "sequence": ["OOT_DEKU_SHIELD", "OOT_HYLIAN_SHIELD", "OOT_MIRROR_SHIELD"],
+    "loop": false,
+    "disableZero": true
+  },
+  "OOT_PROGRESSIVE_WALLET": {
+    "sequence": ["OOT_WALLET_200", "OOT_WALLET_500"],
+    "loop": false,
+    "disableZero": true
+  },
   "OOT_PROGRESSIVE_CHILD_TRADE": {
-    "sequence": ["OOT_WEIRD_EGG", "OOT_ZELDAS_LETTER", "OOT_KEATON_MASK", "OOT_SKULL_MASK", "OOT_SPOOKY_MASK", "OOT_BUNNY_HOOD", "OOT_MASK_OF_TRUTH"],
+    "sequence": ["OOT_WEIRD_EGG", "OOT_ZELDAS_LETTER", "OOT_KEATON_MASK",
+      "OOT_SKULL_MASK", "OOT_SPOOKY_MASK", "OOT_BUNNY_HOOD", "OOT_MASK_OF_TRUTH"],
+    "loop": false,
+    "disableZero": true
+  },
+  "OOT_PROGRESSIVE_ADULT_TRADE": {
+    "sequence":["OOT_POCKET_CUCCO", "OOT_COJIRO", "OOT_ODD_MUSHROOM", "OOT_ODD_POTION",
+      "OOT_POACHERS_SAW", "OOT_BROKEN_SWORD", "OOT_PRESCRIPTION", "OOT_EYEBALL_FROG",
+      "OOT_EYE_DROPS", "OOT_CLAIM_CHECK"],
+    "loop": false,
+    "disableZero": true
+  },
+  "OOT_PROGRESSIVE_ADULT_TRADE_SHORTENED": {
+    "sequence":["OOT_PRESCRIPTION", "OOT_EYEBALL_FROG", "OOT_EYE_DROPS", "OOT_CLAIM_CHECK"],
+    "loop": false,
+    "disableZero": true
+  },
+
+  "MM_PROGRESSIVE_WALLET": {
+    "sequence": ["MM_WALLET_200", "MM_WALLET_500"],
+    "loop": false,
+    "disableZero": true
+  },
+  "MM_PROGRESSIVE_SWORD": {
+    "sequence": ["MM_KOKIRI_SWORD", "MM_RAZOR_SWORD", "MM_GILDED_SWORD"],
+    "loop": false,
+    "disableZero": true
+  },
+  "MM_PROGRESSIVE_SHIELD": {
+    "sequence": ["MM_HEROS_SHIELD", "MM_MIRROR_SHIELD"],
     "loop": false,
     "disableZero": true
   }

@@ -16,6 +16,12 @@
     "base": "OOT_MAGIC",
     "badge": "OOT_LENS_OF_TRUTH_BADGE"
   },
+
+  "MM_MAGIC_WLENS": {
+    "isCheckmark": false,
+    "base": "MM_MAGIC",
+    "badge": "MM_LENS_OF_TRUTH_BADGE"
+  },
   "MM_BOMB_BAG_WKEG": {
     "isCheckmark": false,
     "base": "MM_BOMB_BAG",
