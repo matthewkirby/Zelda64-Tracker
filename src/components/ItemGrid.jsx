@@ -35,9 +35,9 @@ const expandIdList = (trackerLayoutIds) => {
       }
     }
     
-    else if (item.type === "squish") {
-      const squishDict = { "type": "squish", "nCols": item.nCols, "items": expandIdList(item.items) };
-      return [ ...tot, squishDict ];
+    else if (["squish", "3x3grid"].includes(item.type)) {
+      const subGrid = { ...item, "items": expandIdList(item.items) };
+      return [ ...tot, subGrid ];
     }
     
     else {

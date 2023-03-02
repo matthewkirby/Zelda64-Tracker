@@ -1,6 +1,6 @@
 import 'style/item.css';
 import 'style/item_subgrids.css';
-import { Cycle, Toggle, Badge, Composite, Counter, DungeonReward } from './ItemTypes';
+import { Cycle, Toggle, Badge, Composite, Counter, DungeonReward, Grid3x3 } from './ItemTypes';
 
 const Squish = (props) => {
   const itemList = props.itemInfo.items;
@@ -49,6 +49,8 @@ export const Item = (props) => {
   // Expand squished icons
   if (itemType === 'squish') {
     return <Squish {...props} />;
+  } else if (itemType === '3x3grid') {
+    return <Grid3x3 {...props} />;
   }
 
   // Use the correct element type

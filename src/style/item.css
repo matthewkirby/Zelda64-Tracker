@@ -21,3 +21,11 @@
   display: grid;
   align-items: center;
 }
+
+.sub-flex-base {
+  display: flex;
+  flex-direction: row;
+  /* flex-direction: row-reverse; */
+  flex-wrap: wrap;
+  justify-content: center;
+}
