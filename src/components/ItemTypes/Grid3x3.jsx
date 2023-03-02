@@ -1,6 +1,6 @@
 import { Item } from 'components/Item';
 
-const create2x2SubBoxStyles = (span, childTrackerOptions) => {
+const create2x2SubBoxStyles = (nItems, span, childTrackerOptions) => {
   const units = childTrackerOptions.geometry.units;
   const oldWidth = childTrackerOptions.calc.itemSize.number;
   const gapSize = Math.min(childTrackerOptions.geometry.columnGap, childTrackerOptions.geometry.rowGap);
@@ -12,45 +12,53 @@ const create2x2SubBoxStyles = (span, childTrackerOptions) => {
   // Set up new styles
   const subBoxStyles = {}; 
   const newItemSize = { number: newWidth, style: { height: `${newWidth}${units}`, width: `${newWidth}${units}` } };
-  const subElementStyles = [
-    { margin: "0 12.5px"}, {}, {}
-  ]
-
+  const subElementStyles = [...Array(nItems).keys()].map((v) => {
+    return { margin: (v === 0 && nItems < 4) ? `0 ${newWidth/2}${units}` : "" };
+  });
 
   // Update tracker options object
   childTrackerOptions.itemSize = newWidth;
   childTrackerOptions.calc.itemSize = newItemSize;
 
-  return { subBoxStyles: subBoxStyles, subElementStyles: subElementStyles, childTrackerOptions: childTrackerOptions }
+  return [ subBoxStyles, subElementStyles, childTrackerOptions ]
 };
 
 // Until I have a better method, hard code positions and sizes given
 // the number of items and size of the grid3x3 item on the grid
 export const Grid3x3 = (props) => {
   const itemList = props.itemInfo.items;
+  const nItems = itemList.length;
   const span = props.itemInfo.size;
 
-  // if (!Object.keys(funcDefinitions).includes(String(itemList.length))) {
-  //   console.log("Grid3x3 elements currently only support certain numbers of items:", Object.keys(funcDefinitions));
-  //   return null;
-  // }
-  if (span !== 1) {
-    console.log("Grid3x3 elements currently only support a size of 1");
+  if (nItems < 2) {
+    console.log("Grid3x3 elements should have at least 2 items.");
+    return null;
+  } else if (nItems > 5) {
+    console.log("Grid3x3 elements currently only support less than 5 items");
     return null;
   }
 
-  const { subBoxStyles, subElementStyles, childTrackerOptions } = create2x2SubBoxStyles(span, JSON.parse(JSON.stringify(props.trackerOptions)));
+  if (span !== 1) {
+    console.log("Grid3x3 elements currently only support sizes of 1");
+    return null;
+  }
+
+  const copyTrackerOptions = JSON.parse(JSON.stringify(props.trackerOptions));
+  let subGridSettings = null;
+  if (nItems < 5) {
+    subGridSettings = create2x2SubBoxStyles(nItems, span, copyTrackerOptions);
+  }
 
 
   return (
-    <div className="sub-flex-base" style={subBoxStyles} >
+    <div className="sub-flex-base" style={subGridSettings[0]} >
       {itemList.map((item, i) =>
         <Item
           key={item.name+i}
           {...props}
           itemInfo={item}
-          trackerOptions={childTrackerOptions}
-          extraStyles={subElementStyles[i]}
+          trackerOptions={subGridSettings[2]}
+          extraStyles={subGridSettings[1][i]}
         />
       )}
     </div>
