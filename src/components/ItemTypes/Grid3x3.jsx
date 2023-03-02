@@ -7,7 +7,6 @@ const createSubBoxStyles = (nItems, span, childTrackerOptions, subGridSize) => {
 
   // Resolve new sizes
   const totalSpace = span*oldWidth + (span-1)*gapSize;
-  // const newWidth = span > 1 ? (totalSpace-gapSize)/subGridSize : totalSpace/subGridSize;
   let newWidth = totalSpace/subGridSize;
   if (newWidth-oldWidth > 0 && newWidth-oldWidth < 0.2*oldWidth) {
     newWidth = oldWidth;
