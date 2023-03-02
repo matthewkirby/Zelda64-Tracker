@@ -1,16 +1,19 @@
 {
   "TEMPLATE": {
-    "items": "(Array(item1, item2) The two items to composite together. Left click will toggle item 1 and right click item 2."
+    "items": "(Array(item1, item2) The two items to composite together. Left click will toggle item 1 and right click item 2.",
+    "legacy": "(Bool) Use legacy behavior with a third precombined image. Default is false"
   },
 
   "OOT_COMPOSITE_SPELLS": {
     "items": ["OOT_DINS_FIRE", "OOT_FARORES_WIND"]
   },
   "OOT_COMPOSITE_ARROWS": {
-    "items": ["OOT_FIRE_ARROWS", "OOT_LIGHT_ARROWS"]
+    "items": ["OOT_FIRE_ARROWS", "OOT_LIGHT_ARROWS", "OOT_COMPOSITE_ARROWS"],
+    "legacy": true
   },
   "OOT_COMPOSITE_BOOTS": {
-    "items": ["OOT_IRON_BOOTS", "OOT_HOVER_BOOTS"]
+    "items": ["OOT_IRON_BOOTS", "OOT_HOVER_BOOTS", "OOT_COMPOSITE_BOOTS"],
+    "legacy": true
   },
   "OOT_COMPOSITE_TUNICS": {
     "items": ["OOT_GORON_TUNIC", "OOT_ZORA_TUNIC"]
