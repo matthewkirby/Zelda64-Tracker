@@ -85,12 +85,16 @@ const trackerLayoutList = {
     },
     layout: [
       ...layoutChunks.oot_labeled_medallions_ootmm, ...layoutChunks.mm_labeled_remains,
-      { type: "3x3grid", items: [ ...layoutChunks.oot_stones ], size: 1 }, "OOT_BOMB_BAG", "OOT_BOW", "OOT_PROGRESSIVE_HOOKSHOT",
-        "OOT_HAMMER", "OOT_COMPOSITE_BOOTS", "MM_DEKU_MASK", "MM_GORON_MASK_WKEG", "MM_ZORA_MASK", "MM_FIERCE_DEITY_MASK",
-      "OOT_BOOMERANG", "OOT_MAGIC_WLENS", "OOT_PROGRESSIVE_STRENGTH", "OOT_COMPOSITE_SPELLS", "BLANK", "BLANK", "MM_BOW", 
-        { type: "3x3grid", items: ["MM_FIRE_ARROWS", "MM_ICE_ARROWS", "MM_LIGHT_ARROWS"], size: 1 }, "MM_MAGIC_WLENS", "MM_PROGRESSIVE_EXPLOSIVES",
-      "OOT_BOTTLE_RUTOS", "OOT_PROGRESSIVE_SCALE", "OOT_MIRROR_SHIELD", "OOT_COMPOSITE_ARROWS", "OOT_GO_MODE", "MM_GO_MODE", defCT("MM_OATH_TO_ORDER"),,
-      "MM_HOOKSHOT", "MM_COMPOSITE_IKANA_ACCESS", "MM_BOTTLE",
+
+      { type: "3x3grid", items: [ ...layoutChunks.oot_stones ], size: 1 }, "OOT_BOMB_BAG", "OOT_BOW", "OOT_PROGRESSIVE_HOOKSHOT", "OOT_HAMMER",
+        "MM_COMPOSITE_IKANA_ACCESS", "MM_DEKU_MASK", "MM_GORON_MASK_WKEG", "MM_ZORA_MASK", "MM_FIERCE_DEITY_MASK",
+
+      "OOT_BOOMERANG", "OOT_MAGIC_WLENS", "OOT_BOTTLE_RUTOS", "OOT_COMPOSITE_SPELLS", "OOT_COMPOSITE_BOOTS",
+        "MM_HOOKSHOT", "MM_BOW", "MM_BOTTLE", "MM_MAGIC_WLENS", "MM_PROGRESSIVE_EXPLOSIVES",
+
+      "OOT_PROGRESSIVE_STRENGTH", "OOT_PROGRESSIVE_SCALE", "OOT_MIRROR_SHIELD", "OOT_COMPOSITE_ARROWS", "OOT_GO_MODE",
+        "MM_GO_MODE", defCT("MM_OATH_TO_ORDER"), "MM_FIRE_ARROWS", "MM_ICE_ARROWS", "MM_LIGHT_ARROWS",
+
       defCT("OOT_ZELDAS_LULLABY"), defCT("OOT_EPONAS_SONG"), defCT("OOT_SONG_OF_STORMS"), defCT("OOT_NOCTURNE"), defCT("OOT_REQUIEM"),
         defCT("MM_SONATA_OF_AWAKENING"), defCT("MM_GORON_LULLABY"), defCT("MM_NEW_WAVE_BOSSA_NOVA"), defCT("MM_ELEGY_OF_EMPTINESS"), defCT("MM_EPONAS_SONG")
     ]
@@ -98,6 +102,5 @@ const trackerLayoutList = {
 }
 
 const defaultLayoutKey = "uninitialized";
-
 
 export { defaultLayoutKey, trackerLayoutList };
