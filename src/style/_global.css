@@ -5,3 +5,8 @@ button:focus-visible {
 .font-face-labels {
   font-family: Impact;
 }
+
+@font-face {
+  font-family: "HyliaSerif";
+  src: local("HyliaSerif"), url("assets/fonts/HyliaSerif-Regular.otf") format("opentype");
+}

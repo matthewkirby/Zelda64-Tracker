@@ -1,45 +1,52 @@
+import { Toggle } from "./Toggle";
+import { toggleDict } from "button_dictionary";
+
 const locLookup = { 0: "top-left", 1: "top-right", 2: "bottom-left", 3: "bottom-right" };
 
 const DEFAULT_STATE = false;
 
 export const Badge = ({ itemInfo, trackerState, trackerOptions, updateSingleItem, extraStyles }) => {
-
   const isCheckmark = itemInfo.type === "checkToggle";
-
-  const baseItem = isCheckmark ? itemInfo.name : itemInfo.base;
-  const badgeItem = isCheckmark ? "CHECKMARK" : itemInfo.badge;
-  const badgeName = isCheckmark ? `${baseItem}_${badgeItem}` : itemInfo.name;
+  const baseItem = isCheckmark ? toggleDict[itemInfo.name] : toggleDict[itemInfo.base];
+  const badgeItem = isCheckmark ? toggleDict["CHECKMARK"] : toggleDict[itemInfo.badge];
+  const badgeName = isCheckmark ? `${baseItem.name}_${badgeItem.name}` : badgeItem.name;
   const badgeLocation = isCheckmark ? 1 : itemInfo.location ?? 3;
-  const itemSizeStyle = trackerOptions.calc.itemSize.style;
 
-  const baseState = trackerState[baseItem] ?? DEFAULT_STATE;
+  // Set up the states
+  const baseState = trackerState[baseItem.name] ?? DEFAULT_STATE;
   const badgeState = trackerState[badgeName] ?? DEFAULT_STATE;
-  const itemState = [baseState, badgeState];
-
-  // Build the list of classes for the base
-  const baseClassList = ["itm-base", "base-item", baseItem];
-  if (!baseState) {
-    baseClassList.push('itm-false');
-  }
-
-  // Build the list of classes for the badge
-  const badgeClassList = ["itm-base", badgeItem, locLookup[badgeLocation]];
-  if (!badgeState) {
-    badgeClassList.push('itm-hidden');
-  }
 
   // Set up the button interaction
   const onInteract = (slot) => {
-    const newState = !itemState[slot];
-    const name = slot === 0 ? baseItem : badgeName;
+    const newState = ![baseState, badgeState][slot];
+    const name = slot === 0 ? baseItem.name : badgeName;
     updateSingleItem({ [name]: newState },  newState === DEFAULT_STATE);
   };
 
   // Render
   return (
-    <div className="badge" style={{...itemSizeStyle, ...extraStyles}} onClick={() => onInteract(0)} onContextMenu={() => onInteract(1)}>
-      <button className={baseClassList.join(" ")} />
-      <button className={badgeClassList.join(" ")} />
+    <div className="badge"
+      style={{...trackerOptions.calc.itemSize.style, ...extraStyles}}
+      onClick={() => onInteract(0)}
+      onContextMenu={() => onInteract(1)}
+    >
+      <Toggle
+        key="toggle"
+        itemState={baseState}
+        extraClasses={["base-item"]}
+        itemInfo={baseItem}
+        disableInteraction={true}
+        inheritSize={true}
+      />
+      <Toggle
+        key="badge"
+        itemState={badgeState}
+        extraClasses={[locLookup[badgeLocation]]}
+        itemInfo={{...badgeItem}}
+        falseClass="itm-hidden"
+        disableInteraction={true}
+        inheritSize={true}
+      />
     </div>
   );
 };

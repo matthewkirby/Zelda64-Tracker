@@ -70,18 +70,18 @@
 .OOT_COMPOSITE_BOOTS    { background-image: url('assets/items/oot/items/composite_boots.png'); }
 
 /* OOT SONGS */
-.OOT_ZELDAS_LULLABY     { background-image: url('assets/items/oot/songs/zeldas_lullaby.png'); }
-.OOT_EPONAS_SONG        { background-image: url('assets/items/oot/songs/eponas_song.png'); }
-.OOT_SARIAS_SONG        { background-image: url('assets/items/oot/songs/sarias_song.png'); }
-.OOT_SUNS_SONG          { background-image: url('assets/items/oot/songs/suns_song.png'); }
-.OOT_SONG_OF_TIME       { background-image: url('assets/items/oot/songs/song_of_time.png'); }
-.OOT_SONG_OF_STORMS     { background-image: url('assets/items/oot/songs/song_of_storms.png'); }
-.OOT_MINUET             { background-image: url('assets/items/oot/songs/minuet_of_forest.png'); }
-.OOT_BOLERO             { background-image: url('assets/items/oot/songs/bolero_of_fire.png'); }
-.OOT_SERENADE           { background-image: url('assets/items/oot/songs/serenade_of_water.png'); }
-.OOT_NOCTURNE           { background-image: url('assets/items/oot/songs/nocturne_of_shadow.png'); }
-.OOT_REQUIEM            { background-image: url('assets/items/oot/songs/requiem_of_spirit.png'); }
-.OOT_PRELUDE            { background-image: url('assets/items/oot/songs/prelude_of_light.png'); }
+.OOT_ZELDAS_LULLABY     { background-image: url('assets/items/shared/songs/red_note.png'); }
+.OOT_EPONAS_SONG        { background-image: url('assets/items/shared/songs/orange_note.png'); }
+.OOT_SARIAS_SONG        { background-image: url('assets/items/shared/songs/green_note.png'); }
+.OOT_SUNS_SONG          { background-image: url('assets/items/shared/songs/yellow_note.png'); }
+.OOT_SONG_OF_TIME       { background-image: url('assets/items/shared/songs/blue_note.png'); }
+.OOT_SONG_OF_STORMS     { background-image: url('assets/items/shared/songs/purple_note.png'); }
+.OOT_MINUET             { background-image: url('assets/items/shared/songs/green_note.png'); }
+.OOT_BOLERO             { background-image: url('assets/items/shared/songs/red_note.png'); }
+.OOT_SERENADE           { background-image: url('assets/items/shared/songs/blue_note.png'); }
+.OOT_NOCTURNE           { background-image: url('assets/items/shared/songs/purple_note.png'); }
+.OOT_REQUIEM            { background-image: url('assets/items/shared/songs/orange_note.png'); }
+.OOT_PRELUDE            { background-image: url('assets/items/shared/songs/yellow_note.png'); }
 
 /* OOT MISC AND CUSTOM BADGE ICONS */
 .OOT_TRIFORCE             { background-image: url('assets/items/oot/misc/triforce.png'); }
@@ -150,16 +150,16 @@
 /* .MM_GREAT_FAIRYS_SWORD { background-image: url('assets/items/mm/items/great_fairys_sword.png'); } */
 
 /* MM SONGS */
-.MM_SONG_OF_TIME          { background-image: url('assets/items/mm/songs/song_of_time.png'); }
-.MM_SONG_OF_HEALING       { background-image: url('assets/items/mm/songs/song_of_healing.png'); }
-.MM_EPONAS_SONG           { background-image: url('assets/items/mm/songs/eponas_song.png'); }
-.MM_SONG_OF_SOARING       { background-image: url('assets/items/mm/songs/song_of_soaring.png'); }
-.MM_SONG_OF_STORMS        { background-image: url('assets/items/mm/songs/song_of_storms.png'); }
-.MM_SONATA_OF_AWAKENING   { background-image: url('assets/items/mm/songs/sonata_of_awakening.png'); }
-.MM_GORON_LULLABY         { background-image: url('assets/items/mm/songs/goron_lullaby.png'); }
-.MM_NEW_WAVE_BOSSA_NOVA   { background-image: url('assets/items/mm/songs/new_wave_bossa_nova.png'); }
-.MM_ELEGY_OF_EMPTINESS    { background-image: url('assets/items/mm/songs/elegy_of_emptiness.png'); }
-.MM_OATH_TO_ORDER         { background-image: url('assets/items/mm/songs/oath_to_order.png'); }
+.MM_SONG_OF_TIME          { background-image: url('assets/items/shared/songs/blue_note.png'); }
+.MM_SONG_OF_HEALING       { background-image: url('assets/items/shared/songs/red_note.png'); }
+.MM_EPONAS_SONG           { background-image: url('assets/items/shared/songs/orange_note.png'); }
+.MM_SONG_OF_SOARING       { background-image: url('assets/items/shared/songs/yellow_note.png'); }
+.MM_SONG_OF_STORMS        { background-image: url('assets/items/shared/songs/purple_note.png'); }
+.MM_SONATA_OF_AWAKENING   { background-image: url('assets/items/shared/songs/green_note.png'); }
+.MM_GORON_LULLABY         { background-image: url('assets/items/shared/songs/red_note.png'); }
+.MM_NEW_WAVE_BOSSA_NOVA   { background-image: url('assets/items/shared/songs/blue_note.png'); }
+.MM_ELEGY_OF_EMPTINESS    { background-image: url('assets/items/shared/songs/orange_note.png'); }
+.MM_OATH_TO_ORDER         { background-image: url('assets/items/shared/songs/purple_note.png'); }
 
 /* MM TRADE QUEST */
 .MM_MOONS_TEAR            { background-image: url('assets/items/mm/items/moons_tear.png'); }

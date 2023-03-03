@@ -54,7 +54,7 @@ export const Item = (props) => {
   }
 
   // Use the correct element type
-  if (itemType === 'simple_toggle') {
+  if (itemType === 'toggle') {
     return <Toggle {...props} />;
   } else if (itemType === 'cycle') {
     return <Cycle {...props} />;

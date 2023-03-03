@@ -1,56 +1,57 @@
-.badge, .counter, .composite, .dungeonReward {
+.toggle-grid, .badge, .counter, .composite, .dungeonReward {
   display: grid;
   grid-template-columns: [c0] 50% [c1] 50% [c2];
   grid-template-rows: [r0] 50% [r1] 50% [r2];
   gap: 0 0;
 }
 
-.badge > .base-item,
-.counter > .base-item,
-.composite > .single-item {
+.badge .base-item,
+.counter .base-item,
+.composite .single-item {
   grid-column: c0 / c2;
   grid-row: r0 / r2;
 }
 
-.badge > .top-left,
-.counter > .top-left {
+.badge .top-left,
+.counter .top-left {
   grid-column: c0 / c1;
   grid-row: r0 / r1;
 }
 
-.badge > .top-right,
-.counter > .top-right {
+.badge .top-right,
+.counter .top-right {
   grid-column: c1 / c2;
   grid-row: r0 / r1;
 }
 
-.badge > .bottom-left,
-.counter > .bottom-left {
+.badge .bottom-left,
+.counter .bottom-left {
   grid-column: c0 / c1;
   grid-row: r1 / r2;
 }
 
-.badge > .bottom-right,
-.counter > .bottom-right,
-.dungeonReward > .bottom-right {
+.badge .bottom-right,
+.counter .bottom-right,
+.dungeonReward .bottom-right {
   grid-column: c1 / c2;
   grid-row: r1 / r2;
 }
 
-.composite > .left-half {
+.composite .left-half {
   grid-column: c0 / c1;
   grid-row: r0 / r2;
   background-size: 200%;
 }
 
-.composite > .right-half {
+.composite .right-half {
   grid-column: c1 / c2;
   grid-row: r0 / r2;
   background-size: 200%;
   background-position: -100%;
 }
 
-.dungeonReward > .bottom-row {
+.dungeonReward .bottom-row,
+.toggle-grid .bottom-row {
   grid-column: c0 / c2;
   grid-row: r1 / r2;
 }

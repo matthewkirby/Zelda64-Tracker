@@ -11,7 +11,7 @@
 }
 
 .dungeonReward > .textStyle {
-  text-shadow: -1px -1px #000, 1px -1px #000, -1px 1px #000, 1px 1px #000;
+  text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 2px #000, -1px -1px 2px #000;
   color: rgb(255, 255, 255);
   font-family: Impact;
   user-select: none;

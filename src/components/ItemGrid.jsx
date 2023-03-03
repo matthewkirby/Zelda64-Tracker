@@ -27,8 +27,8 @@ const expandIdList = (trackerLayoutIds) => {
       if (!(item.name in itemDict)) {
         console.log(`Could not find ${item.name} to place in grid.`);
         return [ ...tot ];
-      } else if(!(itemDict[item.name].type === "simple_toggle")) {
-        console.log(`checkToggle types must be defined as a simple_toggle. ${item.name} was not`);
+      } else if(!(itemDict[item.name].type === "toggle")) {
+        console.log(`checkToggle types must be defined as a toggle. ${item.name} was not`);
         return [ ...tot ];
       } else {
         return [ ...tot, item ];

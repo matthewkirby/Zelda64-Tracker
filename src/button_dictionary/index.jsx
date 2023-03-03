@@ -6,15 +6,11 @@ import counters from 'button_dictionary/counter_dictionary.json';
 import dungeonRewards from 'button_dictionary/dungeon_reward_dictionary.json';
 
 // Prepare the toggles
-const toggleDict = toggles.reduce((tot, item) => { return { ...tot, [item]: { "type": "simple_toggle" } }; }, {});
-
-// Add base child to badges with isCheckmark
-for (const item in badges) {
-  if (badges[item].isCheckmark) {
-    badges[item]["badge"] = "CHECKMARK";
-    badges[item]["location"] = 1;
-  }
-}
+export const toggleDict = toggles.reduce((tot, item) => {
+  if (typeof item === "string")
+    return { ...tot, [item]: { "type": "toggle", "name": item } };
+  return { ...tot, [item.name]: { "type": "toggle", "name": item.name, ...item } };
+}, {});
 
 const jointDict = { "cycle": cycles, "composite": composites, "badge": badges, "counter": counters, "dungeonReward": dungeonRewards };
 const complexDict = Object.keys(jointDict).reduce((tot, type) => {
