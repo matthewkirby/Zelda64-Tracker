@@ -48,11 +48,6 @@
     "disableZero": true
   },
 
-  "MM_PROGRESSIVE_EXPLOSIVES": {
-    "sequence": ["MM_BLAST_MASK", "MM_BOMB_BAG"],
-    "loop": false,
-    "disableZero": true
-  },
   "MM_PROGRESSIVE_WALLET": {
     "sequence": ["MM_WALLET_200", "MM_WALLET_500"],
     "loop": false,
