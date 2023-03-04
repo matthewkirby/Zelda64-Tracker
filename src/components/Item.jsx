@@ -15,8 +15,9 @@ const Squish = (props) => {
 
   // Resolve new sizes
   const totalSpace = nCols*oldWidth + (nCols-1)*gapSize;
-  const newWidth = totalSpace/(nItems + 0.1*(nItems-1));
-  const newGap = newWidth/10;
+  const gapFraction = gapSize/oldWidth;
+  const newWidth = totalSpace/(nItems + gapFraction*(nItems-1));
+  const newGap = gapFraction*newWidth;
 
   // Set up new styles
   const squishStyle = { gridColumnEnd: `span ${nCols}`, columnGap: `${newGap}${units}` };
