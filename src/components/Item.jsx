@@ -1,16 +1,14 @@
 import 'style/item.css';
 import 'style/item_subgrids.css';
 import { Cycle, Toggle, Badge, Composite, Counter, DungeonReward } from './ItemTypes';
-import { Inline, Subgrid } from './ItemContainers';
+import { itemContainerNames, ItemContainer } from './ItemContainers';
 
 export const Item = (props) => {
   const itemType = props.itemInfo.type;
 
   // Expand item containers
-  if (itemType === 'inline') {
-    return <Inline {...props} />;
-  } else if (itemType === 'subgrid') {
-    return <Subgrid {...props} />;
+  if (itemContainerNames.includes(itemType)) {
+    return <ItemContainer {...props} />;
   }
 
   // Use the correct element type

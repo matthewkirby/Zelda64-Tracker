@@ -1,10 +1,18 @@
 import { Inline } from './Inline';
 import { Subgrid } from './Subgrid';
 
-// This array defines the names of the different container elements to be used in places that check
-// if they are dealing with an individual item or a container of items.
-// Each of these should be defined in a layout as an object with an `items` key that holds an array of
-// items that the container holds.
+// Each ItemContainer should be definable in a layout as an object with an `items` key that holds
+// an array of items for the container
+const ItemContainer = (props) => {
+  const itemType = props.itemInfo.type;
+
+  if (itemType === 'inline') {
+    return <Inline {...props} />;
+  } else if (itemType === 'subgrid') {
+    return <Subgrid {...props} />;
+  }
+};
+
 const itemContainerNames = ["inline", "subgrid"];
 
-export { Inline, Subgrid, itemContainerNames };
+export { Inline, Subgrid, ItemContainer, itemContainerNames };
