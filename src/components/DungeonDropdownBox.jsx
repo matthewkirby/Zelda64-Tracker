@@ -1,11 +1,12 @@
 import { dungeonTextOptions } from "data/dungeon_text_options";
 import { Dropdown } from "./Dropdown";
 import 'style/dungeon_dropdown_box.css';
+import { itemContainerNames } from "./ItemContainers";
 
-const expandSquishElements = (layout) => {
+const expandContainerElements = (layout) => {
   return layout.reduce((tot, item) => {
-    if (item.type === 'squish') {
-      const subList = expandSquishElements(item.items);
+    if (itemContainerNames.includes(item.type)) {
+      const subList = expandContainerElements(item.items);
       return [ ...tot , ...subList ];
     }
     return [ ...tot, item ];
@@ -13,7 +14,7 @@ const expandSquishElements = (layout) => {
 }
 
 const findDropdownElements = (layout) => {
-  const expandedLayout = expandSquishElements(layout);
+  const expandedLayout = expandContainerElements(layout);
   return expandedLayout.filter((item) => ['dungeonReward'].includes(item.type));
 };
 

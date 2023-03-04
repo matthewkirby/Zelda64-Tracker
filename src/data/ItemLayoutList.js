@@ -36,7 +36,7 @@ const trackerLayoutList = {
     },
     layout: [
       ...layoutChunks.oot_labeled_medallions_ootr,
-      "OOT_PROGRESSIVE_SCALE", "OOT_GOLDEN_SKULLTULA", { type: "squish", items: [...layoutChunks.oot_labeled_stones], nCols: 2}, "OOT_TRIFORCE", "OOT_BOTTLE_RUTOS",
+      "OOT_PROGRESSIVE_SCALE", "OOT_GOLDEN_SKULLTULA", { type: "inline", items: [...layoutChunks.oot_labeled_stones], nCols: 2}, "OOT_TRIFORCE", "OOT_BOTTLE_RUTOS",
       "OOT_SLINGSHOT", "OOT_BOMB_BAG", "OOT_BOOMERANG", "OOT_PROGRESSIVE_STRENGTH", "OOT_MAGIC_WLENS", "OOT_COMPOSITE_SPELLS",
       "OOT_PROGRESSIVE_HOOKSHOT", "OOT_BOW", "OOT_COMPOSITE_ARROWS", "OOT_HAMMER", "OOT_COMPOSITE_BOOTS", "OOT_MIRROR_SHIELD",
       "OOT_PROGRESSIVE_CHILD_TRADE", "OOT_OCARINA", "OOT_BEANS", "OOT_KOKIRI_SWORD", "OOT_GERUDO_CARD", "OOT_COMPOSITE_TUNICS",
@@ -86,7 +86,7 @@ const trackerLayoutList = {
     layout: [
       ...layoutChunks.oot_labeled_medallions_ootmm, ...layoutChunks.mm_labeled_remains,
 
-      { type: "3x3grid", items: [ ...layoutChunks.oot_stones ], size: 1 }, "OOT_BOMB_BAG", "OOT_BOW", "OOT_PROGRESSIVE_HOOKSHOT", "OOT_HAMMER",
+      { type: "subgrid", items: [ ...layoutChunks.oot_stones ], size: 1 }, "OOT_BOMB_BAG", "OOT_BOW", "OOT_PROGRESSIVE_HOOKSHOT", "OOT_HAMMER",
         "MM_COMPOSITE_IKANA_ACCESS", "MM_DEKU_MASK", "MM_GORON_MASK_WKEG", "MM_ZORA_MASK", "MM_FIERCE_DEITY_MASK",
 
       "OOT_BOOMERANG", "OOT_MAGIC_WLENS", "OOT_BOTTLE_RUTOS", "OOT_COMPOSITE_SPELLS", "OOT_COMPOSITE_BOOTS",

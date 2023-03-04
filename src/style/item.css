@@ -17,7 +17,7 @@
   display: none;
 }
 
-.squish-base {
+.inline-base {
   display: grid;
   align-items: center;
 }

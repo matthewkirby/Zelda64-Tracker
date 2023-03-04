@@ -33,26 +33,26 @@ const createSubBoxStyles = (nItems, span, childTrackerOptions, subGridSize) => {
   return [ subBoxStyles, subElementStyles, childTrackerOptions ];
 };
 
-export const Grid3x3 = (props) => {
+export const Subgrid = (props) => {
   const itemList = props.itemInfo.items;
   const nItems = itemList.length;
   const span = props.itemInfo.size;
 
   // Check the number of items
   if (nItems < 2) {
-    console.log("Grid3x3 elements should have at least 2 items.");
+    console.log("Subgrid elements should have at least 2 items.");
     return null;
   } else if (nItems > 9) {
-    console.log("Grid3x3 elements currently only support less than 5 items");
+    console.log("Subgrid elements currently only support less than 5 items");
     return null;
   }
 
   // Check the provided span
   if (span < 1) {
-    console.log("Grid3x3 element span must be greater than 0.");
+    console.log("Subgrid element span must be greater than 0.");
     return null;
   } else if (span > props.trackerOptions.geometry.nCols) {
-    console.log("Grid3x3 element span must be less than the number of tracker columns.");
+    console.log("Subgrid element span must be less than the number of tracker columns.");
     return null;
   }
 
