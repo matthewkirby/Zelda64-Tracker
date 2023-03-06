@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Zelda64-Tracker/static/css/main.8efe24c9.css",
-    "main.js": "/Zelda64-Tracker/static/js/main.37be3fc4.js",
+    "main.css": "/Zelda64-Tracker/static/css/main.089cd6b6.css",
+    "main.js": "/Zelda64-Tracker/static/js/main.1edeaeb6.js",
     "static/media/mask_of_scents.png": "/Zelda64-Tracker/static/media/mask_of_scents.c5a49b1b364f4294449f.png",
     "static/media/fierce_deity_mask.png": "/Zelda64-Tracker/static/media/fierce_deity_mask.df19ca9c268ead457be2.png",
     "static/media/pendant_of_memories.png": "/Zelda64-Tracker/static/media/pendant_of_memories.889c550ca27265a1cb63.png",
     "static/media/hookshot.png": "/Zelda64-Tracker/static/media/hookshot.89326bbbc800981d6de4.png",
     "static/media/HyliaSerif-Regular.otf": "/Zelda64-Tracker/static/media/HyliaSerif-Regular.587194a6240d0f662864.otf",
     "index.html": "/Zelda64-Tracker/index.html",
-    "main.8efe24c9.css.map": "/Zelda64-Tracker/static/css/main.8efe24c9.css.map",
-    "main.37be3fc4.js.map": "/Zelda64-Tracker/static/js/main.37be3fc4.js.map"
+    "main.089cd6b6.css.map": "/Zelda64-Tracker/static/css/main.089cd6b6.css.map",
+    "main.1edeaeb6.js.map": "/Zelda64-Tracker/static/js/main.1edeaeb6.js.map"
   },
   "entrypoints": [
-    "static/css/main.8efe24c9.css",
-    "static/js/main.37be3fc4.js"
+    "static/css/main.089cd6b6.css",
+    "static/js/main.1edeaeb6.js"
   ]
 }
