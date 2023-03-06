@@ -1,0 +1,71 @@
+.border-with-text {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto 1fr 1fr;
+  
+  border-radius: 5px;
+}
+
+/* The following selectors are used to make the border */
+.border-with-text::before,
+.border-with-text::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  border-top: 1px solid;
+  margin-top: -1px;
+}
+.border-with-text::before {
+  grid-row: 1 / span 2;
+  grid-column: 1;
+
+  border-left: 1px solid;
+  margin-left: -1px;
+  border-top-left-radius: inherit;
+}	
+.border-with-text::after {
+  grid-row: 1 / span 2;
+  grid-column: 3;
+
+  border-right: 1px solid;
+  margin-right: -1px;
+  border-top-right-radius: inherit;
+}
+.border-with-text>div:last-child {
+  grid-row: 3;
+  grid-column: 1 / span 3;
+  pointer-events: none;
+
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  margin: 0 -1px -1px -1px;
+
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+/* Text to inset into the border */
+.border-with-text label {
+  grid-row: 1;
+  grid-column: 2;
+
+  user-select: none;
+  pointer-events: none;
+  max-width: 100%;
+  margin: -5px 0 0 0;
+  padding: 0 3px;
+  z-index: 1;
+
+  font-family: 'Pragati Narrow', sans-serif;
+  font-size: 6pt;
+}
+
+/* Class given to the element that is boxed */
+.border-with-text .child {
+  grid-row: 1 / span 3;
+  grid-column: 1 / span 3;
+}
+

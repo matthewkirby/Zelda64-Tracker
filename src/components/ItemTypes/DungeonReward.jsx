@@ -70,6 +70,7 @@ export const DungeonReward = (props) => {
         {...props}
         itemInfo={{name: toggleName}}
         itemState={trackerState[toggleName]}
+        extraClasses={["base-item"]}
         disableInteraction={true}
       />
       <div

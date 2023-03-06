@@ -38,8 +38,13 @@ const expandIdList = (trackerLayoutIds) => {
     }
     
     else if (itemContainerNames.includes(item.type)) {
-      const subGrid = { ...item, "items": expandIdList(item.items) };
-      return [ ...tot, subGrid ];
+      if ("items" in item) {
+        const subGrid = { ...item, "items": expandIdList(item.items) };
+        return [ ...tot, subGrid ];
+      } else if ("item" in item) {
+        const subGrid = { ...item, "item": expandIdList([item.item])[0] };
+        return [ ...tot, subGrid ];
+      }
     }
     
     else {
@@ -76,8 +81,6 @@ const ItemGrid = ({ trackerLayoutIds, trackerOptions, visibleTabs, useFirebase, 
       setTrackerState(newState)
     }
   }
-
-
 
 
   // Render

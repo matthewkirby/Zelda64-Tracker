@@ -18,7 +18,13 @@ export const Inline = (props) => {
   const newGap = gapFraction*newWidth;
 
   // Set up new styles
-  const inlineStyle = { gridColumnEnd: `span ${nCols}`, columnGap: `${newGap}${units}` };
+  const inlineStyle = { columnGap: `${newGap}${units}` };
+  const addSpanStyle = props.extraClasses === undefined;
+  const inlineClasses = addSpanStyle ? ["inline-base"] : [ "inline-base", ...props.extraClasses ];
+  if (addSpanStyle) {
+    inlineStyle["gridColumnEnd"] = `span ${nCols}`;
+  }
+
   const subElementStyles = { gridRow: 1 };
   const newItemSize = { number: newWidth, style: { height: `${newWidth}${units}`, width: `${newWidth}${units}` } };
 
@@ -28,7 +34,7 @@ export const Inline = (props) => {
   childTrackerOptions.calc.itemSize = newItemSize;
 
   return (
-    <div className="inline-base" style={inlineStyle} >
+    <div className={ inlineClasses.join(" ") } style={inlineStyle} >
       {itemList.map((item, i) =>
         <Item
           key={item.name+i}
@@ -36,6 +42,7 @@ export const Inline = (props) => {
           itemInfo={item}
           trackerOptions={childTrackerOptions}
           extraStyles={subElementStyles}
+          extraClasses={[]}
         />
       )}
     </div>

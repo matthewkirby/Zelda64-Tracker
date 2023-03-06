@@ -1,6 +1,6 @@
 import { Item } from 'components/Item';
 
-const createSubBoxStyles = (nItems, span, childTrackerOptions, subGridSize) => {
+const createSubBoxStyles = (nItems, span, childTrackerOptions, subGridSize, addSpanStyle) => {
   const units = childTrackerOptions.geometry.units;
   const oldWidth = childTrackerOptions.calc.itemSize.number;
   const gapSize = Math.min(childTrackerOptions.geometry.columnGap, childTrackerOptions.geometry.rowGap);
@@ -14,13 +14,15 @@ const createSubBoxStyles = (nItems, span, childTrackerOptions, subGridSize) => {
 
   // Set up new styles
   const subBoxStyles = {
-    gridColumnEnd: `span ${span}`,
-    gridRowEnd: `span ${span}`,
     justifyContent: nItems < 4 ? 'center' : 'space-between',
     alignContent: nItems < 4 ? 'center' : 'space-between',
     rowGap: (nItems < 4) ? childTrackerOptions.geometry.rowGap*(span-1) : 0,
     columnGap: (nItems < 4) ? childTrackerOptions.geometry.columnGap*(span-1) : 0
-  }; 
+  };
+  if (addSpanStyle) {
+    subBoxStyles["gridColumnEnd"] = `span ${span}`;
+    subBoxStyles["gridRowEnd"] = `span ${span}`;
+  }
   const newItemSize = { number: newWidth, style: { height: `${newWidth}${units}`, width: `${newWidth}${units}` } };
   const subElementStyles = [...Array(nItems).keys()].map((v) => {
     return { margin: (v === 0 && nItems < 4) ? `0 ${newWidth/2}${units}` : "" };
@@ -58,16 +60,20 @@ export const Subgrid = (props) => {
 
   // Build the subgrid styles (wrap this in a useEffect hook later?)
   const copyTrackerOptions = JSON.parse(JSON.stringify(props.trackerOptions));
+  const addSpanStyle = props.extraClasses === undefined;
   let subGridSettings = null;
   if (nItems < 5) {
-    subGridSettings = createSubBoxStyles(nItems, span, copyTrackerOptions, 2);
+    subGridSettings = createSubBoxStyles(nItems, span, copyTrackerOptions, 2, addSpanStyle);
   } else if (nItems < 10) {
-    subGridSettings = createSubBoxStyles(nItems, span, copyTrackerOptions, 3);
+    subGridSettings = createSubBoxStyles(nItems, span, copyTrackerOptions, 3, addSpanStyle);
   }
 
 
+  // Set up the classes
+  const inlineClasses = addSpanStyle ? ["sub-flex-base"] : [ "sub-flex-base", ...props.extraClasses ];
+
   return (
-    <div className="sub-flex-base" style={subGridSettings[0]} >
+    <div className={ inlineClasses.join(" ") } style={subGridSettings[0]} >
       {itemList.map((item, i) =>
         <Item
           key={item.name+i}
@@ -75,6 +81,7 @@ export const Subgrid = (props) => {
           itemInfo={item}
           trackerOptions={subGridSettings[2]}
           extraStyles={subGridSettings[1][i]}
+          extraClasses={[]}
         />
       )}
     </div>

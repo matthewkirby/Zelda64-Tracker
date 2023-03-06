@@ -6,7 +6,8 @@ import { itemContainerNames } from "./ItemContainers";
 const expandContainerElements = (layout) => {
   return layout.reduce((tot, item) => {
     if (itemContainerNames.includes(item.type)) {
-      const subList = expandContainerElements(item.items);
+      const subItemIds = item.items ?? [item.item] ?? [];
+      const subList = expandContainerElements(subItemIds);
       return [ ...tot , ...subList ];
     }
     return [ ...tot, item ];
@@ -27,6 +28,7 @@ export const DungeonDropdownBox = ({ trackerLayout, trackerState, updateSingleIt
   // Trim layout list to only things with dropdowns and sort
   const relevantLayoutElements = findDropdownElements([ ...trackerLayout ]);
   relevantLayoutElements.sort((a,b) => a.priority > b.priority ? 1 : -1);
+  if (relevantLayoutElements.length === 0) { return null; }
 
   // Define interaction
   const onChange = (itemName, newVal) => {

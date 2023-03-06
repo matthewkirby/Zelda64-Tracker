@@ -37,12 +37,13 @@ const calcDerivedTrackerProps = (trackerLayout) => {
     itemSize: {
       number: itemSize,
       style: {
-        "height": `${itemSize}${sizeUnits}`,
-        "width": `${itemSize}${sizeUnits}`
+        // "height": `${itemSize}${sizeUnits}`,
+        // "width": `${itemSize}${sizeUnits}`
       }
     },
     trackerStyle: {
       gridTemplateColumns: `repeat(${nCols}, ${itemSize}${sizeUnits})`,
+      gridAutoRows: `${itemSize}${sizeUnits}`,
       rowGap: `${rowGap}${sizeUnits}`,
       columnGap: `${columnGap}${sizeUnits}`
     }
