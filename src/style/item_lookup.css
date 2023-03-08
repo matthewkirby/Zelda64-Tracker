@@ -29,8 +29,8 @@
 .OOT_RUTOS_LETTER       { background-image: url('assets/items/oot/items/rutos_letter.svg'); }
 .OOT_MAGIC              { background-image: url('assets/items/shared/items/magic.svg'); }
 .OOT_LENS_OF_TRUTH      { background-image: url('assets/items/shared/items/lens_of_truth.svg'); }
-.OOT_DINS_FIRE          { background-image: url('assets/items/oot/items/dins_fire.png'); }
-.OOT_FARORES_WIND       { background-image: url('assets/items/oot/items/farores_wind.png'); }
+.OOT_DINS_FIRE          { background-image: url('assets/items/oot/items/dins_fire.svg'); }
+.OOT_FARORES_WIND       { background-image: url('assets/items/oot/items/farores_wind.svg'); }
 /* .OOT_NAYRUS_LOVE        { background-image: url('assets/items/oot/items/nayrus_love.png'); } */
 .OOT_FIRE_ARROWS        { background-image: url('assets/items/shared/items/fire_arrows.svg'); }
 .OOT_ICE_ARROWS         { background-image: url('assets/items/shared/items/ice_arrows.svg'); }
