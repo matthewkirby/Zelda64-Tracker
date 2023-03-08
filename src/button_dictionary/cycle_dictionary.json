@@ -1,4 +1,9 @@
 {
+  "OOT_BOTTLE_RUTOS": {
+    "sequence": ["OOT_BOTTLE", "OOT_RUTOS_LETTER"],
+    "loop": false,
+    "disableZero": true
+  },
   "OOT_PROGRESSIVE_STRENGTH": {
     "sequence": ["OOT_STRENGTH_1", "OOT_STRENGTH_2", "OOT_STRENGTH_3"],
     "loop": false,

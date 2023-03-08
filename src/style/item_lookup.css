@@ -26,7 +26,7 @@
 
 .OOT_LONGSHOT           { background-image: url('assets/items/oot/items/longshot.svg'); }
 .OOT_BOTTLE             { background-image: url('assets/items/shared/items/bottle.svg'); }
-.OOT_RUTOS_LETTER       { background-image: url('assets/items/oot/items/rutos_letter.png'); }
+.OOT_RUTOS_LETTER       { background-image: url('assets/items/oot/items/rutos_letter.svg'); }
 .OOT_MAGIC              { background-image: url('assets/items/shared/items/magic.svg'); }
 .OOT_LENS_OF_TRUTH      { background-image: url('assets/items/shared/items/lens_of_truth.svg'); }
 .OOT_DINS_FIRE          { background-image: url('assets/items/oot/items/dins_fire.png'); }
@@ -66,8 +66,8 @@
 /* OOT EQUIPMENT */
 .OOT_KOKIRI_SWORD       { background-image: url('assets/items/oot/items/kokiri_sword.png'); }
 .OOT_MASTER_SWORD       { background-image: url('assets/items/oot/items/master_sword.png'); }
-.OOT_GORON_TUNIC        { background-image: url('assets/items/oot/items/goron_tunic.png'); }
-.OOT_ZORA_TUNIC         { background-image: url('assets/items/oot/items/zora_tunic.png'); }
+.OOT_GORON_TUNIC        { background-image: url('assets/items/oot/items/goron_tunic.svg'); }
+.OOT_ZORA_TUNIC         { background-image: url('assets/items/oot/items/zora_tunic.svg'); }
 .OOT_IRON_BOOTS         { background-image: url('assets/items/oot/items/iron_boots.png'); }
 .OOT_HOVER_BOOTS        { background-image: url('assets/items/oot/items/hover_boots.png'); }
 .OOT_COMPOSITE_BOOTS    { background-image: url('assets/items/oot/items/composite_boots.png'); }

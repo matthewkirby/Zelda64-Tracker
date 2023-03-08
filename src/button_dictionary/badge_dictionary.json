@@ -5,10 +5,6 @@
     "location": "(int, optional) Location of badge. Values are 0-3 from top to bottom left to right. Default is bottom right and top right for checkmark."
   },
 
-  "OOT_BOTTLE_RUTOS": {
-    "base": "OOT_BOTTLE",
-    "badge": "OOT_RUTOS_LETTER_BADGE"
-  },
   "OOT_MAGIC_WLENS": {
     "base": "OOT_MAGIC",
     "badge": "OOT_LENS_OF_TRUTH_BADGE"
