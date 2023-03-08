@@ -39,7 +39,7 @@ const trackerLayoutList = {
       "OOT_PROGRESSIVE_SCALE", "OOT_GOLDEN_SKULLTULA", { type: "inline", items: [...layoutChunks.oot_labeled_stones], nCols: 2}, "OOT_TRIFORCE", "OOT_BOTTLE_RUTOS",
       "OOT_SLINGSHOT", "OOT_BOMB_BAG", "OOT_BOOMERANG", "OOT_PROGRESSIVE_STRENGTH", "OOT_MAGIC_WLENS", "OOT_COMPOSITE_SPELLS",
       "OOT_PROGRESSIVE_HOOKSHOT", "OOT_BOW", "OOT_COMPOSITE_ARROWS", "OOT_HAMMER", "OOT_COMPOSITE_BOOTS", "OOT_MIRROR_SHIELD",
-      "OOT_PROGRESSIVE_CHILD_TRADE", "OOT_OCARINA", "OOT_BEANS", "OOT_KOKIRI_SWORD", "OOT_GERUDO_CARD", "OOT_COMPOSITE_TUNICS",
+      "OOT_PROGRESSIVE_CHILD_TRADE", "OOT_FAIRY_OCARINA", "OOT_BEANS", "OOT_KOKIRI_SWORD", "OOT_GERUDO_CARD", "OOT_COMPOSITE_TUNICS",
       ...layoutChunks.oot_child_songs_wcheck,
       ...layoutChunks.oot_warp_songs_wcheck
     ]
@@ -99,7 +99,59 @@ const trackerLayoutList = {
       defCT("OOT_ZELDAS_LULLABY"), defCT("OOT_EPONAS_SONG"), defCT("OOT_SONG_OF_STORMS"), defCT("OOT_NOCTURNE"), defCT("OOT_REQUIEM"),
         defCT("MM_SONATA_OF_AWAKENING"), defCT("MM_GORON_LULLABY"), defCT("MM_NEW_WAVE_BOSSA_NOVA"), defCT("MM_ELEGY_OF_EMPTINESS"), defCT("MM_EPONAS_SONG")
     ]
-  }
+  },
+  test: {
+    label: "Test",
+    nCols: 10,
+    geometry: {
+      units: "px",
+      defaultItemSize: 50,
+      defaultRowGap: 10,
+      defaultColumnGap: 10
+    },
+    dungeonRewardOptions: {
+      dungeonListKey: "ootmm",
+      identifierType: "text",
+      interactionType: "dropdown"
+    },
+    layout: [
+      "OOT_BOOMERANG", "OOT_MAGIC_WLENS", "OOT_BOTTLE_RUTOS", "OOT_COMPOSITE_SPELLS", "OOT_COMPOSITE_BOOTS",
+        "MM_HOOKSHOT", "MM_BOW", "MM_BOTTLE", "MM_MAGIC_WLENS", "MM_BOMB_BAG_WBLAST_MASK",
+
+      { type: "subgrid", items: [ "OOT_BOOMERANG", "OOT_MAGIC_WLENS", "OOT_COMPOSITE_BOOTS" ], size: 1 },
+      { type: "subgrid", items: [ ...layoutChunks.oot_labeled_stones ], size: 1 },
+      "OOT_FOREST_MEDALLION_LABELED",
+      { type: "subgrid", items: [ "OOT_FIRE_MEDALLION_LABELED", "OOT_WATER_MEDALLION_LABELED", "OOT_SHADOW_MEDALLION_LABELED" ], size: 2 },
+      { type: "inline", items: [ ...layoutChunks.mm_labeled_remains ], nCols: 2,}
+    ]
+  },
+  test2: {
+    label: "t2",
+    nCols: 4,
+    geometry: {
+      units: "px",
+      defaultItemSize: 50,
+      defaultRowGap: 10,
+      defaultColumnGap: 10
+    },
+    dungeonRewardOptions: {
+      dungeonListKey: "ootmm",
+      identifierType: "text",
+      interactionType: "inElement"
+    },
+    layout: [
+      "OOT_PROGRESSIVE_STRENGTH", "OOT_MAGIC_WLENS", "OOT_MIRROR_SHIELD", "OOT_COMPOSITE_ARROWS",
+
+      { type: "textBorder", color: "gold", text: "Go Mode", item: "MM_GO_MODE" },
+      { type: "textBorder", color: "gold", text: "Go Mode", item:{ type: "inline", items: [ "OOT_GO_MODE", "MM_GO_MODE" ], nCols: 2 } },
+      
+      { type: "textBorder", color: "gold", text: "Go Mode", item: { type: "subgrid", items: [ ...layoutChunks.oot_stones ], size: 1 } },
+      { type: "textBorder", color: "gold", text: "Go Mode", item: { type: "subgrid", items: [ ...layoutChunks.oot_stones ], size: 2 } },
+      
+      
+      "OOT_PROGRESSIVE_STRENGTH", "OOT_PROGRESSIVE_SCALE", "OOT_MIRROR_SHIELD", "OOT_COMPOSITE_ARROWS", "OOT_COMPOSITE_SPELLS"
+    ]
+  },
 }
 
 const defaultLayoutKey = "uninitialized";
