@@ -5,7 +5,7 @@
   },
 
   "OOT_COMPOSITE_SPELLS": {
-    "items": ["OOT_DINS_FIRE", "OOT_FARORES_WIND"]
+    "items": ["OOT_FARORES_WIND", "OOT_DINS_FIRE"]
   },
   "OOT_COMPOSITE_ARROWS": {
     "items": ["OOT_FIRE_ARROWS", "OOT_LIGHT_ARROWS", "OOT_COMPOSITE_ARROWS"],
