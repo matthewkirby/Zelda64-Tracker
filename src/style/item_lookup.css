@@ -10,11 +10,11 @@
 .OOT_ZORA_SAPPHIRE      { background-image: url('assets/items/oot/drewards/zora_sapphire.png'); }
 
 /* OOT MAJOR ITEMS */
-.OOT_BOW                { background-image: url('assets/items/oot/items/bow.png'); }
-.OOT_SLINGSHOT          { background-image: url('assets/items/oot/items/slingshot.png'); }
+.OOT_BOW                { background-image: url('assets/items/oot/items/bow.svg'); }
+.OOT_SLINGSHOT          { background-image: url('assets/items/oot/items/slingshot.svg'); }
 .OOT_BOOMERANG          { background-image: url('assets/items/oot/items/boomerang.svg'); }
 .OOT_BOMB_BAG           { background-image: url('assets/items/shared/items/bomb_bag.svg'); }
-.OOT_HAMMER             { background-image: url('assets/items/oot/items/hammer.png'); }
+.OOT_HAMMER             { background-image: url('assets/items/oot/items/hammer.svg'); }
 .OOT_MIRROR_SHIELD      { background-image: url('assets/items/oot/items/mirror_shield.png'); }
 .OOT_FAIRY_OCARINA      { background-image: url('assets/items/oot/items/fairy_ocarina.svg'); }
 .OOT_OCARINA_OF_TIME    { background-image: url('assets/items/shared/items/ocarina_of_time.svg'); }
