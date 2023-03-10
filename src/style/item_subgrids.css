@@ -8,7 +8,8 @@
 .badge .base-item,
 .counter .base-item,
 .composite .single-item,
-.dungeonReward .base-item {
+.dungeonReward .base-item,
+.toggle-grid .base-item {
   grid-column: c0 / c2;
   grid-row: r0 / r2;
 }

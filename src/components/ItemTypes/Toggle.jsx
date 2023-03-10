@@ -28,6 +28,7 @@ export const Toggle = (props) => {
   const falseClass = props.falseClass ?? "itm-false";
 
   const styleList = { ...itemSizeStyle, ...props.extraStyles };
+  const fillGrid = Object.keys(props.itemInfo).includes('text') ? "base-item" : "";
   const classList = [ "itm-base", ...(props.extraClasses || []) ];
   const itemStateClass = itemState ? "" : falseClass;
 
@@ -45,7 +46,7 @@ export const Toggle = (props) => {
       extraStyles={styleList}
     >
       <button
-        className={[...classList, itemName, itemStateClass].join(" ")}
+        className={[...classList, fillGrid, itemName, itemStateClass].join(" ")}
         style={styleList}
         onClick={!!props.disableInteraction ? null : () => onClick()}
         onContextMenu={!!props.disableInteraction ? null : () => onClick()}
