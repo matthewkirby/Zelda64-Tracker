@@ -148,8 +148,8 @@ const trackerLayoutList = {
       "MM_GYORGS_REMAINS_LABELED", "MM_TWINMOLDS_REMAINS_LABELED",
 
       ...layoutChunks.mm_top_songs_wcheck, "MM_OCARINA",
-      { type: "subgrid", items: ["OOT_POCKET_CUCCO", "OOT_COJIRO", "OOT_ODD_MUSHROOM", "OOT_ODD_POTION", "OOT_POACHERS_SAW",
-        "OOT_BROKEN_SWORD", "OOT_PRESCRIPTION", "OOT_EYEBALL_FROG", "OOT_EYE_DROPS"], size: 2 },
+      { type: "subgrid", items: ["MM_MOONS_TEAR", "MM_LAND_TITLE_DEED", "MM_SWAMP_TITLE_DEED", "MM_MOUNTAIN_TITLE_DEED", "MM_OCEAN_TITLE_DEED",
+        "MM_ROOM_KEY", "MM_LETTER_TO_KAFEI", "MM_PENDANT_OF_MEMORIES", "MM_GOLD_DUST"], size: 2 },
       ...layoutChunks.mm_bottom_songs_wcheck, "MM_MAGIC_WLENS"
        
     ]
