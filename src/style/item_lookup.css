@@ -46,7 +46,7 @@
 /* OOT TRADE QUEST */
 .OOT_WEIRD_EGG          { background-image: url('assets/items/oot/trade/weird_egg.png'); }
 .OOT_ZELDAS_LETTER      { background-image: url('assets/items/oot/trade/zeldas_letter.png'); }
-.OOT_KEATON_MASK        { background-image: url('assets/items/shared/masks/keaton_mask.png'); }
+.OOT_KEATON_MASK        { background-image: url('assets/items/shared/masks/keaton_mask.svg'); }
 .OOT_SKULL_MASK         { background-image: url('assets/items/oot/trade/skull_mask.png'); }
 .OOT_SPOOKY_MASK        { background-image: url('assets/items/oot/trade/spooky_mask.png'); }
 .OOT_BUNNY_HOOD         { background-image: url('assets/items/shared/masks/bunny_hood.png'); }
@@ -107,10 +107,10 @@
 .MM_ALL_NIGHT_MASK        { background-image: url('assets/items/mm/masks/all_night_mask.png'); }
 .MM_BLAST_MASK            { background-image: url('assets/items/mm/masks/blast_mask.png'); }
 .MM_STONE_MASK            { background-image: url('assets/items/mm/masks/stone_mask.png'); }
-.MM_GREAT_FAIRYS_MASK     { background-image: url('assets/items/mm/masks/great_fairys_mask.png'); }
-.MM_DEKU_MASK             { background-image: url('assets/items/mm/masks/deku_mask.png'); }
-.MM_KEATON_MASK           { background-image: url('assets/items/shared/masks/keaton_mask.png'); }
-.MM_BREMEN_MASK           { background-image: url('assets/items/mm/masks/bremen_mask.png'); }
+.MM_GREAT_FAIRYS_MASK     { background-image: url('assets/items/mm/masks/great_fairys_mask.svg'); }
+.MM_DEKU_MASK             { background-image: url('assets/items/mm/masks/deku_mask.svg'); }
+.MM_KEATON_MASK           { background-image: url('assets/items/shared/masks/keaton_mask.svg'); }
+.MM_BREMEN_MASK           { background-image: url('assets/items/mm/masks/bremen_mask.svg'); }
 .MM_BUNNY_HOOD            { background-image: url('assets/items/shared/masks/bunny_hood.png'); }
 .MM_DON_GEROS_MASK        { background-image: url('assets/items/mm/masks/don_geros_mask.png'); }
 .MM_MASK_OF_SCENTS        { background-image: url('assets/items/mm/masks/mask_of_scents.png'); }

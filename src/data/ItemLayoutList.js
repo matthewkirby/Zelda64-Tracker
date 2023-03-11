@@ -15,7 +15,9 @@ const layoutChunks = {
   oot_labeled_medallions_ootr: ["OOT_FOREST_MEDALLION_LABELED", "OOT_FIRE_MEDALLION_LABELED", "OOT_WATER_MEDALLION_LABELED", "OOT_SHADOW_MEDALLION_LABELED", "OOT_SPIRIT_MEDALLION_LABELED", "OOT_LIGHT_MEDALLION_LABELED"],
   oot_labeled_medallions_ootmm: ["OOT_LIGHT_MEDALLION_LABELED", "OOT_FOREST_MEDALLION_LABELED", "OOT_FIRE_MEDALLION_LABELED", "OOT_WATER_MEDALLION_LABELED", "OOT_SPIRIT_MEDALLION_LABELED", "OOT_SHADOW_MEDALLION_LABELED"],
 
-  mm_labeled_remains: ["MM_ODOLWAS_REMAINS_LABELED", "MM_GOHTS_REMAINS_LABELED", "MM_GYORGS_REMAINS_LABELED", "MM_TWINMOLDS_REMAINS_LABELED"]
+  mm_labeled_remains: ["MM_ODOLWAS_REMAINS_LABELED", "MM_GOHTS_REMAINS_LABELED", "MM_GYORGS_REMAINS_LABELED", "MM_TWINMOLDS_REMAINS_LABELED"],
+  mm_top_songs_wcheck: [defCT("MM_SONG_OF_TIME"), defCT("MM_SONG_OF_HEALING"), defCT("MM_EPONAS_SONG"), defCT("MM_SONG_OF_SOARING"), defCT("MM_SONG_OF_STORMS")],
+  mm_bottom_songs_wcheck: [defCT("MM_SONATA_OF_AWAKENING"), defCT("MM_GORON_LULLABY"), defCT("MM_NEW_WAVE_BOSSA_NOVA"), defCT("MM_ELEGY_OF_EMPTINESS"), defCT("MM_OATH_TO_ORDER")]
 }
 
 
@@ -100,6 +102,67 @@ const trackerLayoutList = {
         defCT("MM_SONATA_OF_AWAKENING"), defCT("MM_GORON_LULLABY"), defCT("MM_NEW_WAVE_BOSSA_NOVA"), defCT("MM_ELEGY_OF_EMPTINESS"), defCT("MM_EPONAS_SONG")
     ]
   },
+  ootmm: {
+    label: "OoTMM",
+    nCols: 8,
+    geometry: {
+      units: "px",
+      defaultItemSize: 50,
+      defaultRowGap: 5,
+      defaultColumnGap: 8
+    },
+    dungeonRewardOptions: {
+      dungeonListKey: "ootmm",
+      identifierType: "text",
+      interactionType: "dropdown"
+    },
+    layout: [
+      { type: "inline", items: [...layoutChunks.oot_labeled_stones, ...layoutChunks.oot_labeled_medallions_ootmm], nCols: 8},
+
+      "OOT_FAIRY_OCARINA", "OOT_SLINGSHOT", "OOT_BOMB_BAG", "OOT_BOOMERANG", "OOT_PROGRESSIVE_STRENGTH", "OOT_MAGIC_WLENS",
+      "OOT_COMPOSITE_SPELLS", "OOT_BOTTLE_RUTOS",
+
+      "OOT_KOKIRI_SWORD", "OOT_PROGRESSIVE_HOOKSHOT", "OOT_BOW", "OOT_FIRE_ARROWS", "OOT_LIGHT_ARROWS", "OOT_HAMMER",
+      "OOT_COMPOSITE_BOOTS", "OOT_MIRROR_SHIELD",
+
+      "OOT_GOLDEN_SKULLTULA", "OOT_PROGRESSIVE_SCALE", "OOT_BEANS", "OOT_COMPOSITE_TUNICS", "OOT_WEIRD_EGG",
+      "OOT_SKULL_MASK", "OOT_MASK_OF_TRUTH", "OOT_CLAIM_CHECK",
+
+      ...layoutChunks.oot_child_songs_wcheck,
+      { type: "subgrid", items: ["OOT_POCKET_CUCCO", "OOT_COJIRO", "OOT_ODD_MUSHROOM", "OOT_ODD_POTION", "OOT_POACHERS_SAW",
+        "OOT_BROKEN_SWORD", "OOT_PRESCRIPTION", "OOT_EYEBALL_FROG", "OOT_EYE_DROPS"], size: 2 },
+      ...layoutChunks.oot_warp_songs_wcheck,
+
+      { type: "inline", items: ["BLANK"], nCols: 8},
+
+      "MM_POSTMANS_HAT", "MM_ALL_NIGHT_MASK", "MM_BLAST_MASK", "MM_GREAT_FAIRYS_MASK", "MM_DEKU_MASK", "MM_BOW",
+      "MM_BOMB_BAG_WKEG", "MM_HOOKSHOT",
+      
+      "MM_KEATON_MASK", "MM_BREMEN_MASK", "MM_BUNNY_HOOD", "MM_DON_GEROS_MASK", "MM_GORON_MASK", "MM_FIRE_ARROWS",
+      "MM_ICE_ARROWS", "MM_LIGHT_ARROWS",
+
+      "MM_ROMANIS_MASK", "MM_KAFEIS_MASK", "MM_COUPLES_MASK", "MM_MASK_OF_TRUTH", "MM_ZORA_MASK", "MM_PICTOGRAPH_BOX",
+      "MM_ODOLWAS_REMAINS_LABELED", "MM_GOHTS_REMAINS_LABELED",
+
+      "MM_KAMAROS_MASK", "MM_GIBDO_MASK", "MM_GAROS_MASK", "MM_CAPTAINS_HAT", "MM_BOTTLE", "MM_LETTER_TO_MAMA",
+      "MM_GYORGS_REMAINS_LABELED", "MM_TWINMOLDS_REMAINS_LABELED",
+
+      ...layoutChunks.mm_top_songs_wcheck, "MM_OCARINA",
+      { type: "subgrid", items: ["OOT_POCKET_CUCCO", "OOT_COJIRO", "OOT_ODD_MUSHROOM", "OOT_ODD_POTION", "OOT_POACHERS_SAW",
+        "OOT_BROKEN_SWORD", "OOT_PRESCRIPTION", "OOT_EYEBALL_FROG", "OOT_EYE_DROPS"], size: 2 },
+      ...layoutChunks.mm_bottom_songs_wcheck, "MM_MAGIC_WLENS"
+       
+    ]
+  },
+
+
+
+
+
+
+
+
+
   test: {
     label: "Test",
     nCols: 10,
