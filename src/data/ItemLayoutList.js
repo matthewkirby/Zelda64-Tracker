@@ -133,7 +133,7 @@ const trackerLayoutList = {
         "OOT_BROKEN_SWORD", "OOT_PRESCRIPTION", "OOT_EYEBALL_FROG", "OOT_EYE_DROPS"], size: 2 },
       ...layoutChunks.oot_warp_songs_wcheck,
 
-      { type: "inline", items: ["BLANK"], nCols: 8},
+      { type: "inline", items: ["BLANK", "BLANK", "BLANK", "BLANK", "BLANK", "BLANK", "BLANK", "BLANK", ], nCols: 8},
 
       "MM_POSTMANS_HAT", "MM_ALL_NIGHT_MASK", "MM_BLAST_MASK", "MM_GREAT_FAIRYS_MASK", "MM_DEKU_MASK", "MM_BOW",
       "MM_BOMB_BAG_WKEG", "MM_HOOKSHOT",
