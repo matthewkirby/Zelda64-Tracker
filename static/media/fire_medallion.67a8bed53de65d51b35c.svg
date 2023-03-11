@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="160" height="160" version="1.1" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <circle cx="80" cy="80" r="80" fill="#c51d1d" stop-color="#000000" style="-inkscape-stroke:none"/>
+  <circle cx="80" cy="80" r="56" fill="#60141e" stop-color="#000000"/>
+  <path d="m100.42 110.85c-13.07 8.6506-30.172 8.1281-42.689-1.3043s-17.733-25.728-13.02-40.676c4.713-14.948 18.333-25.304 33.996-25.851 0 0-16.964 15.416-10.546 31.09l37.37-28.914-17.537 42.902s16.807 4.4459 27.905-17.051c3.7917 15.208-2.4096 31.154-15.479 39.805z" fill="#c51d1d" stop-color="#000000"/>
+ </g>
+</svg>
