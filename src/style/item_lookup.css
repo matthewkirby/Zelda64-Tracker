@@ -49,8 +49,8 @@
 .OOT_KEATON_MASK        { background-image: url('assets/items/shared/masks/keaton_mask.svg'); }
 .OOT_SKULL_MASK         { background-image: url('assets/items/oot/trade/skull_mask.png'); }
 .OOT_SPOOKY_MASK        { background-image: url('assets/items/oot/trade/spooky_mask.png'); }
-.OOT_BUNNY_HOOD         { background-image: url('assets/items/shared/masks/bunny_hood.png'); }
-.OOT_MASK_OF_TRUTH      { background-image: url('assets/items/shared/masks/mask_of_truth.png'); }
+.OOT_BUNNY_HOOD         { background-image: url('assets/items/shared/masks/bunny_hood.svg'); }
+.OOT_MASK_OF_TRUTH      { background-image: url('assets/items/shared/masks/mask_of_truth.svg'); }
 
 .OOT_POCKET_CUCCO       { background-image: url('assets/items/oot/trade/pocket_cucco.png'); }
 .OOT_COJIRO             { background-image: url('assets/items/oot/trade/cojiro.png'); }
@@ -64,7 +64,7 @@
 .OOT_CLAIM_CHECK        { background-image: url('assets/items/oot/trade/claim_check.png'); }
 
 /* OOT EQUIPMENT */
-.OOT_KOKIRI_SWORD       { background-image: url('assets/items/oot/items/kokiri_sword.png'); }
+.OOT_KOKIRI_SWORD       { background-image: url('assets/items/oot/items/kokiri_sword.svg'); }
 .OOT_MASTER_SWORD       { background-image: url('assets/items/oot/items/master_sword.png'); }
 .OOT_DEKU_SHIELD        { background-image: url('assets/items/oot/items/deku_shield.png'); }
 .OOT_HYLIAN_SHIELD      { background-image: url('assets/items/oot/items/hylian_shield.svg'); }
@@ -111,7 +111,7 @@
 .MM_DEKU_MASK             { background-image: url('assets/items/mm/masks/deku_mask.svg'); }
 .MM_KEATON_MASK           { background-image: url('assets/items/shared/masks/keaton_mask.svg'); }
 .MM_BREMEN_MASK           { background-image: url('assets/items/mm/masks/bremen_mask.svg'); }
-.MM_BUNNY_HOOD            { background-image: url('assets/items/shared/masks/bunny_hood.png'); }
+.MM_BUNNY_HOOD            { background-image: url('assets/items/shared/masks/bunny_hood.svg'); }
 .MM_DON_GEROS_MASK        { background-image: url('assets/items/mm/masks/don_geros_mask.png'); }
 .MM_MASK_OF_SCENTS        { background-image: url('assets/items/mm/masks/mask_of_scents.png'); }
 .MM_GORON_MASK            { background-image: url('assets/items/mm/masks/goron_mask.png'); }
@@ -119,11 +119,11 @@
 .MM_CIRCUS_LEADERS_MASK   { background-image: url('assets/items/mm/masks/circus_leaders_mask.png'); }
 .MM_KAFEIS_MASK           { background-image: url('assets/items/mm/masks/kafeis_mask.png'); }
 .MM_COUPLES_MASK          { background-image: url('assets/items/mm/masks/couples_mask.png'); }
-.MM_MASK_OF_TRUTH         { background-image: url('assets/items/shared/masks/mask_of_truth.png'); }
+.MM_MASK_OF_TRUTH         { background-image: url('assets/items/shared/masks/mask_of_truth.svg'); }
 .MM_ZORA_MASK             { background-image: url('assets/items/mm/masks/zora_mask.png'); }
 .MM_KAMAROS_MASK          { background-image: url('assets/items/mm/masks/kamaros_mask.png'); }
 .MM_GIBDO_MASK            { background-image: url('assets/items/mm/masks/gibdo_mask.png'); }
-.MM_GAROS_MASK            { background-image: url('assets/items/mm/masks/garos_mask.png'); }
+.MM_GAROS_MASK            { background-image: url('assets/items/mm/masks/garos_mask.svg'); }
 .MM_CAPTAINS_HAT          { background-image: url('assets/items/mm/masks/captains_hat.png'); }
 .MM_GIANTS_MASK           { background-image: url('assets/items/mm/masks/giants_mask.png'); }
 .MM_FIERCE_DEITY_MASK     { background-image: url('assets/items/mm/masks/fierce_deity_mask.png'); }
@@ -189,7 +189,7 @@
 
 /* MM MISC AND CUSTOM BADGE ICONS */
 .MM_LENS_OF_TRUTH_BADGE   { background-image: url('assets/items/shared/items/lens_of_truth_badge.svg'); }
-.MM_GO_MODE               { background-image: url('assets/items/mm/misc/go_mode.png'); }
+.MM_GO_MODE               { background-image: url('assets/items/mm/misc/go_mode.svg'); }
 
 /* SPECIAL SHARED OR META GAME CONTENT */
 .CHECKMARK              { background-image: url('assets/items/shared/checkmark.svg'); }
