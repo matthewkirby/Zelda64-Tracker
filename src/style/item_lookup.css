@@ -114,8 +114,8 @@
 .MM_BUNNY_HOOD            { background-image: url('assets/items/shared/masks/bunny_hood.svg'); }
 .MM_DON_GEROS_MASK        { background-image: url('assets/items/mm/masks/don_geros_mask.png'); }
 .MM_MASK_OF_SCENTS        { background-image: url('assets/items/mm/masks/mask_of_scents.png'); }
-.MM_GORON_MASK            { background-image: url('assets/items/mm/masks/goron_mask.png'); }
-.MM_ROMANIS_MASK          { background-image: url('assets/items/mm/masks/romanis_mask.png'); }
+.MM_GORON_MASK            { background-image: url('assets/items/mm/masks/goron_mask.svg'); }
+.MM_ROMANIS_MASK          { background-image: url('assets/items/mm/masks/romanis_mask.svg'); }
 .MM_CIRCUS_LEADERS_MASK   { background-image: url('assets/items/mm/masks/circus_leaders_mask.png'); }
 .MM_KAFEIS_MASK           { background-image: url('assets/items/mm/masks/kafeis_mask.png'); }
 .MM_COUPLES_MASK          { background-image: url('assets/items/mm/masks/couples_mask.svg'); }
